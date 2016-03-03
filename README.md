@@ -26,6 +26,7 @@ The following **optional** features are implemented:
 - [ ] Force touch on the ingredients in the challenge post to pop up details about the ingredient (how much is left, how old, etc)
 - [ ] Can drag ingredients into your recipe list to hightlight/check off which ones have been used
 - [ ] Red mark on extra ingredients being used outside of the challenge
+- [ ] Time limit on how long challenge lasts?
 
 ## Video Walkthrough 
 
