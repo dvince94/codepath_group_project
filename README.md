@@ -1,6 +1,6 @@
 # Recipes
 
-Recipes is a recipe challenge app in which a user shares which ingredients he/she contains in his/her fridge. Others then come up with a recipe for the posted challenge or vote for which ones they think are best.
+Recipes (temporary name) is a recipe challenge app in which a user shares which ingredients he/she contains in his/her fridge. Others then come up with a recipe for the posted challenge or vote for which ones they think are best.
 
 Time spent: **X** hours spent in total
 
