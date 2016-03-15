@@ -14,6 +14,7 @@ The following **required** functionality is completed:
 - [ ] User can post a recipe building challenge
 - [ ] Others should be able to build the recipe using the challenge ingredients
 - [ ] Recipes built can be voted on to figure which is best
+- [ ] List of breakfast, lunch, dinner, dessert recipes
 
 The following **optional** features are implemented:
 
