@@ -12,6 +12,7 @@
 		2A596E701C98D093006021CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A596E6E1C98D093006021CE /* Main.storyboard */; };
 		2A596E721C98D093006021CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A596E711C98D093006021CE /* Assets.xcassets */; };
 		2A596E751C98D093006021CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A596E731C98D093006021CE /* LaunchScreen.storyboard */; };
+		977F162F35A68AF318833F2E /* Pods_Recipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		2A596E711C98D093006021CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A596E741C98D093006021CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A596E761C98D093006021CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		458FA3514571608031B55467 /* Pods-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recipes/Pods-Recipes.release.xcconfig"; sourceTree = "<group>"; };
+		5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86C4BA82C0736195F916DCAD /* Pods-Recipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recipes/Pods-Recipes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977F162F35A68AF318833F2E /* Pods_Recipes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				2A596E691C98D093006021CE /* Recipes */,
 				2A596E681C98D093006021CE /* Products */,
+				303F1326F06A57A3D7B77B66 /* Pods */,
+				3A2411DEC22AB631AC3AD038 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = Recipes;
 			sourceTree = "<group>";
 		};
+		303F1326F06A57A3D7B77B66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86C4BA82C0736195F916DCAD /* Pods-Recipes.debug.xcconfig */,
+				458FA3514571608031B55467 /* Pods-Recipes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3A2411DEC22AB631AC3AD038 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A596E791C98D093006021CE /* Build configuration list for PBXNativeTarget "Recipes" */;
 			buildPhases = (
+				C6105909D537BAAB0BB75995 /* Check Pods Manifest.lock */,
 				2A596E631C98D092006021CE /* Sources */,
 				2A596E641C98D092006021CE /* Frameworks */,
 				2A596E651C98D092006021CE /* Resources */,
+				1A253C6C6E8ABDE86170FDDC /* Embed Pods Frameworks */,
+				2AAD8DD9A1C68A147DF96082 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A253C6C6E8ABDE86170FDDC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Recipes/Pods-Recipes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AAD8DD9A1C68A147DF96082 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Recipes/Pods-Recipes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6105909D537BAAB0BB75995 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2A596E631C98D092006021CE /* Sources */ = {
@@ -247,6 +322,7 @@
 		};
 		2A596E7A1C98D093006021CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86C4BA82C0736195F916DCAD /* Pods-Recipes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Recipes/Info.plist;
@@ -258,6 +334,7 @@
 		};
 		2A596E7B1C98D093006021CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 458FA3514571608031B55467 /* Pods-Recipes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Recipes/Info.plist;
@@ -286,6 +363,7 @@
 				2A596E7B1C98D093006021CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
