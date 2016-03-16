@@ -30,9 +30,10 @@ The following **optional** features are implemented:
 - [ ] Time limit on how long challenge lasts?
 
 ## Models
-- User
-- Recipe
-- Challenge
+- User: {username, password, saved_recipes, posted_challenges, reviews}
+- Recipe: {author, likes_count, title, comments_count, instructions, comments, category, image}
+- Comments: {author, description}
+- Challenge: {author, likes_count, title, required_ingredients, comments}
 
 ## Video Walkthrough 
 
