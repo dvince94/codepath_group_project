@@ -29,6 +29,11 @@ The following **optional** features are implemented:
 - [ ] Red mark on extra ingredients being used outside of the challenge
 - [ ] Time limit on how long challenge lasts?
 
+## Models
+- User
+- Recipe
+- Challenge
+
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
