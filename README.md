@@ -32,10 +32,10 @@ The following **optional** features are implemented:
 ## Table/Columns needed in Parse
 
 {
-  "_id": "_User",
-  "username": "string",
+  "_id": "_User"
+  "username": "string"
   "password": "string"
-  "saved_recipes": "Recipe[]",
+  "saved_recipes": "Recipe[]"
   "posted_challenges": "Challenge[]"
 }
 {
