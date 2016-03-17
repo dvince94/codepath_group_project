@@ -31,37 +31,37 @@ The following **optional** features are implemented:
 
 ## Table/Columns needed in Parse
 
--  {
--   "_id": "_User",
--   "username": "string",
--   "password": "string"
--   "saved_recipes": "Recipe[]",
--   "posted_challenges": "Challenge[]"
--  }
--  {
--   "_id": "Recipe",
--   "author": "*_User",
--   "likes_count": "number"
--   "title": "string",
--   "comments_count": "number",
--   "instructions": "string",
--   "comments": "Comment[]",
--   "category": "number (enum)",
--   "image": "file"
--  }
--  {
--   "_id": "Comment",
--   "description": "string",
--   "likes_count": "number"
--  }
--  {
--   "_id": "Challenge",
--   "author": "*_User",
--   "likes_count": "number",
--   "title": "string",
--   "required_ingredients": "string[]",
--   "comments": "Comment[]"
--  }
+{
+  "_id": "_User",
+  "username": "string",
+  "password": "string"
+  "saved_recipes": "Recipe[]",
+  "posted_challenges": "Challenge[]"
+}
+{
+  "_id": "Recipe",
+  "author": "*_User",
+  "likes_count": "number"
+  "title": "string",
+  "comments_count": "number",
+  "instructions": "string",
+  "comments": "Comment[]",
+  "category": "number (enum)",
+  "image": "file"
+}
+{
+  "_id": "Comment",
+  "description": "string",
+  "likes_count": "number"
+}
+{
+  "_id": "Challenge",
+  "author": "*_User",
+  "likes_count": "number",
+  "title": "string",
+  "required_ingredients": "string[]",
+  "comments": "Comment[]"
+}
 
 ## Models
 - User: {username, password, saved_recipes, posted_challenges} using PFUser
