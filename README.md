@@ -29,11 +29,47 @@ The following **optional** features are implemented:
 - [ ] Red mark on extra ingredients being used outside of the challenge
 - [ ] Time limit on how long challenge lasts?
 
+## Table/Columns needed in Parse
+{
+    "_id": "_User",
+    "username": "string",
+    "password": "string"
+    "saved_recipes": "Recipe[]",
+    "posted_challenges": "Challenge[]"
+}
+{
+    "_id": "Recipe",
+    "author": "*_User",
+    "likes_count": "number"
+    "title": "string",
+    "comments_count": "number",
+    "instructions": "string",
+    "comments": "Comment[]",
+    "category": "number (enum)",
+    "image": "file"
+}
+{
+    "_id": "Comment",
+    "description": "string",
+    "likes_count": "number"
+}
+{
+    "_id": "Challenge",
+    "author": "*_User",
+    "likes_count": "number",
+    "title": "string",
+    "required_ingredients": "string[]",
+    "comments": "Comment[]"
+}
+
 ## Models
-- User: {username, password, saved_recipes, posted_challenges, reviews}
+- User: {username, password, saved_recipes, posted_challenges} using PFUser
 - Recipe: {author, likes_count, title, comments_count, instructions, comments, category, image}
-- Comments: {author, description}
+- Comment: {author, description, likes_count}
 - Challenge: {author, likes_count, title, required_ingredients, comments}
+
+## APIs
+- Parse API
 
 ## Video Walkthrough 
 
@@ -44,8 +80,6 @@ Here's a walkthrough of implemented user stories:
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
-
-Using Parse API.
 
 Describe any challenges encountered while building the app.
 
