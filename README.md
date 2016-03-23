@@ -52,7 +52,6 @@ The following **optional** features are implemented:
 {
    "_id": "Comment",
    "description": "string",
-   "likes_count": "number"
 }
 {
    "_id": "Challenge",
