@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -209,25 +209,48 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="130" id="1ks-Xi-lk6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="130" id="1ks-Xi-lk6" customClass="RecipeCell" customModule="Recipes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="136" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1ks-Xi-lk6" id="En9-vx-SfI">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lFQ-Ac-cgL">
-                                                    <rect key="frame" x="50" y="25" width="78" height="80"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lFQ-Ac-cgL" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="8" width="113" height="113"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="113" id="Wmw-vs-Xnr"/>
+                                                        <constraint firstAttribute="height" constant="113" id="gBk-tG-O43"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kS3-Ll-N07">
-                                                    <rect key="frame" x="159" y="25" width="108" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kS3-Ll-N07">
+                                                    <rect key="frame" x="129" y="8" width="213" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54N-gz-jQh">
+                                                    <rect key="frame" x="129" y="37" width="213" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="54N-gz-jQh" firstAttribute="top" secondItem="kS3-Ll-N07" secondAttribute="bottom" constant="8" id="3KE-mX-dqv"/>
+                                                <constraint firstItem="kS3-Ll-N07" firstAttribute="top" secondItem="En9-vx-SfI" secondAttribute="top" constant="8" id="9q5-Qi-onv"/>
+                                                <constraint firstItem="54N-gz-jQh" firstAttribute="leading" secondItem="lFQ-Ac-cgL" secondAttribute="trailing" constant="8" id="Gqm-76-20J"/>
+                                                <constraint firstAttribute="trailing" secondItem="54N-gz-jQh" secondAttribute="trailing" id="YGU-5W-Iyj"/>
+                                                <constraint firstAttribute="trailing" secondItem="kS3-Ll-N07" secondAttribute="trailing" id="fgL-zF-Al6"/>
+                                                <constraint firstItem="lFQ-Ac-cgL" firstAttribute="leading" secondItem="En9-vx-SfI" secondAttribute="leading" constant="8" id="fm3-58-OVj"/>
+                                                <constraint firstItem="kS3-Ll-N07" firstAttribute="leading" secondItem="lFQ-Ac-cgL" secondAttribute="trailing" constant="8" id="lBT-v1-dE5"/>
+                                                <constraint firstItem="lFQ-Ac-cgL" firstAttribute="top" secondItem="En9-vx-SfI" secondAttribute="top" constant="8" id="tQA-vt-211"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="displayImageView" destination="lFQ-Ac-cgL" id="2Ti-eU-PxQ"/>
+                                            <outlet property="ingredientsLabel" destination="54N-gz-jQh" id="VEw-Xw-elM"/>
+                                            <outlet property="recipeNameLabel" destination="kS3-Ll-N07" id="7Sp-h8-yaE"/>
                                             <segue destination="Z5e-lD-h5s" kind="show" id="heg-eh-9uq"/>
                                         </connections>
                                     </tableViewCell>
@@ -244,6 +267,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="Jn6-Ve-7XQ" id="oem-KF-G9J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3s6-RI-S5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
