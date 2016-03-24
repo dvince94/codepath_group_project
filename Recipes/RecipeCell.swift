@@ -22,18 +22,7 @@ class RecipeCell: UITableViewCell {
             self.displayImageView.loadInBackground()
             recipeNameLabel.text = recipe["title"] as? String
             
-            let ingredients = recipe["ingredients"] as! [String]
-            
-            var ingredientPrint = ""
-            for index in 0...(ingredients.count - 1) {
-                ingredientPrint += ingredients[index]
-                    
-                if (index != ingredients.count - 1) {
-                    ingredientPrint += ", "
-                }
-            }
-            
-            ingredientsLabel.text = ingredientPrint as? String
+            ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
         }
     }
     
