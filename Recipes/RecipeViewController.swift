@@ -23,6 +23,10 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         
         reloadTable()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        reloadTable()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,23 +70,6 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
-    
-    static let userDidLogoutNotification = "userDidLogout"
-    
-//    @IBAction func onLogout(sender: AnyObject) {
-//        PFUser.logOutInBackgroundWithBlock { (error: NSError?) -> Void in
-//            if error != nil {
-//                print(error?.localizedDescription)
-//            } else {
-//                print("logout true")
-//                NSNotificationCenter.defaultCenter().postNotificationName(RecipeViewController.userDidLogoutNotification, object: nil)
-//            }
-//        }
-//    }
-    
-    
-    
-    
 
     // MARK: - Navigation
 
@@ -90,14 +77,15 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if sender is RecipeCell {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let recipe = recipes![indexPath!.row]
+            
+            let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
+            
+            recipeDetailViewController.recipe = recipe
+        }
         
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPathForCell(cell)
-        let recipe = recipes![indexPath!.row]
-        
-        let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
-        
-        recipeDetailViewController.recipe = recipe
     }
-
 }

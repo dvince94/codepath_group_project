@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
 
@@ -21,6 +22,18 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    static let userDidLogoutNotification = "userDidLogout"
+    
+    @IBAction func onLogout(sender: AnyObject) {
+        PFUser.logOutInBackgroundWithBlock { (error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                print("logout true")
+                NSNotificationCenter.defaultCenter().postNotificationName(ProfileViewController.userDidLogoutNotification, object: nil)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
