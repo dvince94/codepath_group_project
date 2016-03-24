@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class RecipeDetailViewController: UIViewController {
 
@@ -14,16 +15,34 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var directionsLabel: UILabel!
     
+    var recipe: PFObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
+        directionsLabel.text = printDirections(recipe["directions"] as! [String])
         // Do any additional setup after loading the view.
     }
-
+    
+    func printDirections(string: [String]) -> String {
+        var directionsPrint = ""
+        let directions = string;
+        
+        for index in 0...(directions.count - 1) {
+            
+            directionsPrint += "Step\(index)" + directions[index] + "\n"
+        }
+        
+        return directionsPrint
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*

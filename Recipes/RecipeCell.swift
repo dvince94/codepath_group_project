@@ -23,6 +23,7 @@ class RecipeCell: UITableViewCell {
             recipeNameLabel.text = recipe["title"] as? String
             
             ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
+            directionsLabel.text = printDirections(recipe["directions"] as! String)
         }
     }
     

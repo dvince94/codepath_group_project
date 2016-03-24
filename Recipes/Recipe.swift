@@ -51,8 +51,6 @@ class Recipe: NSObject {
         return ingredientPrint
     }
     
-    
-    
     /**
      Method to convert UIImage to PFFile
      
