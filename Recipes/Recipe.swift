@@ -10,6 +10,7 @@ import UIKit
 import Parse
 
 class Recipe: NSObject {
+    
     /**
      Method to add a user post to Parse (uploading image file)
      
@@ -18,13 +19,14 @@ class Recipe: NSObject {
      - parameter directions: Directions text input by the user
      - parameter completion: Block to be executed after save operation is complete
      */
-    class func postUserImage(image: UIImage?, withIngredients ingredients: [String]?, withDirections directions: [String]?,withCompletion completion: PFBooleanResultBlock?) {
+    class func postRecipe(image: UIImage?, withTitle title: String, withIngredients ingredients: [String]?, withDirections directions: [String]?,withCompletion completion: PFBooleanResultBlock?) {
         // Create Parse object PFObject
         let recipe = PFObject(className: "Recipe")
         
         // Add relevant fields to the object
         recipe["image"] = getPFFileFromImage(image) // PFFile column type
         recipe["author"] = PFUser.currentUser() // Pointer column type that points to PFUser
+        recipe["title"] = title
         recipe["ingredients"] = ingredients
         recipe["directions"] = directions
         
