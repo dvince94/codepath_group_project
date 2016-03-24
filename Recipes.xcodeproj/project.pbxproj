@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0D580D1CA3663F005B37EB /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D580C1CA3663F005B37EB /* Recipe.swift */; };
 		0A4089081C9A098400C833FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4089071C9A098400C833FD /* LoginViewController.swift */; };
 		0A40890B1C9A2AEA00C833FD /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40890A1C9A2AEA00C833FD /* RecipeViewController.swift */; };
 		2A55292E1CA2090F00FF70F7 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A55292D1CA2090F00FF70F7 /* RecipeDetailViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0D580C1CA3663F005B37EB /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		0A4089071C9A098400C833FD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0A40890A1C9A2AEA00C833FD /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		2A55292D1CA2090F00FF70F7 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		0A4089091C9A0B6B00C833FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A0D580C1CA3663F005B37EB /* Recipe.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			files = (
 				450BB31A1CA218B7001DC54A /* ProfileViewController.swift in Sources */,
 				0A40890B1C9A2AEA00C833FD /* RecipeViewController.swift in Sources */,
+				0A0D580D1CA3663F005B37EB /* Recipe.swift in Sources */,
 				0A4089081C9A098400C833FD /* LoginViewController.swift in Sources */,
 				2A596E6D1C98D093006021CE /* ViewController.swift in Sources */,
 				2A55292E1CA2090F00FF70F7 /* RecipeDetailViewController.swift in Sources */,
