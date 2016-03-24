@@ -8,10 +8,12 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class RecipeDetailViewController: UIViewController {
 
-    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var recipeImage: PFImageView!
     @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var directionsLabel: UILabel!
     
@@ -20,9 +22,15 @@ class RecipeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
         directionsLabel.text = printDirections(recipe["directions"] as! [String])
+        self.recipeImage.file = recipe["image"] as? PFFile
+        self.recipeImage.loadInBackground()
+        titleLabel.text = recipe["title"] as? String
         // Do any additional setup after loading the view.
+        directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
     }
     
     func printDirections(string: [String]) -> String {
@@ -31,7 +39,7 @@ class RecipeDetailViewController: UIViewController {
         
         for index in 0...(directions.count - 1) {
             
-            directionsPrint += "Step\(index)" + directions[index] + "\n"
+            directionsPrint += "Step \(index + 1). " + directions[index] + "\n"
         }
         
         return directionsPrint
