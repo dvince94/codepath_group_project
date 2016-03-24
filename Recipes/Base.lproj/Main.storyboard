@@ -101,7 +101,7 @@
                     <navigationItem key="navigationItem" id="HnF-kj-Jsf">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="HzV-Be-P7l">
                             <connections>
-                                <action selector="onLogout:" destination="Yqk-1j-fkM" id="HXv-HL-eEr"/>
+                                <action selector="onLogout:" destination="Yqk-1j-fkM" id="eil-Ni-mEB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
