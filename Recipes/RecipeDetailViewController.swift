@@ -22,8 +22,6 @@ class RecipeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
         directionsLabel.text = printDirections(recipe["directions"] as! [String])
         self.recipeImage.file = recipe["image"] as? PFFile
