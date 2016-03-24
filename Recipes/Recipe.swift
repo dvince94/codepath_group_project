@@ -37,6 +37,22 @@ class Recipe: NSObject {
         recipe.saveInBackgroundWithBlock(completion)
     }
     
+    class func printIngredients(string: [String]) -> String {
+        var ingredientPrint = ""
+        let ingredients = string;
+        for index in 0...(ingredients.count - 1) {
+            ingredientPrint += ingredients[index]
+            
+            if (index != ingredients.count - 1) {
+                ingredientPrint += ", "
+            }
+        }
+        
+        return ingredientPrint
+    }
+    
+    
+    
     /**
      Method to convert UIImage to PFFile
      
