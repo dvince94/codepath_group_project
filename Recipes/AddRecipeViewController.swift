@@ -34,7 +34,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         //Add the recognizer to your view.
         imageView.addGestureRecognizer(tapRecognizer)
         
-        ingredientsTextView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes, Lettuce, Cucumber,..."
+        ingredientsTextView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes,Lettuce,Cucumber,..."
         ingredientsTextView.textColor = UIColor.lightGrayColor()
         
         directionsTextView.text = "Add steps here."
@@ -59,34 +59,57 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         else if (containText(titleTextField.text!) == false) {
             showAlertMessage("No Title Added", messages: "Please add a title.")
         }
-        else if (containText(ingredientsTextView.text!) == false) {
+        else if (containText(ingredientsTextView.text!) == false || ingredientsTextView.textColor == UIColor.lightGrayColor()) {
             showAlertMessage("No Ingredients Added", messages: "Please add an ingredient.")
         }
-        else if (containText(directionsTextView.text!) == false) {
+        else if (containText(directionsTextView.text!) == false || directionsTextView.textColor == UIColor.lightGrayColor()) {
             showAlertMessage("No Directions Added", messages: "Please add a direction.")
         }
         else {
+            let ingredients = parseIngredients(ingredientsTextView.text!)
+            let directions = parseDirections(directionsTextView.text!)
             //Post recipe
-            Recipe.postRecipe(editedImage!, withTitle: titleTextField.text!, withIngredients: <#T##[String]?#>, withDirections: <#T##[String]?#>, withCompletion: { (success, error) -> Void in
+            Recipe.postRecipe(editedImage!, withTitle: titleTextField.text!, withIngredients: ingredients, withDirections: directions, withCompletion: { (success, error) -> Void in
                 if success == true {
-//NSNotificationCenter.defaultCenter().postNotificationName(Recipe.submitRecipeNotification, object: nil)
+                    //NSNotificationCenter.defaultCenter().postNotificationName(Recipe.submitRecipeNotification, object: nil)
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 else {
                     print("\(error?.localizedDescription)")
                 }
             })
-            
+//            for (var i = 0; i < ingredients.count; i++) {
+//                print("\(i) \(ingredients[i])\n")
+//            }
+//            
+//            for (var i = 0; i < directions.count; i++) {
+//                print("\(i) \(directions[i])\n")
+//            }
         }
     }
     
     //Check if it contains any text
     func containText(str: String) -> Bool {
-        let whitespaceSet = NSCharacterSet.whitespaceCharacterSet()
-        if str.stringByTrimmingCharactersInSet(whitespaceSet) != "" {
+        let whiteSpaceSet = NSCharacterSet.whitespaceCharacterSet()
+        if str.stringByTrimmingCharactersInSet(whiteSpaceSet) != "" {
             return true
         }
         return false
+    }
+    
+    //Parse ingredients
+    func parseIngredients(str: String) -> [String] {
+        let ingredients =  str.componentsSeparatedByString(",")
+        //filter out empty strings
+        return ingredients.filter(){$0 != ""}
+    }
+    
+    
+    //Parse ingredients
+    func parseDirections(str: String) -> [String] {
+        let newlineChars = NSCharacterSet.newlineCharacterSet()
+        let directions = str.componentsSeparatedByCharactersInSet(newlineChars)
+        return directions.filter(){$0 != ""}
     }
     
     //Show error message
@@ -121,11 +144,11 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     func textViewDidEndEditing(textView: UITextView) {
         //Replace placeholder if text is empty
-        if ingredientsTextView.text.isEmpty {
-            textView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes, Lettuce, Cucumber,..."
+        if containText(ingredientsTextView.text!) == false {
+            textView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes,Lettuce,Cucumber,..."
             textView.textColor = UIColor.lightGrayColor()
         }
-        if directionsTextView.text.isEmpty {
+        if containText(directionsTextView.text!) == false {
             textView.text = "Add steps here."
             textView.textColor = UIColor.lightGrayColor()
         }
