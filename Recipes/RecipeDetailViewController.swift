@@ -26,7 +26,8 @@ class RecipeDetailViewController: UIViewController {
         directionsLabel.text = printDirections(recipe["directions"] as! [String])
         self.recipeImage.file = recipe["image"] as? PFFile
         self.recipeImage.loadInBackground()
-        titleLabel.text = recipe["title"] as? String
+        self.navigationItem.title = recipe["title"] as? String
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Papyrus", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
         // Do any additional setup after loading the view.
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
     }
