@@ -11,13 +11,23 @@ import Parse
 
 class ChallengeDetailViewController: UIViewController {
 
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var ingredientsLabel: UILabel!
+    @IBOutlet weak var directionsLabel: UILabel!
     
     var challenge: PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        descriptionLabel.text = challenge["description"] as? String
+        ingredientsLabel.text = Recipe.printIngredients(challenge["ingredients"] as! [String])
+        descriptionLabel.text = Recipe.printDirections(challenge["directions"] as! [String])
+        self.navigationItem.title = challenge["title"] as? String
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Papyrus", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        
         // Do any additional setup after loading the view.
+        directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
     }
 
     override func didReceiveMemoryWarning() {

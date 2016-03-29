@@ -23,7 +23,7 @@ class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         
         ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
-        directionsLabel.text = printDirections(recipe["directions"] as! [String])
+        directionsLabel.text = Recipe.printDirections(recipe["directions"] as! [String])
         self.recipeImage.file = recipe["image"] as? PFFile
         self.recipeImage.loadInBackground()
         self.navigationItem.title = recipe["title"] as? String
@@ -32,17 +32,7 @@ class RecipeDetailViewController: UIViewController {
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
     }
     
-    func printDirections(string: [String]) -> String {
-        var directionsPrint = ""
-        let directions = string;
-        
-        for index in 0...(directions.count - 1) {
-            
-            directionsPrint += "Step \(index + 1). " + directions[index] + "\n"
-        }
-        
-        return directionsPrint
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
