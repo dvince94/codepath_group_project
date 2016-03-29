@@ -74,36 +74,6 @@ class Recipe: NSObject {
     // MARK: Likes
     // Source: https://www.makeschool.com/tutorials/build-a-photo-sharing-app-part-1/parse-implement-like
     
-    static func likePost(user: PFUser, post: Recipe) {
-        let likeObject = PFObject(className: "Like")
-        likeObject["fromUser"] = user
-        likeObject["toPost"] = post
-        
-        likeObject.saveInBackgroundWithBlock(nil)
-    }
-    
-    static func unlikePost(user: PFUser, post: Recipe) {
-        let query = PFQuery(className: "Like")
-        query.whereKey("fromUser", equalTo: user)
-        query.whereKey("toPost", equalTo: post)
-        
-        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
-            if let results = results as [PFObject]? {
-                for likes in results {
-                    likes.deleteInBackgroundWithBlock(nil)
-                }
-            }
-        }
-    }
-    
-    static func likesForPost(post: Recipe, completionBlock: PFQueryArrayResultBlock) {
-        let query = PFQuery(className: "Like")
-        query.whereKey("toPost", equalTo: post)
-        query.includeKey("fromUser")
-        
-        query.findObjectsInBackgroundWithBlock(completionBlock)
-    }
-    
     func fetchLikes() {
         // 1
         if (likes.value != nil) {
@@ -111,13 +81,12 @@ class Recipe: NSObject {
         }
         
         // 2
-        Recipe.likesForPost(self, completionBlock: { (var likes: [PFObject]?, error: NSError?) -> Void in
+        ParseHelper.likesForPost(self, completionBlock: { ( likes: [PFObject]?, error: NSError?) -> Void in
             // 3
-            likes = likes?.filter { like in like["fromUser"] != nil }
+            let l = likes?.filter { like in like["fromUser"] != nil }
             
             // 4
-            self.likes.value = likes?.map { like in
-                let like = like as! PFObject
+            self.likes.value = l?.map { like in
                 let fromUser = like["fromUser"] as! PFUser
                 
                 return fromUser
@@ -126,24 +95,26 @@ class Recipe: NSObject {
     }
     
     func doesUserLikePost(user: PFUser) -> Bool {
-        if let likes = likes.value {
+        if let likes = self.likes.value {
             return likes.contains(user)
         } else {
             return false
         }
     }
     
-    func toggleLikePost(user: PFUser) {
+    func toggleLikePost(user: PFUser, post: PFObject) {
         if (doesUserLikePost(user)) {
             // if recipe is liked, unlike it now
             // 1
-            likes.value = likes.value?.filter { $0 != user }
-            Recipe.unlikePost(user, post: self)
+            self.likes.value = likes.value?.filter { $0 != user }
+            ParseHelper.unlikePost(user, post: self)
+            print("user unlinked post")
         } else {
             // if this recipe is not liked yet, like it now
             // 2
-            likes.value?.append(user)
-            Recipe.likePost(user, post: self)
+            self.likes.value?.append(user)
+            ParseHelper.likePost(user, post: self)
+            print("user liked post")
         }
     }
 }
