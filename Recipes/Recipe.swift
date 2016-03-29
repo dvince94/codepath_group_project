@@ -8,8 +8,10 @@
 
 import UIKit
 import Parse
+import Bond
 
 class Recipe: NSObject {
+    var likes: Observable<[PFUser]?>! = Observable(nil)
     
     /**
      Method to add a user post to Parse (uploading image file)
@@ -67,5 +69,52 @@ class Recipe: NSObject {
             }
         }
         return nil
+    }
+    
+    // MARK: Likes
+    // Source: https://www.makeschool.com/tutorials/build-a-photo-sharing-app-part-1/parse-implement-like
+    
+    func fetchLikes() {
+        // 1
+        if (likes.value != nil) {
+            return
+        }
+        
+        // 2
+        ParseHelper.likesForPost(self, completionBlock: { ( likes: [PFObject]?, error: NSError?) -> Void in
+            // 3
+            let l = likes?.filter { like in like["fromUser"] != nil }
+            
+            // 4
+            self.likes.value = l?.map { like in
+                let fromUser = like["fromUser"] as! PFUser
+                
+                return fromUser
+            }
+        })
+    }
+    
+    func doesUserLikePost(user: PFUser) -> Bool {
+        if let likes = self.likes.value {
+            return likes.contains(user)
+        } else {
+            return false
+        }
+    }
+    
+    func toggleLikePost(user: PFUser, post: PFObject) {
+        if (doesUserLikePost(user)) {
+            // if recipe is liked, unlike it now
+            // 1
+            self.likes.value = likes.value?.filter { $0 != user }
+            ParseHelper.unlikePost(user, post: self)
+            print("user unlinked post")
+        } else {
+            // if this recipe is not liked yet, like it now
+            // 2
+            self.likes.value?.append(user)
+            ParseHelper.likePost(user, post: self)
+            print("user liked post")
+        }
     }
 }
