@@ -7,6 +7,7 @@ target 'Recipes' do
 
 pod ‘Parse’
 pod ‘ParseUI’
+pod ‘Bond’
 
 end
 
