@@ -87,6 +87,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Recipes/Bolts.framework"
   install_framework "Pods-Recipes/Bond.framework"
   install_framework "Pods-Recipes/Cosmos.framework"
+  install_framework "Pods-Recipes/MBProgressHUD.framework"
   install_framework "Pods-Recipes/Parse.framework"
   install_framework "Pods-Recipes/ParseUI.framework"
 fi
@@ -94,6 +95,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Recipes/Bolts.framework"
   install_framework "Pods-Recipes/Bond.framework"
   install_framework "Pods-Recipes/Cosmos.framework"
+  install_framework "Pods-Recipes/MBProgressHUD.framework"
   install_framework "Pods-Recipes/Parse.framework"
   install_framework "Pods-Recipes/ParseUI.framework"
 fi

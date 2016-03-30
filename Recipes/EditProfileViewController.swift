@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -19,12 +20,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var backgroundPicEdited = false
     var profilePic: NSData!
     var backgroundPic: NSData!
+    var profile: ProfileViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         usernameLabel.text = PFUser.currentUser()?.username
-        
+        loadUserInfo()
         self.navigationItem.title = "Edit Profile"
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
         
@@ -58,8 +60,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if (profilePicEdited == true && backgroundPicEdited == false) {
-        profileImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        profilePic = UIImageJPEGRepresentation(profileImage.image!, 1)
+            profileImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            profilePic = UIImageJPEGRepresentation(profileImage.image!, 1)
         }
         if (backgroundPicEdited == true && profilePicEdited == false) {
             backgroundImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -71,11 +73,59 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func saveTouched(sender: AnyObject) {
         if (profilePic != nil) {
             let profileImageFile = PFFile(data: profilePic)
-            PFUser.currentUser()?.setObject(profileImageFile!, forKey: "profile_pic")
+            profileImageFile?.saveInBackground()
+            PFUser.currentUser()!["profilePic"] = profileImageFile
+            PFUser.currentUser()?.saveInBackground()
+            PFUser.currentUser()?.setObject(profileImageFile!, forKey: "profilePic")
+            
         }
         if (backgroundPic != nil) {
             let backgroundImageFile = PFFile(data: backgroundPic)
-            PFUser.currentUser()?.setObject(backgroundImageFile!, forKey: "background_pic")
+            backgroundImageFile?.saveInBackground()
+            PFUser.currentUser()!["backgroundPic"] = backgroundImageFile
+            PFUser.currentUser()?.saveInBackground()
+            PFUser.currentUser()?.setObject(backgroundImageFile!, forKey: "backgroundPic")
+        }
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingNotification.labelText = "Updating Profile..."
+        PFUser.currentUser()?.saveInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
+            loadingNotification.hide(true)
+            if (error != nil) {
+                let alert = UIAlertController(title: "Alert", message: error!.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert);
+                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+                alert.addAction(okAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+                return
+            }
+            if (success) {
+                let alert = UIAlertController(title: "Alert", message: "Profile Updated!", preferredStyle: UIAlertControllerStyle.Alert);
+                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                        self.profile.loadUserInfo()
+                    })
+                })
+                alert.addAction(okAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func loadUserInfo() {
+        if (PFUser.currentUser()?.objectForKey("profilePic") != nil) {
+            let profilePicFile: PFFile = PFUser.currentUser()?.objectForKey("profilePic") as! PFFile
+            profilePicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                if (imageData != nil) {
+                    self.profileImage.image = UIImage(data: imageData!)
+                }
+            })
+        }
+        if (PFUser.currentUser()?.objectForKey("backgroundPic") != nil) {
+            let backgroundPicFile: PFFile = PFUser.currentUser()?.objectForKey("backgroundPic") as! PFFile
+            backgroundPicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                if (imageData != nil) {
+                    self.backgroundImage.image = UIImage(data: imageData!)
+                }
+            })
         }
     }
     

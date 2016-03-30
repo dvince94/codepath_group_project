@@ -11,6 +11,7 @@ import Parse
 
 class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
+    @IBOutlet weak var selectedTag: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -24,7 +25,6 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     var isChallenge: Bool!
     var challenge_id: String!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,36 +45,11 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         ingredientsTextView.text = "Ingredient 1\nIngredient 2\netc.."
         ingredientsTextView.textColor = UIColor.lightGrayColor()
         
-//        print(ingredientsTextView.selectedRange)
-//        print(ingredientsTextView.text.characters.count)
-//        ParseHelper.textView(ingredientsTextView, shouldChangeTextInRange: ingredientsTextView.selectedRange, replacementText: "\n")
-        
         directionsTextView.text = "Step 1\nStep 2\netc..."
         directionsTextView.textColor = UIColor.lightGrayColor()
         
+        selectedTag.text = ""
     }
-    
-//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-//        if (textView == ingredientsTextView) {
-//            if (text == "\n") {
-//                if range.location == textView.text.characters.count {
-//                    var updatedText: String = textView.text!.stringByAppendingString("\n\u{2022} ")
-//                    textView.text = updatedText
-//                }
-//                else {
-//                    var beginning: UITextPosition = textView.beginningOfDocument
-//                    var start: UITextPosition = textView.positionFromPosition(beginning, offset: range.location)!
-//                    var end: UITextPosition = textView.positionFromPosition(start, offset: range.length)!
-//                    var textRange: UITextRange = textView.textRangeFromPosition(start, toPosition: end)!
-//                    textView.replaceRange(textRange, withText: "\n\u{2022} ")
-//                    var cursor: NSRange = NSMakeRange(range.location + "\n\u{2022} ".length, 0)
-//                    textView.selectedRange = cursor
-//                }
-//                return false
-//            }
-//        }
-//        return true
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -112,6 +87,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             post.descriptions = descriptionTextView.text
             post.ingredients = ingredients
             post.directions = directions
+            post.tag = selectedTag.text
             
             if (imageChanged == false) {
                 editedImage = UIImage(named:"Hangry_Dark.png")
@@ -169,6 +145,64 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     /*
+    ----------------------------
+    MARK: - Tag Selection Method
+    ----------------------------
+    */
+    
+    @IBAction func selectButtonTapped(sender: UIButton) {
+        let alertController = UIAlertController(title: "Choose Tag", message: nil, preferredStyle: .ActionSheet)
+        
+        //Select Cancel
+        let breakfast = UIAlertAction(title: "Breakfast", style: UIAlertActionStyle.Default) {
+            (action) in
+            self.selectedTag.text = "Breakfast"
+        }
+        
+        //Select lunch
+        let lunch = UIAlertAction(title: "Lunch", style: UIAlertActionStyle.Default) {
+            (action) in
+            self.selectedTag.text = "Lunch"
+        }
+        
+        //Select dinner
+        let dinner = UIAlertAction(title: "Dinner", style: UIAlertActionStyle.Default) {
+            (action) in
+            self.selectedTag.text = "Dinner"
+        }
+        
+        //Select lunch
+        let dessert = UIAlertAction(title: "Dessert", style: UIAlertActionStyle.Default) {
+            (action) in
+            self.selectedTag.text = "Dessert"
+        }
+        
+        //Select dinner
+        let snack = UIAlertAction(title: "Snack", style: UIAlertActionStyle.Default) {
+            (action) in
+            self.selectedTag.text = "Snack"
+        }
+        
+        
+        
+        //Create an Cancel action
+        let cancel = UIAlertAction(title: "Cancel", style: .Default) { (action) in
+            self.selectedTag.text = ""
+        }
+        
+        //Add created actions to the alert controller
+        alertController.addAction(breakfast)
+        alertController.addAction(lunch)
+        alertController.addAction(dinner)
+        alertController.addAction(dessert)
+        alertController.addAction(snack)
+        alertController.addAction(cancel)
+        
+        //Present view controller
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    /*
     --------------------------------
     MARK: - TextView Handling Method
     --------------------------------
@@ -197,6 +231,28 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             textView.textColor = UIColor.lightGrayColor()
         }
     }
+    
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        if (textView == ingredientsTextView) {
+//            if (text == "\n") {
+//                if range.location == textView.text.characters.count {
+//                    let updatedText: String = textView.text!.stringByAppendingString("\n\u{2022} ")
+//                    textView.text = updatedText
+//                }
+//                else {
+//                    let beginning: UITextPosition = textView.beginningOfDocument
+//                    let start: UITextPosition = textView.positionFromPosition(beginning, offset: range.location)!
+//                    let end: UITextPosition = textView.positionFromPosition(start, offset: range.length)!
+//                    let textRange: UITextRange = textView.textRangeFromPosition(start, toPosition: end)!
+//                    textView.replaceRange(textRange, withText: "\n\u{2022} ")
+//                    let cursor: NSRange = NSMakeRange(range.location + "\n\u{2022} ".length, 0)
+//                    textView.selectedRange = cursor
+//                }
+//                return false
+//            }
+//        }
+//        return true
+//    }
     
     /*
     -----------------------------

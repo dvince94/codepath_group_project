@@ -34,6 +34,7 @@ class ParseHelper {
         
         let query = PFQuery.orQueryWithSubqueries([postsFromChallenges!])
         query.includeKey("user")
+        query.orderByDescending("like_count")
         query.limit = 20
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
@@ -44,10 +45,10 @@ class ParseHelper {
         let followingQuery = PFQuery(className: "Like")
         followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
         
-        let postsFromFollowedUsers = Post.query()
-        postsFromFollowedUsers!.whereKey("objectId", matchesKey: "postId", inQuery: followingQuery)
+        let postsFromLikedUsers = Post.query()
+        postsFromLikedUsers!.whereKey("objectId", matchesKey: "postId", inQuery: followingQuery)
         
-        let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!])
+        let query = PFQuery.orQueryWithSubqueries([postsFromLikedUsers!])
         query.includeKey("user")
         //query.orderByDescending("createdAt")
         query.limit = 20
@@ -65,14 +66,10 @@ class ParseHelper {
         query.includeKey("user")
         query.limit = 20
         
-//        the original:
-//        let query = PFQuery(className: "Post")
-//        query.includeKey("user")
-//        query.limit = 20
-        
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    //MARK: Like
     
     //Likes a post
     static func likePost(user: PFUser, post: Post) {

@@ -21,10 +21,13 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var ingredients: [String]?
     @NSManaged var directions: [String]?
     @NSManaged var challenge_id: String?
+    @NSManaged var tag: String?
+    @NSManaged var like_count: NSNumber?
     
     var likes: Observable<[PFUser]?>! = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
     var image: UIImage?
+    var likeCount: Int = 0
     
     //MARK: PFSubclassing Protocol
     
@@ -65,6 +68,8 @@ class Post : PFObject, PFSubclassing {
             
             // any uploaded post should be associated with the current user
             user = PFUser.currentUser()
+            // set up like count to 0
+            like_count = 0
             self.imageFile = imageFile
             saveInBackgroundWithBlock(nil)
         }
@@ -86,6 +91,7 @@ class Post : PFObject, PFSubclassing {
                     let fromUser = like["fromUser"] as! PFUser
                     return fromUser
                 }
+                self.likeCount = (self.likes.value?.count)!
             }
         })
     }
@@ -109,6 +115,13 @@ class Post : PFObject, PFSubclassing {
             likes.value?.append(user)
             ParseHelper.likePost(user, post: self)
         }
-        print("Number of likes \(self.likes.value?.count)")
+        //Update like count
+        self.likeCount = (self.likes.value?.count)!
+        updateLikeCount()
+    }
+    
+    func updateLikeCount() {
+        like_count = self.likeCount
+        saveInBackgroundWithBlock(nil)
     }
 }

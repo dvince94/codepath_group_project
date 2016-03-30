@@ -15,7 +15,7 @@ class Recipe: NSObject {
         var ingredientPrint = ""
         let ingredients = string;
         for index in 0...(ingredients.count - 1) {
-            ingredientPrint += ingredients[index]
+            ingredientPrint += "\u{2022} " + ingredients[index]
             
             if (index != ingredients.count - 1) {
                 ingredientPrint += "\n"

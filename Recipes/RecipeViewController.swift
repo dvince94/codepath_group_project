@@ -54,7 +54,10 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         let post = posts[indexPath.row]
         //Get users who liked the post
         post.fetchLikes()
+        cell.getCount = false
         cell.recipe = post
+        cell.likeImg = UIImage(named: "Like")
+        cell.unlikeImg = UIImage(named: "Unlike")
         
         return cell
     }
