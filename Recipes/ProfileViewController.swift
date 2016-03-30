@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  Recipes
 //
-//  Created by Vincent Duong on 3/22/16.
+//  Created by Lily on 3/22/16.
 //  Copyright © 2016 CodepathGroupProject. All rights reserved.
 //
 
@@ -11,9 +11,16 @@ import Parse
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        usernameLabel.text = PFUser.currentUser()?.username
+        // need to correct when profilePic key is created
+        // profileImage = PFUser.currentUser()!["profilePic"] as! PFFile
+        
         // Do any additional setup after loading the view.
     }
 

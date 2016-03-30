@@ -12,7 +12,6 @@ import ParseUI
 
 class RecipeDetailViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var recipeImage: PFImageView!
     @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var directionsLabel: UILabel!
@@ -26,12 +25,16 @@ class RecipeDetailViewController: UIViewController {
         directionsLabel.text = printDirections(recipe["directions"] as! [String])
         self.recipeImage.file = recipe["image"] as? PFFile
         self.recipeImage.loadInBackground()
+        // puts title on navigation bar..changes size, color, and font of title
         self.navigationItem.title = recipe["title"] as? String
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Papyrus", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
         // Do any additional setup after loading the view.
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
     }
     
+    /*
+     * Method that gets the directions to be put on the view
+     */
     func printDirections(string: [String]) -> String {
         var directionsPrint = ""
         let directions = string;
@@ -48,9 +51,6 @@ class RecipeDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
 
     /*
     // MARK: - Navigation
