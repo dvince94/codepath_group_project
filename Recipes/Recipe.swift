@@ -53,6 +53,18 @@ class Recipe: NSObject {
         return ingredientPrint
     }
     
+    class func printDirections(string: [String]) -> String {
+        var directionsPrint = ""
+        let directions = string;
+        
+        for index in 0...(directions.count - 1) {
+            
+            directionsPrint += "Step \(index + 1). " + directions[index] + "\n"
+        }
+        
+        return directionsPrint
+    }
+    
     /**
      Method to convert UIImage to PFFile
      

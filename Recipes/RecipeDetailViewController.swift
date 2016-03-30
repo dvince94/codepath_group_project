@@ -22,7 +22,7 @@ class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         
         ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
-        directionsLabel.text = printDirections(recipe["directions"] as! [String])
+        directionsLabel.text = Recipe.printDirections(recipe["directions"] as! [String])
         self.recipeImage.file = recipe["image"] as? PFFile
         self.recipeImage.loadInBackground()
         // puts title on navigation bar..changes size, color, and font of title
