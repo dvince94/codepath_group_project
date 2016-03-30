@@ -5,9 +5,9 @@ use_frameworks!
 
 target 'Recipes' do
 
-pod ‘Parse’
-pod ‘ParseUI’
-pod ‘Bond’
-
+pod 'Parse'
+pod 'ParseUI'
+pod 'Bond'
+pod 'Cosmos', '~> 1.2'
 end
 
