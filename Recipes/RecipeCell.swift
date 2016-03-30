@@ -10,9 +10,11 @@ import UIKit
 import Parse
 import ParseUI
 import Bond
-
+import Cosmos
 class RecipeCell: UITableViewCell {
 
+    @IBOutlet weak var Rating: CosmosView!
+    
     @IBOutlet weak var displayImageView: PFImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var likesButton: UIButton!

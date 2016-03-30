@@ -502,7 +502,89 @@
                                                 </button>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qxQ-R1-A9G" customClass="CosmosView" customModule="Cosmos">
                                                     <rect key="frame" x="161" y="97" width="206" height="24"/>
+                                                    <subviews>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="130" translatesAutoresizingMaskIntoConstraints="NO" id="jXh-K3-d8z" customClass="RecipeCell" customModule="Recipes" customModuleProvider="target">
+                                                            <rect key="frame" x="-161" y="-97" width="375" height="130"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jXh-K3-d8z" id="6gN-Ui-W8Z">
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cob-dz-ZOT" customClass="PFImageView">
+                                                                        <rect key="frame" x="8" y="8" width="113" height="113"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="113" id="0b3-R9-uxB"/>
+                                                                            <constraint firstAttribute="width" constant="113" id="7Xh-1S-pII"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJv-p4-7NT">
+                                                                        <rect key="frame" x="129" y="8" width="238" height="21"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nV-tl-sdz">
+                                                                        <rect key="frame" x="129" y="37" width="238" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tO5-YB-7Ez">
+                                                                        <rect key="frame" x="129" y="97" width="24" height="24"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="24" id="lBc-yS-RYa"/>
+                                                                            <constraint firstAttribute="height" constant="24" id="t34-gt-0sc"/>
+                                                                        </constraints>
+                                                                        <state key="normal" image="Unlike"/>
+                                                                        <connections>
+                                                                            <action selector="likeButtonTapped:" destination="jXh-K3-d8z" eventType="touchUpInside" id="PQr-8f-Nno"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gIn-7J-pBe" customClass="CosmosView" customModule="Cosmos">
+                                                                        <rect key="frame" x="161" y="97" width="206" height="24"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="206" id="dbV-uh-v4f"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="Cob-dz-ZOT" firstAttribute="leading" secondItem="6gN-Ui-W8Z" secondAttribute="leading" constant="8" id="4Xy-Vf-TyM"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="VJv-p4-7NT" secondAttribute="trailing" constant="8" id="71j-Z7-KUq"/>
+                                                                    <constraint firstItem="7nV-tl-sdz" firstAttribute="top" secondItem="VJv-p4-7NT" secondAttribute="bottom" constant="8" id="DTE-YP-Myr"/>
+                                                                    <constraint firstItem="tO5-YB-7Ez" firstAttribute="leading" secondItem="Cob-dz-ZOT" secondAttribute="trailing" constant="8" id="FFi-Kh-3Tj"/>
+                                                                    <constraint firstItem="7nV-tl-sdz" firstAttribute="leading" secondItem="Cob-dz-ZOT" secondAttribute="trailing" constant="8" id="Kv7-HQ-AIV"/>
+                                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Cob-dz-ZOT" secondAttribute="bottom" constant="8" id="ZjN-8j-sTU"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="tO5-YB-7Ez" secondAttribute="bottom" constant="8" id="Zn2-od-Lrb"/>
+                                                                    <constraint firstItem="VJv-p4-7NT" firstAttribute="top" secondItem="6gN-Ui-W8Z" secondAttribute="top" constant="8" id="ecK-ml-Ao9"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="7nV-tl-sdz" secondAttribute="trailing" constant="8" id="kZm-jg-20e"/>
+                                                                    <constraint firstItem="tO5-YB-7Ez" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7nV-tl-sdz" secondAttribute="bottom" constant="8" id="nUo-iq-aME"/>
+                                                                    <constraint firstItem="Cob-dz-ZOT" firstAttribute="top" secondItem="6gN-Ui-W8Z" secondAttribute="top" constant="8" id="s3h-Ph-e9q"/>
+                                                                    <constraint firstItem="VJv-p4-7NT" firstAttribute="leading" secondItem="Cob-dz-ZOT" secondAttribute="trailing" constant="8" id="t51-0i-xbY"/>
+                                                                </constraints>
+                                                            </tableViewCellContentView>
+                                                            <connections>
+                                                                <outlet property="descriptionLabel" destination="7nV-tl-sdz" id="uR3-jU-Dqu"/>
+                                                                <outlet property="displayImageView" destination="Cob-dz-ZOT" id="mG8-JH-ffp"/>
+                                                                <outlet property="likesButton" destination="tO5-YB-7Ez" id="oD5-VY-yBQ"/>
+                                                                <outlet property="recipeNameLabel" destination="VJv-p4-7NT" id="rht-43-RU8"/>
+                                                            </connections>
+                                                        </tableViewCell>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="206" id="eCA-du-nbM"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
                                                             <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -532,6 +614,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="Rating" destination="gIn-7J-pBe" id="Zbq-23-HfA"/>
                                             <outlet property="descriptionLabel" destination="54N-gz-jQh" id="jcF-Hd-1Dg"/>
                                             <outlet property="displayImageView" destination="lFQ-Ac-cgL" id="2Ti-eU-PxQ"/>
                                             <outlet property="likesButton" destination="wXA-Ai-Mpa" id="zPn-tR-kD7"/>

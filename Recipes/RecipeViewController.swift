@@ -8,9 +8,10 @@
 
 import UIKit
 import Parse
-
+import Cosmos
 class RecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+   
     @IBOutlet weak var tableView: UITableView!
     var posts: [Post] = []
     
@@ -18,6 +19,8 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+       
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
