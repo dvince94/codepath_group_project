@@ -9,10 +9,12 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    var posts: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +24,30 @@ class ProfileViewController: UIViewController {
         // profileImage = PFUser.currentUser()!["profilePic"] as! PFFile
         
         // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        reloadTable()
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        reloadTable()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func reloadTable() {
+        // construct PFQuery and get all recipes
+        ParseHelper.timelineRequestForCurrentUser {
+            (result: [PFObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            self.tableView.reloadData()
+        }
+    }
+    
+    // MARK: Logout
     
     static let userDidLogoutNotification = "userDidLogout"
     
@@ -40,6 +60,22 @@ class ProfileViewController: UIViewController {
                 NSNotificationCenter.defaultCenter().postNotificationName(ProfileViewController.userDidLogoutNotification, object: nil)
             }
         }
+    }
+
+    // MARK: Table View Delegate method
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ProfileCell", forIndexPath: indexPath) as! ProfileCell
+        let post = posts[indexPath.row]
+        //Get users who liked the post
+        post.fetchLikes()
+        cell.recipe = post
+        
+        return cell
     }
 
     /*

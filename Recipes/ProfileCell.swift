@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class ProfileCell: UITableViewCell {
 
-    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var recipeImage: PFImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
+    
+    var recipe: Post! {
+        didSet {
+            self.recipeImage.file = recipe.imageFile
+            self.recipeImage.loadInBackground()
+            recipeNameLabel.text = recipe.title
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
