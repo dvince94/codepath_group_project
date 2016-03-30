@@ -305,7 +305,7 @@
                                                     <rect key="frame" x="129" y="91" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
-                                                        <action selector="likeButton:" destination="1ks-Xi-lk6" eventType="touchUpInside" id="7eI-Wr-8bT"/>
+                                                        <action selector="likeButtonTapped:" destination="1ks-Xi-lk6" eventType="touchUpInside" id="wXN-eg-rMk"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

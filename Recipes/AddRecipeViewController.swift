@@ -69,22 +69,23 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             let ingredients = parseIngredients(ingredientsTextView.text!)
             let directions = parseDirections(directionsTextView.text!)
             //Post recipe
-            Recipe.postRecipe(editedImage!, withTitle: titleTextField.text!, withIngredients: ingredients, withDirections: directions, withCompletion: { (success, error) -> Void in
-                if success == true {
-                    //NSNotificationCenter.defaultCenter().postNotificationName(Recipe.submitRecipeNotification, object: nil)
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
-                else {
-                    print("\(error?.localizedDescription)")
-                }
-            })
-//            for (var i = 0; i < ingredients.count; i++) {
-//                print("\(i) \(ingredients[i])\n")
-//            }
-//            
-//            for (var i = 0; i < directions.count; i++) {
-//                print("\(i) \(directions[i])\n")
-//            }
+//            Recipe.postRecipe(editedImage!, withTitle: titleTextField.text!, withIngredients: ingredients, withDirections: directions, withCompletion: { (success, error) -> Void in
+//                if success == true {
+//                    //NSNotificationCenter.defaultCenter().postNotificationName(Recipe.submitRecipeNotification, object: nil)
+//                    self.dismissViewControllerAnimated(true, completion: nil)
+//                }
+//                else {
+//                    print("\(error?.localizedDescription)")
+//                }
+//            })
+            //Post recipe method 2
+            let post = Post();
+            post.title = titleTextField.text
+            post.ingredients = ingredients
+            post.directions = directions
+            post.image = editedImage
+            post.uploadPost()
+            dismissViewControllerAnimated(true, completion: nil)
         }
     }
     

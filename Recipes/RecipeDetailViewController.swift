@@ -16,17 +16,17 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var directionsLabel: UILabel!
     
-    var recipe: PFObject!
+    var recipe: Post!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
-        directionsLabel.text = Recipe.printDirections(recipe["directions"] as! [String])
-        self.recipeImage.file = recipe["image"] as? PFFile
+        ingredientsLabel.text = Recipe.printIngredients(recipe.ingredients! as [String])
+        directionsLabel.text = Recipe.printDirections(recipe.directions! as [String])
+        self.recipeImage.file = recipe.imageFile
         self.recipeImage.loadInBackground()
         // puts title on navigation bar..changes size, color, and font of title
-        self.navigationItem.title = recipe["title"] as? String
+        self.navigationItem.title = recipe.title! as String
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Papyrus", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
         // Do any additional setup after loading the view.
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width

@@ -16,13 +16,13 @@ class RecipeCell: UITableViewCell {
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var ingredientsLabel: UILabel!
     
-    var recipe: PFObject! {
+    var recipe: Post! {
         didSet {
-            self.displayImageView.file = recipe["image"] as? PFFile
+            self.displayImageView.file = recipe.imageFile
             self.displayImageView.loadInBackground()
-            recipeNameLabel.text = recipe["title"] as? String
+            recipeNameLabel.text = recipe.title
             
-            ingredientsLabel.text = Recipe.printIngredients(recipe["ingredients"] as! [String])
+            ingredientsLabel.text = Recipe.printIngredients(recipe.ingredients! as [String])
         }
     }
     
@@ -35,6 +35,10 @@ class RecipeCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func likeButtonTapped(sender: AnyObject) {
+        recipe.toggleLikePost(PFUser.currentUser()!)
     }
 
 }
