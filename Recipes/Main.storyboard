@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -219,12 +219,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="gxP-eb-Dl0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Lzj-DS-mxK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Lzj-DS-mxK">
+                            <connections>
+                                <segue destination="SCL-qu-eKc" kind="presentation" id="Ed0-mW-1qI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="uzP-QH-ZGl" id="KlL-jS-cZA"/>
-                        <segue destination="SCL-qu-eKc" kind="presentation" id="Ffw-hp-Ykj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bf9-s5-pyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -622,8 +625,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Create Challenge" id="hRU-Ch-bAZ">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="uvk-hT-YoI"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vcc-wr-kNs"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="uvk-hT-YoI">
+                                            <connections>
+                                                <action selector="saveButtonTapped:" destination="SCL-qu-eKc" id="BbP-1t-V40"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vcc-wr-kNs">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="SCL-qu-eKc" id="dw2-DE-nlQ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -655,12 +666,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SCL-qu-eKc" id="mcV-Q7-XAl"/>
+                                </connections>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vXn-W7-4B0">
                                 <rect key="frame" x="20" y="285" width="335" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SCL-qu-eKc" id="aMu-Uc-xEL"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -668,6 +685,11 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="vXn-W7-4B0" id="WSv-mZ-hfv"/>
+                        <outlet property="ingredientsTextView" destination="zIj-s8-ELK" id="LLz-VS-rdk"/>
+                        <outlet property="titleTextField" destination="nE4-Aa-2v2" id="7Rl-Bw-MbI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXb-Sm-e1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
