@@ -73,3 +73,12 @@ class LoginViewController: UIViewController {
     */
 
 }
+
+@IBDesignable
+class MyCustomButton:UIButton {
+    @IBInspectable var myCornerRadius:CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = myCornerRadius
+        }
+    }
+}

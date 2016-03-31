@@ -15,6 +15,8 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeImage: PFImageView!
     @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var directionsLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var infoView: UIView!
     
     var recipe: Post!
     
@@ -30,6 +32,12 @@ class RecipeDetailViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Papyrus", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
         // Do any additional setup after loading the view.
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
+        
+        var frame = view.frame
+        frame.offsetInPlace(dx: 0, dy: infoView.frame.minY)
+        frame.size.height = ingredientsLabel.frame.size.height + directionsLabel.frame.size.height + 50;
+        infoView.frame = frame
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
     }
     
     /*

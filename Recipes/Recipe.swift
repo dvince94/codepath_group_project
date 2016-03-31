@@ -43,7 +43,7 @@ class Recipe: NSObject {
             ingredientPrint += ingredients[index]
             
             if (index != ingredients.count - 1) {
-                ingredientPrint += ", "
+                ingredientPrint += "\n"
             }
         }
         
