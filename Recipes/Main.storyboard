@@ -458,7 +458,7 @@
                                 <rect key="frame" x="20" y="281" width="335" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="riG-bd-vph" id="pxj-tA-o4d"/>
                                 </connections>
