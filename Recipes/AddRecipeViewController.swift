@@ -13,6 +13,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var directionsTextView: UITextView!
     
@@ -20,7 +21,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     var editedImage: UIImage?
     var imageChanged = false
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -34,13 +35,16 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         //Add the recognizer to your view.
         imageView.addGestureRecognizer(tapRecognizer)
         
-        ingredientsTextView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes,Lettuce,Cucumber,..."
+        descriptionTextView.text = "Add description here."
+        descriptionTextView.textColor = UIColor.lightGrayColor()
+        
+        ingredientsTextView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes, Lettuce, Cucumber,..."
         ingredientsTextView.textColor = UIColor.lightGrayColor()
         
         directionsTextView.text = "Add steps here."
         directionsTextView.textColor = UIColor.lightGrayColor()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,6 +63,9 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         else if (containText(titleTextField.text!) == false) {
             showAlertMessage("No Title Added", messages: "Please add a title.")
         }
+        else if (containText(descriptionTextView.text!) == false || descriptionTextView.textColor == UIColor.lightGrayColor()) {
+            showAlertMessage("No Descriptions Added", messages: "Please add a description.")
+        }
         else if (containText(ingredientsTextView.text!) == false || ingredientsTextView.textColor == UIColor.lightGrayColor()) {
             showAlertMessage("No Ingredients Added", messages: "Please add an ingredient.")
         }
@@ -69,18 +76,9 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             let ingredients = parseIngredients(ingredientsTextView.text!)
             let directions = parseDirections(directionsTextView.text!)
             //Post recipe
-//            Recipe.postRecipe(editedImage!, withTitle: titleTextField.text!, withIngredients: ingredients, withDirections: directions, withCompletion: { (success, error) -> Void in
-//                if success == true {
-//                    //NSNotificationCenter.defaultCenter().postNotificationName(Recipe.submitRecipeNotification, object: nil)
-//                    self.dismissViewControllerAnimated(true, completion: nil)
-//                }
-//                else {
-//                    print("\(error?.localizedDescription)")
-//                }
-//            })
-            //Post recipe method 2
             let post = Post();
             post.title = titleTextField.text
+            post.descriptions = descriptionTextView.text
             post.ingredients = ingredients
             post.directions = directions
             post.image = editedImage
@@ -100,7 +98,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     //Parse ingredients
     func parseIngredients(str: String) -> [String] {
-        let ingredients =  str.componentsSeparatedByString(",")
+        let ingredients =  str.componentsSeparatedByString(", ")
         //filter out empty strings
         return ingredients.filter(){$0 != ""}
     }
@@ -145,8 +143,12 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     func textViewDidEndEditing(textView: UITextView) {
         //Replace placeholder if text is empty
+        if !containText(descriptionTextView.text!) {
+            textView.text = "Add description here."
+            textView.textColor = UIColor.lightGrayColor()
+        }
         if containText(ingredientsTextView.text!) == false {
-            textView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes,Lettuce,Cucumber,..."
+            textView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes, Lettuce, Cucumber,..."
             textView.textColor = UIColor.lightGrayColor()
         }
         if containText(directionsTextView.text!) == false {
@@ -256,12 +258,12 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

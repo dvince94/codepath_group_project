@@ -17,6 +17,7 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var imageFile: PFFile?
     @NSManaged var user: PFUser?
     @NSManaged var title: String?
+    @NSManaged var descriptions: String?
     @NSManaged var ingredients: [String]?
     @NSManaged var directions: [String]?
     
