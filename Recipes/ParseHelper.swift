@@ -12,21 +12,13 @@ import Parse
 // Source: https://www.makeschool.com/tutorials/build-a-photo-sharing-app-part-1/parse-implement-like
 class ParseHelper {
     
-    //User timeline query contains:
-    //  the post created by a user which they are following
-    //  the post created by the user that is currently logged in
-    static func timelineRequestForCurrentUser(completionBlock: PFQueryArrayResultBlock?) {
-        
-        let followingQuery = PFQuery(className: "Follow")
-        followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
-        
-        let postsFromFollowedUsers = Post.query()
-        postsFromFollowedUsers!.whereKey("user", matchesKey: "toUser", inQuery: followingQuery)
+    //Query post from current user
+    static func userQuery(completionBlock: PFQueryArrayResultBlock?) {
         
         let postsFromThisUser = Post.query()
         postsFromThisUser!.whereKey("user", equalTo: PFUser.currentUser()!)
         
-        let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!, postsFromThisUser!])
+        let query = PFQuery.orQueryWithSubqueries([postsFromThisUser!])
         query.includeKey("user")
         query.orderByDescending("createdAt")
         query.limit = 20
@@ -34,9 +26,25 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    //Query of user's liked post
+    static func favoriteQuery(completionBlock: PFQueryArrayResultBlock?) {
+        let followingQuery = PFQuery(className: "Like")
+        followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
+        
+        let postsFromFollowedUsers = Post.query()
+        postsFromFollowedUsers!.whereKey("id", matchesKey: "post", inQuery: followingQuery)
+        
+        let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!])
+        query.includeKey("user")
+        query.orderByDescending("createdAt")
+        query.limit = 20
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+
+    }
     
     //Query for all recipes
-    static func getRecipes(completionBlock: PFQueryArrayResultBlock?) {
+    static func recipeQuery(completionBlock: PFQueryArrayResultBlock?) {
         let query = PFQuery(className: "Post")
         query.includeKey("user")
         query.limit = 20

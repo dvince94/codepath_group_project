@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func reloadTable() {
         // construct PFQuery and get all recipes
-        ParseHelper.timelineRequestForCurrentUser {
+        ParseHelper.userQuery {
             (result: [PFObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             self.tableView.reloadData()

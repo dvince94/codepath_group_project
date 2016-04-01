@@ -22,7 +22,6 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
-        reloadTable()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -36,7 +35,7 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
     
     func reloadTable() {
         // construct PFQuery and get all recipes
-        ParseHelper.getRecipes {
+        ParseHelper.recipeQuery {
             (result: [PFObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             self.tableView.reloadData()
