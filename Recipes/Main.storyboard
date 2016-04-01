@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -568,7 +569,7 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-TW-v52">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wid-e7-I9b">
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wid-e7-I9b">
                                                 <rect key="frame" x="0.0" y="332" width="375" height="335"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8W-nD-LNM">
@@ -610,20 +611,19 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7EL-gQ-aif" customClass="PFImageView">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7EL-gQ-aif" customClass="PFImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="332"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="7EL-gQ-aif" secondAttribute="height" multiplier="375:332" id="kDM-nr-PhS"/>
+                                                </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="wid-e7-I9b" secondAttribute="bottom" id="3a7-jH-iOa"/>
-                                            <constraint firstItem="wid-e7-I9b" firstAttribute="top" secondItem="7EL-gQ-aif" secondAttribute="bottom" id="LqM-6i-I1q"/>
                                             <constraint firstAttribute="bottom" secondItem="7EL-gQ-aif" secondAttribute="bottom" constant="335" id="VdU-nf-oga"/>
                                             <constraint firstItem="7EL-gQ-aif" firstAttribute="leading" secondItem="VAB-TW-v52" secondAttribute="leading" id="eFg-yx-rig"/>
-                                            <constraint firstAttribute="trailing" secondItem="wid-e7-I9b" secondAttribute="trailing" id="gS1-hW-D0N"/>
                                             <constraint firstAttribute="trailing" secondItem="7EL-gQ-aif" secondAttribute="trailing" id="jiv-mW-5vg"/>
                                             <constraint firstItem="7EL-gQ-aif" firstAttribute="top" secondItem="VAB-TW-v52" secondAttribute="top" id="lCJ-LB-Rue"/>
-                                            <constraint firstItem="wid-e7-I9b" firstAttribute="leading" secondItem="VAB-TW-v52" secondAttribute="leading" id="zFh-kW-Zar"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">

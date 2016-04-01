@@ -36,14 +36,11 @@ class RecipeDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
         
-//        let heightConstraint = NSLayoutConstraint(item: recipeImage, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: screenSuperView.frame.size.width)
-//        view.addConstraint(heightConstraint)
-        
         var frame = view.frame
         frame.offsetInPlace(dx: 0, dy: infoView.frame.minY)
         frame.size.height = ingredientsLabel.frame.size.height + directionsLabel.frame.size.height + descriptionLabel.frame.size.height + 150;
         infoView.frame = frame
-        scrollView.contentSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: recipeImage.frame.size.height + infoView.frame.size.height)
+        scrollView.contentSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
     }
     
     /*
