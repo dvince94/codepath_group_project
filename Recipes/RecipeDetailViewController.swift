@@ -35,12 +35,23 @@ class RecipeDetailViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Papyrus", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
         // Do any additional setup after loading the view.
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
+        ingredientsLabel.sizeToFit()
+        directionsLabel.sizeToFit()
+        descriptionLabel.sizeToFit()
         
         var frame = view.frame
         frame.offsetInPlace(dx: 0, dy: infoView.frame.minY)
-        frame.size.height = ingredientsLabel.frame.size.height + directionsLabel.frame.size.height + descriptionLabel.frame.size.height + 150;
+        frame.size.height = ingredientsLabel.frame.size.height + directionsLabel.frame.size.height + descriptionLabel.frame.size.height + UIScreen.mainScreen().bounds.size.height/5;
+        print(UIScreen.mainScreen().bounds.size.height)
         infoView.frame = frame
+        
         scrollView.contentSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
+        
+//        var contentRect: CGRect = CGRectZero
+//        for view: UIView in self.scrollView.subviews {
+//            contentRect = CGRectUnion(contentRect, view.frame)
+//        }
+//        self.scrollView.contentSize = contentRect.size
     }
     
     /*
