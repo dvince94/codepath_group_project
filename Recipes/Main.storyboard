@@ -312,29 +312,49 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="139" id="gKi-bF-4d1" customClass="FavoriteCell" customModule="Recipes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="139"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="130" id="gKi-bF-4d1" customClass="FavoriteCell" customModule="Recipes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gKi-bF-4d1" id="h42-5g-4t0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-bL-S1h" customClass="PFImageView">
-                                                    <rect key="frame" x="8" y="10" width="127" height="120"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-bL-S1h" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="8" width="113" height="113"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="113" id="J6u-ov-49E"/>
+                                                        <constraint firstAttribute="width" constant="113" id="xcp-3L-tA2"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jx-V4-h1M">
-                                                    <rect key="frame" x="143" y="10" width="78" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jx-V4-h1M">
+                                                    <rect key="frame" x="129" y="8" width="238" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="ZB3-TL-YSi"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rl-hW-htx">
-                                                    <rect key="frame" x="143" y="39" width="224" height="39"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rl-hW-htx">
+                                                    <rect key="frame" x="129" y="37" width="238" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HPG-bL-S1h" firstAttribute="leading" secondItem="h42-5g-4t0" secondAttribute="leading" constant="8" id="1tf-vb-b6c"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HPG-bL-S1h" secondAttribute="bottom" constant="8" id="91u-HO-sZy"/>
+                                                <constraint firstItem="0Rl-hW-htx" firstAttribute="leading" secondItem="HPG-bL-S1h" secondAttribute="trailing" constant="8" id="A6y-7S-7a9"/>
+                                                <constraint firstItem="0Rl-hW-htx" firstAttribute="top" secondItem="1Jx-V4-h1M" secondAttribute="bottom" constant="8" id="BgI-5L-AZ7"/>
+                                                <constraint firstItem="1Jx-V4-h1M" firstAttribute="top" secondItem="h42-5g-4t0" secondAttribute="top" constant="8" id="Cxo-kL-srp"/>
+                                                <constraint firstItem="0Rl-hW-htx" firstAttribute="top" secondItem="1Jx-V4-h1M" secondAttribute="bottom" constant="8" id="U3S-sp-Bdw"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Jx-V4-h1M" secondAttribute="trailing" constant="8" id="Z0G-4H-j7Y"/>
+                                                <constraint firstItem="HPG-bL-S1h" firstAttribute="top" secondItem="h42-5g-4t0" secondAttribute="top" constant="8" id="frU-ba-cdj"/>
+                                                <constraint firstAttribute="trailing" secondItem="0Rl-hW-htx" secondAttribute="trailing" constant="8" id="vd8-kL-5me"/>
+                                                <constraint firstItem="1Jx-V4-h1M" firstAttribute="leading" secondItem="HPG-bL-S1h" secondAttribute="trailing" constant="8" id="wiD-Dz-CHr"/>
+                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="0Rl-hW-htx" secondAttribute="bottom" constant="71" id="xVu-Kf-6qi"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="0Rl-hW-htx" id="iQ9-pV-vE3"/>

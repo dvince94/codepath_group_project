@@ -36,11 +36,10 @@ class ParseHelper {
         
         let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!])
         query.includeKey("user")
-        query.orderByDescending("createdAt")
+        //query.orderByDescending("createdAt")
         query.limit = 20
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
-
     }
     
     //Query for all recipes
