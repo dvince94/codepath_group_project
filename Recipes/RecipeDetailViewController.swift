@@ -17,12 +17,15 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet var screenSuperView: UIView!
     
     var recipe: Post!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        descriptionLabel.text = recipe.descriptions! as String
         ingredientsLabel.text = Recipe.printIngredients(recipe.ingredients! as [String])
         directionsLabel.text = Recipe.printDirections(recipe.directions! as [String])
         self.recipeImage.file = recipe.imageFile
@@ -33,11 +36,14 @@ class RecipeDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
         
+//        let heightConstraint = NSLayoutConstraint(item: recipeImage, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: screenSuperView.frame.size.width)
+//        view.addConstraint(heightConstraint)
+        
         var frame = view.frame
         frame.offsetInPlace(dx: 0, dy: infoView.frame.minY)
-        frame.size.height = ingredientsLabel.frame.size.height + directionsLabel.frame.size.height + 50;
+        frame.size.height = ingredientsLabel.frame.size.height + directionsLabel.frame.size.height + descriptionLabel.frame.size.height + 150;
         infoView.frame = frame
-        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
+        scrollView.contentSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: recipeImage.frame.size.height + infoView.frame.size.height)
     }
     
     /*

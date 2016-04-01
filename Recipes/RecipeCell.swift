@@ -15,9 +15,9 @@ class RecipeCell: UITableViewCell {
 
     @IBOutlet weak var displayImageView: PFImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
-    @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var likesButton: UIButton!
     var likeDisposable: DisposableType?
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var recipe: Post! {
         didSet {
@@ -27,7 +27,8 @@ class RecipeCell: UITableViewCell {
             self.displayImageView.loadInBackground()
             recipeNameLabel.text = recipe.title
             
-            ingredientsLabel.text = Recipe.printIngredients(recipe.ingredients! as [String])
+            descriptionLabel.text = recipe.descriptions
+            descriptionLabel.sizeToFit()
             
             //The observe method takes one parameter, a closure (defined as a trailing closure in the code above), 
             //which in our case has type [PFUser]? -> (). 
