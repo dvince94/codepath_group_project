@@ -25,6 +25,8 @@
 		2A596E751C98D093006021CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A596E731C98D093006021CE /* LaunchScreen.storyboard */; };
 		450BB31A1CA218B7001DC54A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450BB3191CA218B6001DC54A /* ProfileViewController.swift */; };
 		451C4E891CAC27FD00FFD4AD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451C4E881CAC27FD00FFD4AD /* Post.swift */; };
+		4553D7181CAE535F00F9361E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553D7171CAE535F00F9361E /* FavoriteCell.swift */; };
+		4553D71A1CAE53A800F9361E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553D7191CAE53A800F9361E /* FavoriteViewController.swift */; };
 		45E556811CA37C35006CBC1A /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */; };
 		977F162F35A68AF318833F2E /* Pods_Recipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,8 @@
 		2A596E761C98D093006021CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450BB3191CA218B6001DC54A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		451C4E881CAC27FD00FFD4AD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4553D7171CAE535F00F9361E /* FavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		4553D7191CAE53A800F9361E /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		458FA3514571608031B55467 /* Pods-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recipes/Pods-Recipes.release.xcconfig"; sourceTree = "<group>"; };
 		45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +89,7 @@
 				0A0D580F1CA47A3E005B37EB /* RecipeCell.swift */,
 				0A90C1FD1CAB05F8006EB275 /* ChallengeCell.swift */,
 				2A572C7E1CAB576000B0E0EB /* ProfileCell.swift */,
+				4553D7171CAE535F00F9361E /* FavoriteCell.swift */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				0A90C1FA1CAB056C006EB275 /* ChallengeViewController.swift */,
 				0A90C2011CAB0AFA006EB275 /* ChallengeDetailViewController.swift */,
 				0AEE87931CAB463900390692 /* AddChallengeViewController.swift */,
+				4553D7191CAE53A800F9361E /* FavoriteViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 				0A90C1FB1CAB056C006EB275 /* ChallengeViewController.swift in Sources */,
 				0A90C1FE1CAB05F8006EB275 /* ChallengeCell.swift in Sources */,
 				0A90C2021CAB0AFA006EB275 /* ChallengeDetailViewController.swift in Sources */,
+				4553D71A1CAE53A800F9361E /* FavoriteViewController.swift in Sources */,
 				450BB31A1CA218B7001DC54A /* ProfileViewController.swift in Sources */,
 				0A90C2001CAB0661006EB275 /* Challenge.swift in Sources */,
 				0A40890B1C9A2AEA00C833FD /* RecipeViewController.swift in Sources */,
@@ -292,6 +299,7 @@
 				0A5313641CAB381700899621 /* ParseHelper.swift in Sources */,
 				2A596E6B1C98D093006021CE /* AppDelegate.swift in Sources */,
 				2A572C7F1CAB576000B0E0EB /* ProfileCell.swift in Sources */,
+				4553D7181CAE535F00F9361E /* FavoriteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

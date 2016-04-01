@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -204,7 +204,7 @@
                         <segue destination="bay-il-jgk" kind="relationship" relationship="viewControllers" id="30G-7i-xsJ"/>
                         <segue destination="QCD-bk-27a" kind="relationship" relationship="viewControllers" id="4cN-wB-vU0"/>
                         <segue destination="pr5-zN-gUt" kind="relationship" relationship="viewControllers" id="sss-M4-21e"/>
-                        <segue destination="Wx6-Ch-erx" kind="relationship" relationship="viewControllers" id="aLV-Rd-LO2"/>
+                        <segue destination="ANB-Wf-jeb" kind="relationship" relationship="viewControllers" id="aLV-Rd-LO2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1N-TT-k4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -296,10 +296,10 @@
             </objects>
             <point key="canvasLocation" x="1988.5" y="855.5"/>
         </scene>
-        <!--Favorite-->
+        <!--Favorite View Controller-->
         <scene sceneID="McF-mY-90M">
             <objects>
-                <viewController id="Wx6-Ch-erx" sceneMemberID="viewController">
+                <viewController id="Wx6-Ch-erx" customClass="FavoriteViewController" customModule="Recipes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="keG-wM-eZr"/>
                         <viewControllerLayoutGuide type="bottom" id="egN-gt-5BY"/>
@@ -307,14 +307,61 @@
                     <view key="view" contentMode="scaleToFill" id="i0a-Lv-TJj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="139" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qdt-yD-zIH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="139" id="gKi-bF-4d1" customClass="FavoriteCell" customModule="Recipes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="139"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gKi-bF-4d1" id="h42-5g-4t0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-bL-S1h" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="10" width="127" height="120"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jx-V4-h1M">
+                                                    <rect key="frame" x="143" y="10" width="78" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rl-hW-htx">
+                                                    <rect key="frame" x="143" y="39" width="224" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="0Rl-hW-htx" id="iQ9-pV-vE3"/>
+                                            <outlet property="displayImageView" destination="HPG-bL-S1h" id="sEH-Su-2rI"/>
+                                            <outlet property="recipeNameLabel" destination="1Jx-V4-h1M" id="jaF-U3-jhM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qdt-yD-zIH" secondAttribute="bottom" id="6iQ-PZ-J2a"/>
+                            <constraint firstItem="qdt-yD-zIH" firstAttribute="top" secondItem="i0a-Lv-TJj" secondAttribute="top" id="SBc-Nj-Qhq"/>
+                            <constraint firstAttribute="trailing" secondItem="qdt-yD-zIH" secondAttribute="trailing" id="TTZ-1I-N5F"/>
+                            <constraint firstItem="qdt-yD-zIH" firstAttribute="leading" secondItem="i0a-Lv-TJj" secondAttribute="leading" id="ZMz-Zx-kF5"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorite" image="Star" id="kx6-Ip-cho"/>
+                    <navigationItem key="navigationItem" id="vfo-oQ-JPU"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="qdt-yD-zIH" id="pxd-n4-vqf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1b-ar-ojc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012.5" y="1832.5"/>
+            <point key="canvasLocation" x="1599.5" y="1832.5"/>
         </scene>
         <!--Recipe View Controller-->
         <scene sceneID="CGR-fM-lnS">
@@ -897,7 +944,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3H-9L-gK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2480.5" y="1265.5"/>
+            <point key="canvasLocation" x="3067.5" y="1265.5"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="Q2K-tJ-Zei">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ANB-Wf-jeb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite" image="Star" id="kx6-Ip-cho"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MhB-aR-Nmf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wx6-Ch-erx" kind="relationship" relationship="rootViewController" id="LAX-R8-y8Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cT-eM-6nY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012.5" y="1832.5"/>
         </scene>
     </scenes>
     <resources>
