@@ -2,19 +2,19 @@
 
 Recipes (temporary name) is a recipe challenge app in which a user shares which ingredients he/she contains in his/her fridge. Others then come up with a recipe for the posted challenge or vote for which ones they think are best.
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication
-- [ ] User can log in and log out of his or her account
-- [ ] The current signed in user is persisted across app restarts
+- [x] User can sign up to create a new account using Parse authentication
+- [x] User can log in and log out of his or her account
+- [x] The current signed in user is persisted across app restarts
 - [ ] User can post a recipe building challenge
 - [ ] Others should be able to build the recipe using the challenge ingredients
-- [ ] Recipes built can be voted on to figure which is best
-- [ ] List of breakfast, lunch, dinner, dessert recipes
+- [x] Recipes built can be voted on to figure which is best
+- [x] Display list of recipes
 
 The following **optional** features are implemented:
 
@@ -39,15 +39,21 @@ The following **optional** features are implemented:
    "posted_challenges": "Challenge[]"
 }
 {
-   "_id": "Recipe",
+   "_id": "Post",
    "author": "*_User",
    "likes_count": "number"
    "title": "string",
+   "descriptions": "string",
    "comments_count": "number",
    "instructions": "string",
    "comments": "Comment[]",
    "category": "number (enum)",
    "image": "file"
+}
+{
+   "_id": "Like",
+   "fromUser": "*_User",
+   "toPost": "*_Post"
 }
 {
    "_id": "Comment",
@@ -85,7 +91,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
