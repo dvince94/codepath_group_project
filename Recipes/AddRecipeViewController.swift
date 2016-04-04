@@ -16,10 +16,14 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var directionsTextView: UITextView!
+
     
     let imagePicker = UIImagePickerController()
     var editedImage: UIImage?
     var imageChanged = false
+    
+    var isChallenge: Bool!
+    var challenge_id: String!
     
     
     override func viewDidLoad() {
@@ -38,12 +42,39 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         descriptionTextView.text = "Add description here."
         descriptionTextView.textColor = UIColor.lightGrayColor()
         
-        ingredientsTextView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes, Lettuce, Cucumber,..."
+        ingredientsTextView.text = "Ingredient 1\nIngredient 2\netc.."
         ingredientsTextView.textColor = UIColor.lightGrayColor()
         
-        directionsTextView.text = "Add steps here."
+        print(ingredientsTextView.selectedRange)
+        print(ingredientsTextView.text.characters.count)
+//        ParseHelper.textView(ingredientsTextView, shouldChangeTextInRange: ingredientsTextView.selectedRange, replacementText: "\n")
+        
+        directionsTextView.text = "Step 1\nStep 2\netc..."
         directionsTextView.textColor = UIColor.lightGrayColor()
+        
     }
+    
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        if (textView == ingredientsTextView) {
+//            if (text == "\n") {
+//                if range.location == textView.text.characters.count {
+//                    var updatedText: String = textView.text!.stringByAppendingString("\n\u{2022} ")
+//                    textView.text = updatedText
+//                }
+//                else {
+//                    var beginning: UITextPosition = textView.beginningOfDocument
+//                    var start: UITextPosition = textView.positionFromPosition(beginning, offset: range.location)!
+//                    var end: UITextPosition = textView.positionFromPosition(start, offset: range.length)!
+//                    var textRange: UITextRange = textView.textRangeFromPosition(start, toPosition: end)!
+//                    textView.replaceRange(textRange, withText: "\n\u{2022} ")
+//                    var cursor: NSRange = NSMakeRange(range.location + "\n\u{2022} ".length, 0)
+//                    textView.selectedRange = cursor
+//                }
+//                return false
+//            }
+//        }
+//        return true
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,7 +88,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     //Save Button Tapped
     @IBAction func saveButtonTapped(sender: AnyObject) {
-        if (imageChanged == false) {
+        if (imageChanged == false && !(isChallenge!)) {
             showAlertMessage("No Image Selected", messages: "Please add an image.")
         }
         else if (containText(titleTextField.text!) == false) {
@@ -81,7 +112,16 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             post.descriptions = descriptionTextView.text
             post.ingredients = ingredients
             post.directions = directions
+            
+            if (imageChanged == false) {
+                editedImage = UIImage(named:"Hangry_Dark.png")
+                print(challenge_id)
+                post.challenge_id = challenge_id!
+            } else {
+                post.challenge_id = "0"
+            }
             post.image = editedImage
+            
             post.uploadPost()
             dismissViewControllerAnimated(true, completion: nil)
         }
@@ -98,13 +138,14 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     //Parse ingredients
     func parseIngredients(str: String) -> [String] {
-        let ingredients =  str.componentsSeparatedByString(", ")
+        let newLineChars = NSCharacterSet.newlineCharacterSet()
+        let ingredients =  str.componentsSeparatedByCharactersInSet(newLineChars)
         //filter out empty strings
         return ingredients.filter(){$0 != ""}
     }
     
     
-    //Parse ingredients
+    //Parse directions
     func parseDirections(str: String) -> [String] {
         let newlineChars = NSCharacterSet.newlineCharacterSet()
         let directions = str.componentsSeparatedByCharactersInSet(newlineChars)
@@ -148,11 +189,11 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             textView.textColor = UIColor.lightGrayColor()
         }
         if containText(ingredientsTextView.text!) == false {
-            textView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes, Lettuce, Cucumber,..."
+            textView.text = "Ingredient 1\nIngredient 2\netc.."
             textView.textColor = UIColor.lightGrayColor()
         }
         if containText(directionsTextView.text!) == false {
-            textView.text = "Add steps here."
+            textView.text = "Step 1\nStep 2\netc..."
             textView.textColor = UIColor.lightGrayColor()
         }
     }

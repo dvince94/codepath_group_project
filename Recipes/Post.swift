@@ -20,6 +20,7 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var descriptions: String?
     @NSManaged var ingredients: [String]?
     @NSManaged var directions: [String]?
+    @NSManaged var challenge_id: String?
     
     var likes: Observable<[PFUser]?>! = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?

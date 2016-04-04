@@ -19,7 +19,8 @@ class ChallengeCell: UITableViewCell {
     var challenge: PFObject! {
         didSet {
             recipeNameLabel.text = challenge["title"] as? String
-            authorNameLabel.text = challenge["author"] as? String
+            let user = challenge["author"] as? PFUser
+            authorNameLabel.text = "by " + ((user?.username)! as String)
             ingredientsLabel.text = Recipe.printIngredients(challenge["ingredients"] as! [String])
             descriptionLabel.text = challenge["descritption"] as? String
         }

@@ -87,8 +87,5 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
             
             challengeDetailViewController.challenge = challenge
         }
-        
     }
- 
-
 }

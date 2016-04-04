@@ -14,7 +14,7 @@ class AddChallengeViewController: UIViewController, UITextViewDelegate  {
     @IBOutlet weak var descriptionTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        ingredientsTextView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes, Lettuce, Cucumber,..."
+        ingredientsTextView.text = "Ingredient 1\nIngredient 2\netc.."
         ingredientsTextView.textColor = UIColor.lightGrayColor()
         
         descriptionTextView.text = "Add description here."
@@ -67,7 +67,8 @@ class AddChallengeViewController: UIViewController, UITextViewDelegate  {
     
     //Parse ingredients
     func parseIngredients(str: String) -> [String] {
-        let ingredients =  str.componentsSeparatedByString(", ")
+        let newLineChars = NSCharacterSet.newlineCharacterSet()
+        let ingredients =  str.componentsSeparatedByCharactersInSet(newLineChars)
         //filter out empty strings
         return ingredients.filter(){$0 != ""}
     }
@@ -101,7 +102,7 @@ class AddChallengeViewController: UIViewController, UITextViewDelegate  {
     func textViewDidEndEditing(textView: UITextView) {
         //Replace placeholder if text is empty
         if containText(ingredientsTextView.text!) == false {
-            textView.text = "Add ingredients and separate each ingredients by a comma. For example, Tomatoes, Lettuce, Cucumber,..."
+            textView.text = "Ingredient 1\nIngredient 2\netc.."
             textView.textColor = UIColor.lightGrayColor()
         }
         if containText(descriptionTextView.text!) == false {

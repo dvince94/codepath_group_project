@@ -26,6 +26,17 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    //Query post from current challenge
+    static func challengeQuery(challenge_id: String, completionBlock: PFQueryArrayResultBlock?) {
+        
+        let postsFromChallenges = Post.query()
+        postsFromChallenges!.whereKey("challenge_id", equalTo: challenge_id)
+        
+        let query = PFQuery.orQueryWithSubqueries([postsFromChallenges!])
+        query.includeKey("user")
+        query.limit = 20
+    }
+    
     //Query of user's liked post
     static func favoriteQuery(completionBlock: PFQueryArrayResultBlock?) {
         let followingQuery = PFQuery(className: "Like")
@@ -44,9 +55,18 @@ class ParseHelper {
     
     //Query for all recipes
     static func recipeQuery(completionBlock: PFQueryArrayResultBlock?) {
-        let query = PFQuery(className: "Post")
+        
+        let postsFromNonChallenges = Post.query()
+        postsFromNonChallenges!.whereKey("challenge_id", equalTo: "0")
+        
+        let query = PFQuery.orQueryWithSubqueries([postsFromNonChallenges!])
         query.includeKey("user")
         query.limit = 20
+        
+//        the original:
+//        let query = PFQuery(className: "Post")
+//        query.includeKey("user")
+//        query.limit = 20
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
@@ -84,6 +104,7 @@ class ParseHelper {
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
+    
 }
 
 extension PFObject {
