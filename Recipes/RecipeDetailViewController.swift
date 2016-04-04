@@ -42,7 +42,6 @@ class RecipeDetailViewController: UIViewController {
         var frame = view.frame
         frame.offsetInPlace(dx: 0, dy: infoView.frame.minY)
         frame.size.height = ingredientsLabel.frame.size.height + directionsLabel.frame.size.height + descriptionLabel.frame.size.height + UIScreen.mainScreen().bounds.size.height/5;
-        print(UIScreen.mainScreen().bounds.size.height)
         infoView.frame = frame
         
         scrollView.contentSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)

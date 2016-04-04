@@ -19,11 +19,15 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loginButton.layer.cornerRadius = 10
+        signUpButton.layer.cornerRadius = 10
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,13 +76,4 @@ class LoginViewController: UIViewController {
     }
     */
 
-}
-
-@IBDesignable
-class MyCustomButton:UIButton {
-    @IBInspectable var myCornerRadius:CGFloat = 0.0 {
-        didSet {
-            self.layer.cornerRadius = myCornerRadius
-        }
-    }
 }
