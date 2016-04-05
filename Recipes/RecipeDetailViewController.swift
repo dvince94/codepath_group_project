@@ -33,6 +33,7 @@ class RecipeDetailViewController: UIViewController {
         // puts title on navigation bar..changes size, color, and font of title
         self.navigationItem.title = recipe.title! as String
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Papyrus", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        
         // Do any additional setup after loading the view.
         directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
         ingredientsLabel.sizeToFit()
