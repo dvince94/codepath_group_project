@@ -104,12 +104,10 @@ class Post : PFObject, PFSubclassing {
             // if recipe is liked, unlike it now
             likes.value = likes.value?.filter { $0 != user }
             ParseHelper.unlikePost(user, post: self)
-            print("unliked")
         } else {
             // if this recipe is not liked yet, like it now
             likes.value?.append(user)
             ParseHelper.likePost(user, post: self)
-            print("liked")
         }
         print("Number of likes \(self.likes.value?.count)")
     }

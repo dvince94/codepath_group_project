@@ -45,7 +45,7 @@ class ParseHelper {
         followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
         
         let postsFromFollowedUsers = Post.query()
-        postsFromFollowedUsers!.whereKey("id", matchesKey: "post", inQuery: followingQuery)
+        postsFromFollowedUsers!.whereKey("objectId", matchesKey: "postId", inQuery: followingQuery)
         
         let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!])
         query.includeKey("user")
@@ -79,7 +79,7 @@ class ParseHelper {
         let likeObject = PFObject(className: "Like")
         likeObject["fromUser"] = user
         likeObject["toPost"] = post
-        
+        likeObject["postId"] = post.objectId
         likeObject.saveInBackgroundWithBlock(nil)
     }
     

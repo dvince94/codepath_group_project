@@ -39,7 +39,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func profilePicTouched(sender: UITapGestureRecognizer) {
         profilePicEdited = true
         backgroundPicEdited = false
-        var profilePicController = UIImagePickerController()
+        let profilePicController = UIImagePickerController()
         profilePicController.delegate = self
         profilePicController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -49,7 +49,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func backgroundPicTouched(sender: UITapGestureRecognizer) {
         backgroundPicEdited = true
         profilePicEdited = false
-        var backgroundPicController = UIImagePickerController()
+        let backgroundPicController = UIImagePickerController()
         backgroundPicController.delegate = self
         backgroundPicController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
