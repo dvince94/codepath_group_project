@@ -35,6 +35,8 @@ class ParseHelper {
         let query = PFQuery.orQueryWithSubqueries([postsFromChallenges!])
         query.includeKey("user")
         query.limit = 20
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
     //Query of user's liked post
