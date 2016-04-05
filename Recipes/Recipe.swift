@@ -10,31 +10,6 @@ import UIKit
 import Parse
 
 class Recipe: NSObject {
-    /**
-     Method to add a user post to Parse (uploading image file)
-     
-     - parameter image: Image that the user wants upload to parse
-     - parameter ingredients: Ingredients text input by the user
-     - parameter directions: Directions text input by the user
-     - parameter completion: Block to be executed after save operation is complete
-     */
-    class func postRecipe(image: UIImage?, withTitle title: String, withIngredients ingredients: [String]?, withDirections directions: [String]?,withCompletion completion: PFBooleanResultBlock?) {
-        // Create Parse object PFObject
-        let recipe = PFObject(className: "Recipe")
-        
-        // Add relevant fields to the object
-        recipe["image"] = getPFFileFromImage(image) // PFFile column type
-        recipe["author"] = PFUser.currentUser() // Pointer column type that points to PFUser
-        recipe["title"] = title
-        recipe["ingredients"] = ingredients
-        recipe["directions"] = directions
-        
-//        post["likesCount"] = 0
-//        post["commentsCount"] = 0
-        
-        // Save object (following function will save the object in Parse asynchronously)
-        recipe.saveInBackgroundWithBlock(completion)
-    }
     
     class func printIngredients(string: [String]) -> String {
         var ingredientPrint = ""

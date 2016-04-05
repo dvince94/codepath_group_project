@@ -51,8 +51,8 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
         
         dropDownView.userInteractionEnabled = true
         
-        print(UIScreen.mainScreen().bounds.size.height)
-        print(frame.size.height)
+//        print(UIScreen.mainScreen().bounds.size.height)
+//        print(frame.size.height)
         
 //        let guesture = UITapGestureRecognizer(target: self, action: "dropDown:")
 //        self.dropDownView.addGestureRecognizer(guesture)
