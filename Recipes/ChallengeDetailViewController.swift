@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ChallengeDetailViewController: UIViewController {
+class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var ingredientsLabel: UILabel!
@@ -18,10 +18,16 @@ class ChallengeDetailViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     var challenge: PFObject!
+    var posts: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        
         descriptionLabel.text = challenge["description"] as? String
         ingredientsLabel.text = Recipe.printIngredients(challenge["ingredients"] as! [String])
         self.navigationItem.title = challenge["title"] as? String
@@ -35,7 +41,7 @@ class ChallengeDetailViewController: UIViewController {
         var frame = view.frame
         frame.offsetInPlace(dx: 0, dy: containerView.frame.minY)
         
-        let constraintHeight: CGFloat = 35 + 209 + 36 + 21 + 50 + 21 + 8 + 81
+        let constraintHeight: CGFloat = 35 + 209 + 36 + 21 + 50 + 21 + 8 + 81 + 10
         
         frame.size.height = constraintHeight + descriptionLabel.frame.size.height + ingredientsLabel.frame.size.height + dropDownView.frame.size.height - (self.navigationController?.navigationBar.frame.size.height)!
 
@@ -43,11 +49,19 @@ class ChallengeDetailViewController: UIViewController {
         
         tableView.contentSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: containerView.frame.origin.y + containerView.frame.size.height)
         
+        dropDownView.userInteractionEnabled = true
+        
+        print(UIScreen.mainScreen().bounds.size.height)
+        print(frame.size.height)
+        
 //        let guesture = UITapGestureRecognizer(target: self, action: "dropDown:")
 //        self.dropDownView.addGestureRecognizer(guesture)
         
         // Do any additional setup after loading the view.
 //        directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
+        
+        reloadTable()
+        print(posts.count)
     }
     
     func dropDown(sender:UITapGestureRecognizer) {
@@ -59,6 +73,28 @@ class ChallengeDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func reloadTable() {
+        // construct PFQuery and get all recipes
+        ParseHelper.challengeQuery(challenge.objectId!, completionBlock: {
+            (result: [PFObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            self.tableView.reloadData()
+        })
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell", forIndexPath: indexPath) as! RecipeCell
+        let post = posts[indexPath.row]
+        //Get users who liked the post
+        post.fetchLikes()
+        cell.recipe = post
+        
+        return cell
+    }
 
     
     // MARK: - Navigation
@@ -67,7 +103,7 @@ class ChallengeDetailViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if sender is ChallengePlusButton {
+        if sender is UIButton {
             let recipeAddViewController = segue.destinationViewController as! AddRecipeViewController
             
             recipeAddViewController.isChallenge = true

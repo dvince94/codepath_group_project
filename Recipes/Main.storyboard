@@ -1073,22 +1073,8 @@
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMr-wo-nej">
-                                            <rect key="frame" x="0.0" y="511" width="375" height="42"/>
+                                            <rect key="frame" x="0.0" y="527" width="375" height="42"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih6-kB-fvu" customClass="ChallengePlusButton" customModule="Recipes" customModuleProvider="target">
-                                                    <rect key="frame" x="337" y="0.0" width="30" height="42"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="42" id="afw-33-rPj"/>
-                                                        <constraint firstAttribute="width" constant="30" id="phy-Kt-aDV"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <state key="normal" title="＋">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="k10-Kn-NC0" kind="presentation" id="CWC-rZ-Iv0"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chef_Hat" translatesAutoresizingMaskIntoConstraints="NO" id="0Ef-4m-yzA">
                                                     <rect key="frame" x="8" y="8" width="26" height="26"/>
                                                     <constraints>
@@ -1096,14 +1082,28 @@
                                                         <constraint firstAttribute="height" constant="26" id="ws0-Kh-AF9"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih6-kB-fvu">
+                                                    <rect key="frame" x="337" y="0.0" width="30" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="bMs-pf-AQd"/>
+                                                        <constraint firstAttribute="height" constant="42" id="hbw-4e-eKb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <state key="normal" title="＋">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="k10-Kn-NC0" kind="presentation" id="qLP-Lm-eMH"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.19930405279999999" green="0.6432505704" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="Ih6-kB-fvu" firstAttribute="centerY" secondItem="bMr-wo-nej" secondAttribute="centerY" id="BqZ-OX-tc7"/>
                                                 <constraint firstItem="0Ef-4m-yzA" firstAttribute="centerY" secondItem="bMr-wo-nej" secondAttribute="centerY" id="RML-4T-qXU"/>
                                                 <constraint firstAttribute="height" constant="42" id="V2R-29-XXl"/>
-                                                <constraint firstItem="Ih6-kB-fvu" firstAttribute="centerY" secondItem="bMr-wo-nej" secondAttribute="centerY" id="oTT-To-Ssz"/>
                                                 <constraint firstItem="0Ef-4m-yzA" firstAttribute="leading" secondItem="bMr-wo-nej" secondAttribute="leading" constant="8" id="rPk-eH-B47"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ih6-kB-fvu" secondAttribute="trailing" constant="8" id="ud4-7t-g3t"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ih6-kB-fvu" secondAttribute="trailing" constant="8" id="szU-R3-nNj"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -1115,12 +1115,12 @@
                                         <constraint firstItem="G4I-hL-Uub" firstAttribute="top" secondItem="9PF-Mx-cEH" secondAttribute="bottom" constant="8" id="Swl-2M-Yeb"/>
                                         <constraint firstAttribute="trailing" secondItem="G4I-hL-Uub" secondAttribute="trailing" constant="8" id="Tmg-fC-Z3r"/>
                                         <constraint firstItem="GOZ-8E-PB0" firstAttribute="top" secondItem="FYs-63-QSj" secondAttribute="top" constant="35" id="Ui8-Z8-bda"/>
-                                        <constraint firstItem="bMr-wo-nej" firstAttribute="top" secondItem="OJ2-Ts-6tF" secondAttribute="bottom" constant="81" id="V5o-Bs-bBG"/>
                                         <constraint firstItem="cdp-5V-dBE" firstAttribute="top" secondItem="G4I-hL-Uub" secondAttribute="bottom" constant="50" id="eWR-JC-nhT"/>
                                         <constraint firstItem="OJ2-Ts-6tF" firstAttribute="top" secondItem="cdp-5V-dBE" secondAttribute="bottom" constant="8" id="gIN-7p-BUB"/>
                                         <constraint firstItem="cdp-5V-dBE" firstAttribute="centerX" secondItem="FYs-63-QSj" secondAttribute="centerX" id="jf7-Jb-QTE"/>
                                         <constraint firstItem="OJ2-Ts-6tF" firstAttribute="leading" secondItem="FYs-63-QSj" secondAttribute="leading" constant="8" id="kUk-Zb-or0"/>
                                         <constraint firstItem="bMr-wo-nej" firstAttribute="leading" secondItem="FYs-63-QSj" secondAttribute="leading" id="lZz-Ux-BcQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="bMr-wo-nej" secondAttribute="bottom" id="ogd-u5-XTF"/>
                                         <constraint firstAttribute="trailing" secondItem="OJ2-Ts-6tF" secondAttribute="trailing" constant="8" id="sEf-cs-BM2"/>
                                         <constraint firstItem="G4I-hL-Uub" firstAttribute="leading" secondItem="FYs-63-QSj" secondAttribute="leading" constant="8" id="x9b-zz-R2a"/>
                                         <constraint firstItem="GOZ-8E-PB0" firstAttribute="centerX" secondItem="FYs-63-QSj" secondAttribute="centerX" id="xil-Bq-vr1"/>
