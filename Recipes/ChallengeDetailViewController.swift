@@ -108,6 +108,14 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
             
             recipeAddViewController.isChallenge = true
             recipeAddViewController.challenge_id = challenge.objectId!
+        } else if sender is RecipeCell {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let recipe = posts[indexPath!.row]
+            
+            let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
+            
+            recipeDetailViewController.recipe = recipe
         }
     }
 }
