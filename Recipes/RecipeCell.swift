@@ -18,6 +18,8 @@ class RecipeCell: UITableViewCell {
     @IBOutlet weak var likesButton: UIButton!
     var likeDisposable: DisposableType?
     @IBOutlet weak var descriptionLabel: UILabel!
+    var likeImg: UIImage?
+    var unlikeImg: UIImage?
     
     var recipe: Post! {
         didSet {
@@ -37,8 +39,10 @@ class RecipeCell: UITableViewCell {
             likeDisposable = recipe.likes.observe { (value: [PFUser]?) -> () in
                 if let value = value {
                     if (value.contains(PFUser.currentUser()!)) {
-                        let image = UIImage(named: "Like.png")
-                        self.likesButton.setImage(image, forState: .Normal)
+                        self.likesButton.setImage(self.likeImg, forState: .Normal)
+                    }
+                    else {
+                        self.likesButton.setImage(self.unlikeImg, forState: .Normal)
                     }
                 }
             }
@@ -62,12 +66,10 @@ class RecipeCell: UITableViewCell {
     @IBAction func likeButtonTapped(sender: AnyObject) {
         recipe.toggleLikePost(PFUser.currentUser()!)
         if (recipe.doesUserLikePost(PFUser.currentUser()!)) {
-            let image = UIImage(named: "Like.png")
-            likesButton.setImage(image, forState: .Normal)
+            likesButton.setImage(likeImg, forState: .Normal)
         }
         else {
-            let image = UIImage(named: "Unlike.png")
-            likesButton.setImage(image, forState: .Normal)
+            likesButton.setImage(unlikeImg, forState: .Normal)
         }
     }
 

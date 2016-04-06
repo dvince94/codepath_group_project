@@ -105,6 +105,8 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
         //Get users who liked the post
         post.fetchLikes()
         cell.recipe = post
+        cell.likeImg = UIImage(named: "Good_Quality_color")
+        cell.unlikeImg = UIImage(named: "Good_Quality_plain")
         
         return cell
     }
