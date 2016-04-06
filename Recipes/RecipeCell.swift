@@ -14,12 +14,14 @@ import Bond
 class RecipeCell: UITableViewCell {
 
     @IBOutlet weak var displayImageView: PFImageView!
+    @IBOutlet weak var likeCount: UILabel!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var likesButton: UIButton!
     var likeDisposable: DisposableType?
     @IBOutlet weak var descriptionLabel: UILabel!
     var likeImg: UIImage?
     var unlikeImg: UIImage?
+    var getCount: Bool!
     
     var recipe: Post! {
         didSet {
@@ -47,6 +49,10 @@ class RecipeCell: UITableViewCell {
                 }
             }
             
+            if (getCount == true) {
+                self.likeCount.text! = "\(recipe.likeCount)"
+            }
+            
             displayImageView.layer.cornerRadius = 10.0
             displayImageView.clipsToBounds = true
         }
@@ -70,6 +76,9 @@ class RecipeCell: UITableViewCell {
         }
         else {
             likesButton.setImage(unlikeImg, forState: .Normal)
+        }
+        if (getCount == true) {
+            likeCount.text! = "\(recipe.likeCount)"
         }
     }
 

@@ -71,8 +71,10 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
     
     func dropDown(sender:UITapGestureRecognizer) {
         if open == false {
+            tableView.contentOffset = CGPointMake(0, CGFloat.max)
             open = true
         } else {
+            tableView.setContentOffset(CGPoint.init(x: 0, y: self.navigationController!.navigationBar.frame.height), animated:true)
             open = false
         }
         reloadTable()
@@ -104,6 +106,7 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
         let post = posts[indexPath.row]
         //Get users who liked the post
         post.fetchLikes()
+        cell.getCount = true
         cell.recipe = post
         cell.likeImg = UIImage(named: "Good_Quality_color")
         cell.unlikeImg = UIImage(named: "Good_Quality_plain")

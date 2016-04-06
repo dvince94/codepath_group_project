@@ -1126,7 +1126,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xSX-mh-Sxo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xSX-mh-Sxo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="FYs-63-QSj">
@@ -1232,13 +1232,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4J-HI-EEI" customClass="PFImageView">
-                                                    <rect key="frame" x="8" y="8" width="113" height="113"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="113" id="sbz-iw-zCL"/>
-                                                        <constraint firstAttribute="height" constant="113" id="sla-ny-Kjj"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvd-YW-OqL">
                                                     <rect key="frame" x="129" y="8" width="238" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1262,6 +1255,22 @@
                                                         <action selector="likeButtonTapped:" destination="aam-ib-nqq" eventType="touchUpInside" id="J59-yl-irH"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4J-HI-EEI" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="8" width="113" height="113"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="113" id="sbz-iw-zCL"/>
+                                                        <constraint firstAttribute="height" constant="113" id="sla-ny-Kjj"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWE-iL-nKu">
+                                                    <rect key="frame" x="166" y="97" width="201" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Jh1-JM-mbD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="LJo-Ov-wuB" secondAttribute="trailing" constant="8" id="0Im-dK-TuW"/>
@@ -1270,9 +1279,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="Nvd-YW-OqL" secondAttribute="trailing" constant="8" id="B20-rq-1W4"/>
                                                 <constraint firstItem="LJo-Ov-wuB" firstAttribute="top" secondItem="Nvd-YW-OqL" secondAttribute="bottom" constant="8" id="GgL-fq-KRl"/>
                                                 <constraint firstItem="087-7V-09U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LJo-Ov-wuB" secondAttribute="bottom" constant="8" id="IS2-gc-ydc"/>
+                                                <constraint firstItem="oWE-iL-nKu" firstAttribute="leading" secondItem="087-7V-09U" secondAttribute="trailing" constant="13" id="NxA-yS-r2T"/>
+                                                <constraint firstAttribute="trailing" secondItem="oWE-iL-nKu" secondAttribute="trailing" constant="8" id="Ro0-fA-VoP"/>
                                                 <constraint firstAttribute="bottom" secondItem="087-7V-09U" secondAttribute="bottom" constant="8" id="SiO-AL-n5p"/>
                                                 <constraint firstItem="LJo-Ov-wuB" firstAttribute="leading" secondItem="N4J-HI-EEI" secondAttribute="trailing" constant="8" id="URH-8w-Zvm"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="N4J-HI-EEI" secondAttribute="bottom" constant="8" id="WO3-op-oQY"/>
+                                                <constraint firstItem="oWE-iL-nKu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LJo-Ov-wuB" secondAttribute="bottom" constant="43" id="YdR-Vj-eNx"/>
+                                                <constraint firstAttribute="bottom" secondItem="oWE-iL-nKu" secondAttribute="bottom" constant="11" id="aJt-9e-Xua"/>
                                                 <constraint firstItem="N4J-HI-EEI" firstAttribute="top" secondItem="Gkc-c0-4fD" secondAttribute="top" constant="8" id="fyc-8B-shg"/>
                                                 <constraint firstItem="Nvd-YW-OqL" firstAttribute="leading" secondItem="N4J-HI-EEI" secondAttribute="trailing" constant="8" id="pB6-z0-JJ7"/>
                                                 <constraint firstItem="Nvd-YW-OqL" firstAttribute="top" secondItem="Gkc-c0-4fD" secondAttribute="top" constant="8" id="zu4-mO-Gy5"/>
@@ -1281,6 +1294,7 @@
                                         <connections>
                                             <outlet property="descriptionLabel" destination="LJo-Ov-wuB" id="bOb-Xw-3NR"/>
                                             <outlet property="displayImageView" destination="N4J-HI-EEI" id="Ksx-X8-cIs"/>
+                                            <outlet property="likeCount" destination="oWE-iL-nKu" id="gQN-jP-fit"/>
                                             <outlet property="likesButton" destination="087-7V-09U" id="TCz-SK-2D2"/>
                                             <outlet property="recipeNameLabel" destination="Nvd-YW-OqL" id="jWC-TY-5XS"/>
                                             <segue destination="BQY-F6-Hhp" kind="show" id="ppl-bo-DYL"/>
