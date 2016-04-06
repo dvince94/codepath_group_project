@@ -19,6 +19,7 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
     
     var challenge: PFObject!
     var posts: [Post] = []
+    var open: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +52,15 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
         
         dropDownView.userInteractionEnabled = true
         
+        open = false
+        
+        
+        
 //        print(UIScreen.mainScreen().bounds.size.height)
 //        print(frame.size.height)
         
-//        let guesture = UITapGestureRecognizer(target: self, action: "dropDown:")
-//        self.dropDownView.addGestureRecognizer(guesture)
+        let guesture = UITapGestureRecognizer(target: self, action: "dropDown:")
+        self.dropDownView.addGestureRecognizer(guesture)
         
         // Do any additional setup after loading the view.
 //        directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
@@ -65,7 +70,12 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func dropDown(sender:UITapGestureRecognizer) {
-        print("hi")
+        if open == false {
+            open = true
+        } else {
+            open = false
+        }
+        reloadTable()
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,6 +93,9 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if open == false {
+            return 0
+        }
         return posts.count
     }
     

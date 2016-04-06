@@ -45,8 +45,8 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         ingredientsTextView.text = "Ingredient 1\nIngredient 2\netc.."
         ingredientsTextView.textColor = UIColor.lightGrayColor()
         
-        print(ingredientsTextView.selectedRange)
-        print(ingredientsTextView.text.characters.count)
+//        print(ingredientsTextView.selectedRange)
+//        print(ingredientsTextView.text.characters.count)
 //        ParseHelper.textView(ingredientsTextView, shouldChangeTextInRange: ingredientsTextView.selectedRange, replacementText: "\n")
         
         directionsTextView.text = "Step 1\nStep 2\netc..."
