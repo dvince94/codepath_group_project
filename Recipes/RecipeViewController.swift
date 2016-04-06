@@ -52,8 +52,8 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         //Get users who liked the post
         post.fetchLikes()
         cell.recipe = post
-        cell.likeImg = UIImage(named: "Like.png")
-        cell.unlikeImg = UIImage(named: "UnLike.png")
+        cell.likeImg = UIImage(named: "Like")
+        cell.unlikeImg = UIImage(named: "Unlike")
         
         return cell
     }

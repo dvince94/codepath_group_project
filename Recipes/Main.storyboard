@@ -500,9 +500,13 @@
                                                         <action selector="likeButtonTapped:" destination="1ks-Xi-lk6" eventType="touchUpInside" id="wXN-eg-rMk"/>
                                                     </connections>
                                                 </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qxQ-R1-A9G" customClass="CosmosView" customModule="Cosmos">
-                                                    <rect key="frame" x="161" y="97" width="206" height="24"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxQ-R1-A9G" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="246" y="97" width="121" height="24"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="JZv-cm-qhF"/>
+                                                        <constraint firstAttribute="width" constant="121" id="MUq-w4-grZ"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
                                                             <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -519,12 +523,15 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="wXA-Ai-Mpa" secondAttribute="bottom" constant="8" id="6K5-Ry-xOL"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lFQ-Ac-cgL" secondAttribute="bottom" constant="8" id="6R6-8O-iAH"/>
+                                                <constraint firstAttribute="bottom" secondItem="qxQ-R1-A9G" secondAttribute="bottom" constant="8" id="9hg-lE-vEO"/>
+                                                <constraint firstItem="qxQ-R1-A9G" firstAttribute="top" relation="greaterThanOrEqual" secondItem="54N-gz-jQh" secondAttribute="bottom" constant="43" id="A0O-YR-ugL"/>
                                                 <constraint firstAttribute="trailing" secondItem="54N-gz-jQh" secondAttribute="trailing" constant="8" id="Hng-hP-poj"/>
                                                 <constraint firstAttribute="trailing" secondItem="kS3-Ll-N07" secondAttribute="trailing" constant="8" id="HoC-WT-Rz8"/>
                                                 <constraint firstItem="lFQ-Ac-cgL" firstAttribute="top" secondItem="En9-vx-SfI" secondAttribute="top" constant="8" id="NGd-QL-dXK"/>
                                                 <constraint firstItem="kS3-Ll-N07" firstAttribute="leading" secondItem="lFQ-Ac-cgL" secondAttribute="trailing" constant="8" id="Nkg-vl-kUt"/>
                                                 <constraint firstItem="wXA-Ai-Mpa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="54N-gz-jQh" secondAttribute="bottom" constant="8" id="OnG-gy-Bg0"/>
                                                 <constraint firstItem="lFQ-Ac-cgL" firstAttribute="leading" secondItem="En9-vx-SfI" secondAttribute="leading" constant="8" id="Uhb-bp-Gqi"/>
+                                                <constraint firstAttribute="trailing" secondItem="qxQ-R1-A9G" secondAttribute="trailing" constant="8" id="X5n-uw-waZ"/>
                                                 <constraint firstItem="wXA-Ai-Mpa" firstAttribute="leading" secondItem="lFQ-Ac-cgL" secondAttribute="trailing" constant="8" id="aoa-iX-zlz"/>
                                                 <constraint firstItem="kS3-Ll-N07" firstAttribute="top" secondItem="En9-vx-SfI" secondAttribute="top" constant="8" id="bUb-FR-9EZ"/>
                                                 <constraint firstItem="54N-gz-jQh" firstAttribute="leading" secondItem="lFQ-Ac-cgL" secondAttribute="trailing" constant="8" id="goT-QO-p2F"/>
