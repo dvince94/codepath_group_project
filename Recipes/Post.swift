@@ -25,6 +25,7 @@ class Post : PFObject, PFSubclassing {
     var likes: Observable<[PFUser]?>! = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
     var image: UIImage?
+    var likeCount: Int = 0
     
     //MARK: PFSubclassing Protocol
     
@@ -86,6 +87,7 @@ class Post : PFObject, PFSubclassing {
                     let fromUser = like["fromUser"] as! PFUser
                     return fromUser
                 }
+                self.likeCount = (self.likes.value?.count)!
             }
         })
     }
@@ -109,6 +111,7 @@ class Post : PFObject, PFSubclassing {
             likes.value?.append(user)
             ParseHelper.likePost(user, post: self)
         }
-        print("Number of likes \(self.likes.value?.count)")
+        //Update like count
+        self.likeCount = (self.likes.value?.count)!
     }
 }
