@@ -191,7 +191,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-SU-6aI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hangry_Dark" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-SU-6aI">
                                 <rect key="frame" x="127" y="72" width="121" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="Lba-H6-LWm"/>
@@ -247,9 +247,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="bay-il-jgk" kind="relationship" relationship="viewControllers" id="30G-7i-xsJ"/>
-                        <segue destination="QCD-bk-27a" kind="relationship" relationship="viewControllers" id="4cN-wB-vU0"/>
                         <segue destination="pr5-zN-gUt" kind="relationship" relationship="viewControllers" id="sss-M4-21e"/>
                         <segue destination="ANB-Wf-jeb" kind="relationship" relationship="viewControllers" id="aLV-Rd-LO2"/>
+                        <segue destination="QCD-bk-27a" kind="relationship" relationship="viewControllers" id="4cN-wB-vU0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1N-TT-k4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1637,6 +1637,7 @@
         <image name="Challenge" width="24" height="24"/>
         <image name="Chef_Hat" width="233" height="233"/>
         <image name="Fridge" width="50" height="50"/>
+        <image name="Hangry_Dark" width="700" height="700"/>
         <image name="Knife_Fork" width="700" height="700"/>
         <image name="Profile" width="26" height="26"/>
         <image name="Recipe" width="24" height="24"/>
