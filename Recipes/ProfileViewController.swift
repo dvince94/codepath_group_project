@@ -105,14 +105,24 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if sender is ProfileCell {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let recipe = posts[indexPath!.row]
+            
+            let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
+            
+            recipeDetailViewController.recipe = recipe
+        }
     }
-    */
+ 
 
 }
