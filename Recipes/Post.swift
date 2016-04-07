@@ -21,6 +21,7 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var ingredients: [String]?
     @NSManaged var directions: [String]?
     @NSManaged var challenge_id: String?
+    @NSManaged var tag: String?
     @NSManaged var like_count: NSNumber?
     
     var likes: Observable<[PFUser]?>! = Observable(nil)

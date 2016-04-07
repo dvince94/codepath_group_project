@@ -87,6 +87,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             post.descriptions = descriptionTextView.text
             post.ingredients = ingredients
             post.directions = directions
+            post.tag = selectedTag.text
             
             if (imageChanged == false) {
                 editedImage = UIImage(named:"Hangry_Dark.png")
@@ -170,6 +171,19 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             self.selectedTag.text = "Dinner"
         }
         
+        //Select lunch
+        let dessert = UIAlertAction(title: "Dessert", style: UIAlertActionStyle.Default) {
+            (action) in
+            self.selectedTag.text = "Dessert"
+        }
+        
+        //Select dinner
+        let snack = UIAlertAction(title: "Snack", style: UIAlertActionStyle.Default) {
+            (action) in
+            self.selectedTag.text = "Snack"
+        }
+        
+        
         
         //Create an Cancel action
         let cancel = UIAlertAction(title: "Cancel", style: .Default) { (action) in
@@ -180,6 +194,8 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         alertController.addAction(breakfast)
         alertController.addAction(lunch)
         alertController.addAction(dinner)
+        alertController.addAction(dessert)
+        alertController.addAction(snack)
         alertController.addAction(cancel)
         
         //Present view controller
