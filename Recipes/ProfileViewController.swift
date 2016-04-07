@@ -80,7 +80,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     @IBAction func editProfileTouched(sender: AnyObject) {
-        var editProfile = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
+        let editProfile = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
         editProfile.profile = self
         let editProfileNav = UINavigationController(rootViewController: editProfile)
         self.presentViewController(editProfileNav, animated: true, completion: nil)

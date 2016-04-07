@@ -91,14 +91,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         PFUser.currentUser()?.saveInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
             loadingNotification.hide(true)
             if (error != nil) {
-                var alert = UIAlertController(title: "Alert", message: error!.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert);
+                let alert = UIAlertController(title: "Alert", message: error!.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert);
                 let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
                 alert.addAction(okAction)
                 self.presentViewController(alert, animated: true, completion: nil)
                 return
             }
             if (success) {
-                var alert = UIAlertController(title: "Alert", message: "Profile Updated!", preferredStyle: UIAlertControllerStyle.Alert);
+                let alert = UIAlertController(title: "Alert", message: "Profile Updated!", preferredStyle: UIAlertControllerStyle.Alert);
                 let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
                     self.dismissViewControllerAnimated(true, completion: { () -> Void in
                         self.profile.loadUserInfo()

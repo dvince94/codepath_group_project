@@ -21,6 +21,7 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var ingredients: [String]?
     @NSManaged var directions: [String]?
     @NSManaged var challenge_id: String?
+    @NSManaged var like_count: NSNumber?
     
     var likes: Observable<[PFUser]?>! = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
@@ -66,6 +67,8 @@ class Post : PFObject, PFSubclassing {
             
             // any uploaded post should be associated with the current user
             user = PFUser.currentUser()
+            // set up like count to 0
+            like_count = 0
             self.imageFile = imageFile
             saveInBackgroundWithBlock(nil)
         }
@@ -113,5 +116,11 @@ class Post : PFObject, PFSubclassing {
         }
         //Update like count
         self.likeCount = (self.likes.value?.count)!
+        updateLikeCount()
+    }
+    
+    func updateLikeCount() {
+        like_count = self.likeCount
+        saveInBackgroundWithBlock(nil)
     }
 }

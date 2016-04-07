@@ -50,7 +50,7 @@ class RecipeCell: UITableViewCell {
             }
             
             if (getCount == true) {
-                self.likeCount.text! = "\(recipe.likeCount)"
+                self.likeCount.text! = "\(recipe.like_count!)"
             }
             
             displayImageView.layer.cornerRadius = 10.0
@@ -78,7 +78,7 @@ class RecipeCell: UITableViewCell {
             likesButton.setImage(unlikeImg, forState: .Normal)
         }
         if (getCount == true) {
-            likeCount.text! = "\(recipe.likeCount)"
+            likeCount.text! = "\(recipe.like_count!)"
         }
     }
 
