@@ -9,5 +9,7 @@ pod 'Parse'
 pod 'ParseUI'
 pod 'Bond'
 pod 'Cosmos', '~> 1.2'
+pod ‘MBProgressHUD’
+
 end
 

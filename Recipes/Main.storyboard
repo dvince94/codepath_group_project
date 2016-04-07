@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -214,7 +214,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Edit Profile" id="mpE-vW-dR0">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="1e7-YA-UzM" kind="show" id="5Ui-ki-YWF"/>
+                                <action selector="editProfileTouched:" destination="Yqk-1j-fkM" id="4s3-gV-iRc"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="HzV-Be-P7l">
@@ -226,6 +226,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="arw-W6-al8" id="yFe-bh-xw6"/>
                         <outlet property="profileImage" destination="l8b-SU-6aI" id="Iti-N7-NnR"/>
                         <outlet property="tableView" destination="EBd-q1-MaD" id="S3N-IV-v3J"/>
                         <outlet property="usernameLabel" destination="Xhr-AF-Daz" id="p0M-vm-O3m"/>

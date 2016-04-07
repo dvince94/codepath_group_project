@@ -13,15 +13,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    
     var posts: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         usernameLabel.text = PFUser.currentUser()?.username
-        // need to correct when profilePic key is created
-        // profileImage = PFUser.currentUser()!["profilePic"] as! PFFile
+        loadUserInfo()
         
         // Do any additional setup after loading the view.
         tableView.delegate = self
@@ -78,6 +79,32 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
 
+    @IBAction func editProfileTouched(sender: AnyObject) {
+        var editProfile = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
+        editProfile.profile = self
+        let editProfileNav = UINavigationController(rootViewController: editProfile)
+        self.presentViewController(editProfileNav, animated: true, completion: nil)
+    }
+    
+    func loadUserInfo() {
+        if (PFUser.currentUser()?.objectForKey("profilePic") != nil) {
+            let profilePicFile: PFFile = PFUser.currentUser()?.objectForKey("profilePic") as! PFFile
+            profilePicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                if (imageData != nil) {
+                    self.profileImage.image = UIImage(data: imageData!)
+                }
+            })
+        }
+        if (PFUser.currentUser()?.objectForKey("backgroundPic") != nil) {
+            let backgroundPicFile: PFFile = PFUser.currentUser()?.objectForKey("backgroundPic") as! PFFile
+            backgroundPicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                if (imageData != nil) {
+                    self.backgroundImage.image = UIImage(data: imageData!)
+                }
+            })
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
