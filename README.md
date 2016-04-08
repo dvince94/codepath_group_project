@@ -2,7 +2,7 @@
 
 Recipes (temporary name) is a recipe challenge app in which a user shares which ingredients he/she contains in his/her fridge. Others then come up with a recipe for the posted challenge or vote for which ones they think are best.
 
-Time spent: **10** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -11,10 +11,11 @@ The following **required** functionality is completed:
 - [x] User can sign up to create a new account using Parse authentication
 - [x] User can log in and log out of his or her account
 - [x] The current signed in user is persisted across app restarts
-- [ ] User can post a recipe building challenge
-- [ ] Others should be able to build the recipe using the challenge ingredients
+- [x] User can post a recipe building challenge
+- [x] Others should be able to build the recipe using the challenge ingredients
 - [x] Recipes built can be voted on to figure which is best
 - [x] Display list of recipes
+- [x] Filtered breakfast, lunch, dinner, dessert, snack
 
 The following **optional** features are implemented:
 
@@ -86,6 +87,9 @@ Here's a walkthrough of implemented user stories:
 Walkthrough for week 2 of implemented user stories:
 
 <img src='http://i.imgur.com/xvQYEjl.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+Walkthrough for week 3 of implemented user stories:
+<img src=http://i.imgur.com/jbnSqrX.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
