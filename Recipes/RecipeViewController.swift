@@ -12,14 +12,20 @@ import Cosmos
 class RecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
    
+    @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var posts: [Post] = []
+    var hideFilter: Bool!
+    var current_filter: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
+        hideFilter = true
+        filterView.hidden = hideFilter
+        current_filter = "All"
        
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,7 +34,7 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewDidAppear(animated: Bool) {
-        reloadTable()
+        reloadTable(current_filter)
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,13 +42,13 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    func reloadTable() {
+    func reloadTable(filter: String) {
         // construct PFQuery and get all recipes
-        ParseHelper.recipeQuery {
+        ParseHelper.recipeQuery(current_filter, completionBlock: {
             (result: [PFObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             self.tableView.reloadData()
-        }
+        })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,10 +64,25 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         cell.recipe = post
         cell.likeImg = UIImage(named: "Like")
         cell.unlikeImg = UIImage(named: "Unlike")
-        
         return cell
     }
 
+    @IBAction func onFilterClicked(sender: AnyObject) {
+        if hideFilter == true {
+            hideFilter = false
+            filterView.hidden = hideFilter
+        } else {
+            hideFilter = true
+            filterView.hidden = hideFilter
+        }
+    }
+    
+    @IBAction func onFilterItemClicked(sender: AnyObject) {
+        current_filter = sender.currentTitle!
+        reloadTable(current_filter)
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

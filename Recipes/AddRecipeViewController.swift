@@ -90,9 +90,10 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             post.directions = directions
             post.tag = selectedTag.text
             
-            if (imageChanged == false) {
-                editedImage = UIImage(named:"Hangry_Dark.png")
-                print(challenge_id)
+            if (isChallenge == true) {
+                if (imageChanged == false) {
+                    editedImage = UIImage(named:"Hangry_Dark.png")
+                }
                 post.challenge_id = challenge_id!
             } else {
                 post.challenge_id = "0"

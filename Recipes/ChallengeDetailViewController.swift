@@ -71,7 +71,7 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
     
     func dropDown(sender:UITapGestureRecognizer) {
         if open == false {
-            tableView.contentOffset = CGPointMake(0, CGFloat.max)
+//            tableView.contentOffset = CGPointMake(0, CGFloat.max)
             open = true
         } else {
             tableView.setContentOffset(CGPoint.init(x: 0, y: self.navigationController!.navigationBar.frame.height), animated:true)
@@ -113,7 +113,19 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
         
         return cell
     }
+    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        CGFloat height = 0.0;
+//        
+//    }
 
+//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        if (section == 3) {
+//            return 0
+//        } else {
+//            return super.tableView(tableView, heightForHeaderInSection: section)
+//        }
+//    }
     
     // MARK: - Navigation
 

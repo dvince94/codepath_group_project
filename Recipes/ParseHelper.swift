@@ -57,10 +57,13 @@ class ParseHelper {
     }
     
     //Query for all recipes
-    static func recipeQuery(completionBlock: PFQueryArrayResultBlock?) {
+    static func recipeQuery(filter: String!, completionBlock: PFQueryArrayResultBlock?) {
         
         let postsFromNonChallenges = Post.query()
         postsFromNonChallenges!.whereKey("challenge_id", equalTo: "0")
+        if filter != "All" {
+            postsFromNonChallenges!.whereKey("tag", equalTo: filter)
+        }
         
         let query = PFQuery.orQueryWithSubqueries([postsFromNonChallenges!])
         query.includeKey("user")
