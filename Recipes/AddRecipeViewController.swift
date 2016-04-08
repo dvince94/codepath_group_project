@@ -31,6 +31,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         // Do any additional setup after loading the view.
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        imagePicker.navigationBar.tintColor = UIColor.blackColor()
         
         //Enable user interaction
         imageView.userInteractionEnabled = true

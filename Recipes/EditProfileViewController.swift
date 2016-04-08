@@ -29,6 +29,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         loadUserInfo()
         self.navigationItem.title = "Edit Profile"
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         
         // Do any additional setup after loading the view.
     }
@@ -42,6 +43,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         profilePicEdited = true
         backgroundPicEdited = false
         let profilePicController = UIImagePickerController()
+        profilePicController.navigationBar.tintColor = UIColor.blackColor()
         profilePicController.delegate = self
         profilePicController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -52,6 +54,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         backgroundPicEdited = true
         profilePicEdited = false
         let backgroundPicController = UIImagePickerController()
+        backgroundPicController.navigationBar.tintColor = UIColor.blackColor()
         backgroundPicController.delegate = self
         backgroundPicController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
