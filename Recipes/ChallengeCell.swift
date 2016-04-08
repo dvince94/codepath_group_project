@@ -13,7 +13,6 @@ class ChallengeCell: UITableViewCell {
 
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var authorNameLabel: UILabel!
-    @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var challenge: PFObject! {
@@ -21,8 +20,7 @@ class ChallengeCell: UITableViewCell {
             recipeNameLabel.text = challenge["title"] as? String
             let user = challenge["author"] as? PFUser
             authorNameLabel.text = "by " + ((user?.username)! as String)
-            ingredientsLabel.text = Recipe.printIngredients(challenge["ingredients"] as! [String])
-            descriptionLabel.text = challenge["descritption"] as? String
+            descriptionLabel.text = challenge["description"] as? String
         }
     }
     
