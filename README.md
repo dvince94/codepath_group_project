@@ -89,6 +89,7 @@ Walkthrough for week 2 of implemented user stories:
 <img src='http://i.imgur.com/xvQYEjl.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Walkthrough for week 3 of implemented user stories:
+
 <img src=http://i.imgur.com/jbnSqrX.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
