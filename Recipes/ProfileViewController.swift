@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         reloadTable()
+        loadUserInfo()
     }
     
     override func didReceiveMemoryWarning() {

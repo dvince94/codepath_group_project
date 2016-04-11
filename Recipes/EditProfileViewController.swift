@@ -103,9 +103,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             if (success) {
                 let alert = UIAlertController(title: "Alert", message: "Profile Updated!", preferredStyle: UIAlertControllerStyle.Alert);
                 let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                        //self.profile.loadUserInfo()
-                    })
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 })
                 alert.addAction(okAction)
                 self.presentViewController(alert, animated: true, completion: nil)
