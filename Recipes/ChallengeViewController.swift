@@ -17,6 +17,9 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = "Challenge"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self

@@ -14,6 +14,10 @@ class AddChallengeViewController: UIViewController, UITextViewDelegate  {
     @IBOutlet weak var descriptionTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Create Challenge"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        
         ingredientsTextView.text = "Ingredient 1\nIngredient 2\netc.."
         ingredientsTextView.textColor = UIColor.lightGrayColor()
         

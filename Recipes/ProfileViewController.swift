@@ -23,7 +23,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         usernameLabel.text = PFUser.currentUser()?.username
         loadUserInfo()
-        
+        self.navigationItem.title = "Profile"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
@@ -77,13 +78,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.recipe = post
         
         return cell
-    }
-
-    @IBAction func editProfileTouched(sender: AnyObject) {
-        let editProfile = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
-        editProfile.profile = self
-        let editProfileNav = UINavigationController(rootViewController: editProfile)
-        self.presentViewController(editProfileNav, animated: true, completion: nil)
     }
     
     func loadUserInfo() {

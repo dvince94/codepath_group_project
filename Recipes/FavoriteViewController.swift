@@ -17,6 +17,9 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Favorite"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self

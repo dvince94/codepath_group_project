@@ -21,6 +21,9 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Recipe"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        
         // Do any additional setup after loading the view.
         
         hideFilter = true

@@ -104,7 +104,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 let alert = UIAlertController(title: "Alert", message: "Profile Updated!", preferredStyle: UIAlertControllerStyle.Alert);
                 let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
                     self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                        self.profile.loadUserInfo()
+                        //self.profile.loadUserInfo()
                     })
                 })
                 alert.addAction(okAction)
@@ -113,6 +113,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
+    @IBAction func cancelTouched(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     func loadUserInfo() {
         if (PFUser.currentUser()?.objectForKey("profilePic") != nil) {
             let profilePicFile: PFFile = PFUser.currentUser()?.objectForKey("profilePic") as! PFFile

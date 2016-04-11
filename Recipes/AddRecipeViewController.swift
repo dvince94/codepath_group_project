@@ -28,6 +28,10 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Add Recipe"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        
         // Do any additional setup after loading the view.
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
