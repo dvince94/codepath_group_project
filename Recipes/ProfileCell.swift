@@ -14,12 +14,19 @@ class ProfileCell: UITableViewCell {
 
     @IBOutlet weak var recipeImage: PFImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var recipe: Post! {
         didSet {
             self.recipeImage.file = recipe.imageFile
             self.recipeImage.loadInBackground()
             recipeNameLabel.text = recipe.title
+            
+            let dateCreated = recipe.createdAt! as NSDate
+            let dateFormat = NSDateFormatter()
+            dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
+            dateLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
+            dateLabel.sizeToFit()
         }
     }
     

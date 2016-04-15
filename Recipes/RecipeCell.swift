@@ -21,9 +21,13 @@ class RecipeCell: UITableViewCell {
     @IBOutlet weak var likesButton: UIButton!
     var likeDisposable: DisposableType?
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     var likeImg: UIImage?
     var unlikeImg: UIImage?
     var getCount: Bool!
+    var hour: String?
+    var timeStamp: String?
     
     var recipe: Post! {
         didSet {
@@ -36,6 +40,11 @@ class RecipeCell: UITableViewCell {
             descriptionLabel.text = recipe.descriptions
             descriptionLabel.sizeToFit()
             
+            let dateCreated = recipe.createdAt! as NSDate
+            let dateFormat = NSDateFormatter()
+            dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
+            dateLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
+            dateLabel.sizeToFit()
             //The observe method takes one parameter, a closure (defined as a trailing closure in the code above), 
             //which in our case has type [PFUser]? -> (). 
             //The code defined by the closure will be executed whenever post.likes receives a new value. 

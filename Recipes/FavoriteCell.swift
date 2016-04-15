@@ -15,6 +15,7 @@ class FavoriteCell: UITableViewCell {
     @IBOutlet weak var displayImageView: PFImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var recipe: Post! {
         didSet {
@@ -28,6 +29,12 @@ class FavoriteCell: UITableViewCell {
             
             displayImageView.layer.cornerRadius = 10.0
             displayImageView.clipsToBounds = true
+            
+            let dateCreated = recipe.createdAt! as NSDate
+            let dateFormat = NSDateFormatter()
+            dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
+            dateLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
+            dateLabel.sizeToFit()
         }
     }
 

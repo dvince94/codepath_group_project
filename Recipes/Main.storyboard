@@ -165,6 +165,12 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydG-Ah-1v2">
+                                                    <rect key="frame" x="265" y="4" width="102" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="sYT-Li-vm1" firstAttribute="leading" secondItem="b4n-Bt-AGn" secondAttribute="trailing" constant="8" id="Egh-4u-hpA"/>
@@ -179,6 +185,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="ydG-Ah-1v2" id="EH6-ai-B9e"/>
                                             <outlet property="recipeImage" destination="b4n-Bt-AGn" id="04F-gm-E1J"/>
                                             <outlet property="recipeNameLabel" destination="sYT-Li-vm1" id="fe1-01-vPo"/>
                                             <segue destination="Z5e-lD-h5s" kind="show" id="UBd-So-7x6"/>
@@ -300,6 +307,12 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created At" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83O-kc-Uvv">
+                                                    <rect key="frame" x="306" y="25" width="61" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -316,6 +329,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="authorNameLabel" destination="EBb-pr-kZ2" id="qQ0-RZ-cVc"/>
+                                            <outlet property="createdAtLabel" destination="83O-kc-Uvv" id="vWD-yU-UTl"/>
                                             <outlet property="descriptionLabel" destination="Ipj-Jb-k3a" id="feC-2Q-vps"/>
                                             <outlet property="recipeNameLabel" destination="YfV-ev-Loc" id="eJb-sc-iSc"/>
                                             <segue destination="P82-PW-BSx" kind="show" id="bKu-pF-bXD"/>
@@ -394,6 +408,12 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MS-Ke-XID">
+                                                    <rect key="frame" x="265" y="8" width="102" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="HPG-bL-S1h" firstAttribute="leading" secondItem="h42-5g-4t0" secondAttribute="leading" constant="8" id="1tf-vb-b6c"/>
@@ -410,6 +430,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="4MS-Ke-XID" id="r9m-E9-Bvj"/>
                                             <outlet property="descriptionLabel" destination="0Rl-hW-htx" id="iQ9-pV-vE3"/>
                                             <outlet property="displayImageView" destination="HPG-bL-S1h" id="sEH-Su-2rI"/>
                                             <outlet property="recipeNameLabel" destination="1Jx-V4-h1M" id="jaF-U3-jhM"/>
@@ -513,6 +534,12 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pe-1P-7W1">
+                                                    <rect key="frame" x="265" y="8" width="102" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="wXA-Ai-Mpa" secondAttribute="trailing" constant="8" id="24q-uM-L5S"/>
@@ -533,6 +560,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="2Pe-1P-7W1" id="Van-57-mJ4"/>
                                             <outlet property="descriptionLabel" destination="54N-gz-jQh" id="jcF-Hd-1Dg"/>
                                             <outlet property="displayImageView" destination="lFQ-Ac-cgL" id="2Ti-eU-PxQ"/>
                                             <outlet property="likesButton" destination="wXA-Ai-Mpa" id="zPn-tR-kD7"/>
@@ -1513,7 +1541,7 @@
         <image name="Unlike" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="qe8-LP-L9f"/>
         <segue reference="UBd-So-7x6"/>
-        <segue reference="FZe-kX-cfO"/>
     </inferredMetricsTieBreakers>
 </document>
