@@ -12,6 +12,7 @@
 		0A4089081C9A098400C833FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4089071C9A098400C833FD /* LoginViewController.swift */; };
 		0A40890B1C9A2AEA00C833FD /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40890A1C9A2AEA00C833FD /* RecipeViewController.swift */; };
 		0A5313641CAB381700899621 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5313631CAB381700899621 /* ParseHelper.swift */; };
+		0A72034B1CC2D0D4004FB435 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72034A1CC2D0D4004FB435 /* SideBarViewController.swift */; };
 		0A90C1FB1CAB056C006EB275 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C1FA1CAB056C006EB275 /* ChallengeViewController.swift */; };
 		0A90C1FE1CAB05F8006EB275 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C1FD1CAB05F8006EB275 /* ChallengeCell.swift */; };
 		0A90C2001CAB0661006EB275 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C1FF1CAB0661006EB275 /* Challenge.swift */; };
@@ -38,6 +39,7 @@
 		0A4089071C9A098400C833FD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0A40890A1C9A2AEA00C833FD /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		0A5313631CAB381700899621 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		0A72034A1CC2D0D4004FB435 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		0A90C1FA1CAB056C006EB275 /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		0A90C1FD1CAB05F8006EB275 /* ChallengeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		0A90C1FF1CAB0661006EB275 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				0AEE87931CAB463900390692 /* AddChallengeViewController.swift */,
 				4553D7191CAE53A800F9361E /* FavoriteViewController.swift */,
 				2A1AB5861CB330D600F29479 /* EditProfileViewController.swift */,
+				0A72034A1CC2D0D4004FB435 /* SideBarViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				4553D71A1CAE53A800F9361E /* FavoriteViewController.swift in Sources */,
 				450BB31A1CA218B7001DC54A /* ProfileViewController.swift in Sources */,
 				0A90C2001CAB0661006EB275 /* Challenge.swift in Sources */,
+				0A72034B1CC2D0D4004FB435 /* SideBarViewController.swift in Sources */,
 				0A40890B1C9A2AEA00C833FD /* RecipeViewController.swift in Sources */,
 				2A1AB5871CB330D600F29479 /* EditProfileViewController.swift in Sources */,
 				0A0D58101CA47A3E005B37EB /* RecipeCell.swift in Sources */,

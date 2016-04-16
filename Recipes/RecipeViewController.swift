@@ -12,7 +12,7 @@ import Cosmos
 class RecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
    
-    @IBOutlet weak var filterView: UIView!
+//    @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var posts: [Post] = []
     var hideFilter: Bool!
@@ -24,7 +24,7 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
         
         hideFilter = true
-        filterView.hidden = hideFilter
+//        filterView.hidden = hideFilter
         current_filter = "All"
        
         tableView.delegate = self
@@ -67,15 +67,15 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
 
-    @IBAction func onFilterClicked(sender: AnyObject) {
-        if hideFilter == true {
-            hideFilter = false
-            filterView.hidden = hideFilter
-        } else {
-            hideFilter = true
-            filterView.hidden = hideFilter
-        }
-    }
+//    @IBAction func onFilterClicked(sender: AnyObject) {
+//        if hideFilter == true {
+//            hideFilter = false
+//            filterView.hidden = hideFilter
+//        } else {
+//            hideFilter = true
+//            filterView.hidden = hideFilter
+//        }
+//    }
     
     @IBAction func onFilterItemClicked(sender: AnyObject) {
         current_filter = sender.currentTitle!
