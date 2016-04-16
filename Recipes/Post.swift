@@ -26,10 +26,11 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var rating_count: NSNumber?
     
     var likes: Observable<[PFUser]?>! = Observable(nil)
+    var ratings: Observable<[PFUser]?>! = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
     var image: UIImage?
     var likeCount: Int = 0
-    var ratingCount: Double = 0
+    var userRating: Int = 0
     
     //MARK: PFSubclassing Protocol
     
@@ -76,6 +77,60 @@ class Post : PFObject, PFSubclassing {
             saveInBackgroundWithBlock(nil)
         }
     }
+    
+    // MARK: Rating
+    func fetchRatings() {
+        if (ratings.value != nil) {
+            return
+        }
+        
+        ParseHelper.ratingForPost(self, completionBlock: { (rates: [PFObject]?, error: NSError?) -> Void in
+            if let rate = rates {
+                // do something with the data fetched
+                let r = rate.filter { rate in rate["fromUser"] != nil}
+                self.ratings.value = r.map { rate in
+                    let fromUser = rate["fromUser"] as! PFUser
+                    return fromUser
+                }
+                for i in rate {
+                    let fromUser = i["fromUser"] as! PFUser
+                    if (fromUser == PFUser.currentUser()!) {
+                        self.userRating = i["rating"] as! Int
+                        break
+                    }
+                }
+            }
+        })
+    }
+    
+    //Check if user rated the post already
+    func userRatedPost(user: PFUser) -> Bool {
+        if let rating = ratings.value {
+            return rating.contains(user)
+        }
+        return false
+    }
+    
+    func updateRating(user: PFUser, rate: Int) {
+        var totalRating = (rating_count as! Int) * (ratings.value?.count)!
+        if (userRatedPost(user)) {
+            let value = rate - userRating
+            totalRating += value
+            ParseHelper.updateRating(user, post: self, rating: rate)
+        }
+        else {
+            ratings.value?.append(user)
+            totalRating += rate
+            ParseHelper.ratePost(user, post: self, rating: rate)
+        }
+        updateRateCount(totalRating)
+    }
+    
+    func updateRateCount(rate: Int) {
+        rating_count = rate / (ratings.value?.count)!
+        saveInBackgroundWithBlock(nil)
+    }
+    
     
     // MARK: Likes
     
@@ -124,11 +179,6 @@ class Post : PFObject, PFSubclassing {
     
     func updateLikeCount() {
         like_count = self.likeCount
-        saveInBackgroundWithBlock(nil)
-    }
-    
-    func updateRateCount() {
-        rating_count = self.ratingCount
         saveInBackgroundWithBlock(nil)
     }
 }

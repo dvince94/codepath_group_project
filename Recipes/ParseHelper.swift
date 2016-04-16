@@ -88,6 +88,39 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    //MARK: Rate
+    static func ratePost(user: PFUser, post: Post, rating: Int) {
+        let ratedObject = PFObject(className: "Rate")
+        ratedObject["fromUser"] = user
+        ratedObject["toPost"] = post
+        ratedObject["postId"] = post.objectId
+        ratedObject["rating"] = rating
+        ratedObject.saveInBackgroundWithBlock(nil)
+    }
+    
+    static func updateRating(user: PFUser, post: Post, rating: Int) {
+        let query = PFQuery(className: "Rate")
+        query.whereKey("fromUser", equalTo: user)
+        query.whereKey("toPost", equalTo: post)
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            if let results = results as [PFObject]? {
+                for r in results {
+                    r["rating"] = rating
+                    r.saveInBackgroundWithBlock(nil)
+                }
+            }
+        }
+    }
+    
+    //Fetch all rating for a given post
+    static func ratingForPost(post: Post, completionBlock: PFQueryArrayResultBlock) {
+        let query = PFQuery(className: "Rate")
+        query.whereKey("toPost", equalTo: post)
+        query.includeKey("fromUser")
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
     //MARK: Like
     
     //Likes a post
@@ -113,15 +146,6 @@ class ParseHelper {
             }
         }
     }
-    
-    /*//Rate a post
-    static func ratePost(user: PFUser, post: Post) {
-    let rateObject = PFObject(className: "Rate")
-    rateObject["fromUser"] = user
-    rateObject["toPost"] = post
-    rateObject["postId"] = post.objectId
-    rateObject.saveInBackgroundWithBlock(nil)
-    }*/
     
     //Fetch all likes for a given post
     static func likesForPost(post: Post, completionBlock: PFQueryArrayResultBlock) {
