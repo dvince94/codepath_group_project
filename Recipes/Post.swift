@@ -23,11 +23,13 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var challenge_id: String?
     @NSManaged var tag: String?
     @NSManaged var like_count: NSNumber?
+    @NSManaged var rating_count: NSNumber?
     
     var likes: Observable<[PFUser]?>! = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
     var image: UIImage?
     var likeCount: Int = 0
+    var ratingCount: Double = 0
     
     //MARK: PFSubclassing Protocol
     
@@ -122,6 +124,11 @@ class Post : PFObject, PFSubclassing {
     
     func updateLikeCount() {
         like_count = self.likeCount
+        saveInBackgroundWithBlock(nil)
+    }
+    
+    func updateRateCount() {
+        rating_count = self.ratingCount
         saveInBackgroundWithBlock(nil)
     }
 }

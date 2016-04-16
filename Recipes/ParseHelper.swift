@@ -56,6 +56,22 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    /*//Query of user's rated post
+    static func rateQuery(completionBlock: PFQueryArrayResultBlock?) {
+    let followingQuery = PFQuery(className: "Rate")
+    followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
+    
+    let postsFromRatedUsers = Post.query()
+    postsFromRatedUsers!.whereKey("objectId", matchesKey: "postId", inQuery: followingQuery)
+    
+    let query = PFQuery.orQueryWithSubqueries([postsFromRatedUsers!])
+    query.includeKey("user")
+    //query.orderByDescending("createdAt")
+    query.limit = 20
+    
+    query.findObjectsInBackgroundWithBlock(completionBlock)
+    }*/
+    
     //Query for all recipes
     static func recipeQuery(filter: String!, completionBlock: PFQueryArrayResultBlock?) {
         
@@ -97,6 +113,15 @@ class ParseHelper {
             }
         }
     }
+    
+    /*//Rate a post
+    static func ratePost(user: PFUser, post: Post) {
+    let rateObject = PFObject(className: "Rate")
+    rateObject["fromUser"] = user
+    rateObject["toPost"] = post
+    rateObject["postId"] = post.objectId
+    rateObject.saveInBackgroundWithBlock(nil)
+    }*/
     
     //Fetch all likes for a given post
     static func likesForPost(post: Post, completionBlock: PFQueryArrayResultBlock) {
