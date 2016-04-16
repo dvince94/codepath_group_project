@@ -51,7 +51,11 @@ class LoginViewController: UIViewController {
             } else {
                 print(error?.localizedDescription)
                 if error?.code == 202 {
+                    self.showAlertMessage("Sign Up Error", messages: "Username taken")
                     print("User name is taken")
+                }
+                else {
+                    self.showAlertMessage("Login Error", messages: "\(error!.localizedDescription)")
                 }
             }
         }
@@ -63,6 +67,25 @@ class LoginViewController: UIViewController {
                 print("you're logged in!")
                 self.performSegueWithIdentifier("loginSegue", sender: nil)
             }
+            else {
+                self.showAlertMessage("Login Error", messages: "\(error!.localizedDescription)")
+            }
+        }
+    }
+    
+    //Show error message
+    func showAlertMessage(titles: String, messages: String) {
+        let alertController = UIAlertController(title: "\(titles)", message: "\(messages)", preferredStyle: .Alert)
+        
+        // create an OK action
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            // handle response here.
+        }
+        // add the OK action to the alert controller
+        alertController.addAction(OKAction)
+        
+        presentViewController(alertController, animated: true) {
+            // optional code for what happens after the alert controller has finished presenting
         }
     }
 
