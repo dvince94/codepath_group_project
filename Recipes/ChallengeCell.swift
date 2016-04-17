@@ -15,19 +15,32 @@ class ChallengeCell: UITableViewCell {
     @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
     
     var challenge: PFObject! {
         didSet {
             recipeNameLabel.text = challenge["title"] as? String
+            recipeNameLabel.sizeToFit()
             let user = challenge["author"] as? PFUser
-            authorNameLabel.text = "by " + ((user?.username)! as String)
+            authorNameLabel.text = "By " + ((user?.username)! as String)
             descriptionLabel.text = challenge["description"] as? String
             
             let dateCreated = challenge.createdAt! as NSDate
             let dateFormat = NSDateFormatter()
-            dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
-            createdAtLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
+            let timeFormat = NSDateFormatter()
+            dateFormat.dateFormat = "MMM d, yyyy"
+            timeFormat.dateFormat = "hh:mm a"
+            createdAtLabel.text = "Created on " + (NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String) + "\n" + "at " + (NSString(format: "%@", timeFormat.stringFromDate(dateCreated)) as String)
             createdAtLabel.sizeToFit()
+            
+            if (PFUser.currentUser()?.objectForKey("profilePic") != nil) {
+                let profilePicFile: PFFile = PFUser.currentUser()?.objectForKey("profilePic") as! PFFile
+                profilePicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                    if (imageData != nil) {
+                        self.profileImage.image = UIImage(data: imageData!)
+                    }
+                })
+            }
         }
     }
     

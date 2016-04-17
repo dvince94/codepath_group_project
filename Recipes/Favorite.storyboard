@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Favorite View Controller-->
@@ -51,9 +52,9 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gc-xl-bG0">
-                                                    <rect key="frame" x="265" y="8" width="102" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date Created" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gc-xl-bG0">
+                                                    <rect key="frame" x="286" y="8" width="81" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -61,15 +62,18 @@
                                             <constraints>
                                                 <constraint firstItem="jeY-nb-Trk" firstAttribute="top" secondItem="zj4-um-eD7" secondAttribute="bottom" constant="8" id="1LQ-Yf-R7H"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UN7-eT-idP" secondAttribute="bottom" constant="8" id="2ES-vD-227"/>
+                                                <constraint firstItem="4Gc-xl-bG0" firstAttribute="leading" secondItem="UN7-eT-idP" secondAttribute="trailing" constant="165" id="3ZQ-Nu-L5Z"/>
                                                 <constraint firstItem="UN7-eT-idP" firstAttribute="top" secondItem="Hqt-rE-JsH" secondAttribute="top" constant="8" id="4t3-u0-xsF"/>
                                                 <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="jeY-nb-Trk" secondAttribute="bottom" constant="71" id="6TL-qP-y9e"/>
                                                 <constraint firstAttribute="trailing" secondItem="jeY-nb-Trk" secondAttribute="trailing" constant="8" id="CvL-Y6-H8Z"/>
                                                 <constraint firstItem="jeY-nb-Trk" firstAttribute="top" secondItem="zj4-um-eD7" secondAttribute="bottom" constant="8" id="EQG-jz-wya"/>
                                                 <constraint firstItem="zj4-um-eD7" firstAttribute="top" secondItem="Hqt-rE-JsH" secondAttribute="top" constant="8" id="FtA-qu-JDz"/>
+                                                <constraint firstItem="4Gc-xl-bG0" firstAttribute="top" secondItem="Hqt-rE-JsH" secondAttribute="topMargin" id="YOS-ED-WfR"/>
                                                 <constraint firstItem="jeY-nb-Trk" firstAttribute="leading" secondItem="UN7-eT-idP" secondAttribute="trailing" constant="8" id="ZcT-qz-woy"/>
                                                 <constraint firstItem="UN7-eT-idP" firstAttribute="leading" secondItem="Hqt-rE-JsH" secondAttribute="leading" constant="8" id="bON-Cp-rOg"/>
                                                 <constraint firstAttribute="trailing" secondItem="zj4-um-eD7" secondAttribute="trailing" constant="8" id="fJz-iP-bie"/>
                                                 <constraint firstItem="zj4-um-eD7" firstAttribute="leading" secondItem="UN7-eT-idP" secondAttribute="trailing" constant="8" id="n5d-l4-o0g"/>
+                                                <constraint firstItem="4Gc-xl-bG0" firstAttribute="trailing" secondItem="Hqt-rE-JsH" secondAttribute="trailingMargin" constant="1" id="w8R-GG-RNO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
