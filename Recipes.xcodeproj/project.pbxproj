@@ -33,6 +33,7 @@
 		455F550E1CC2EC1D00018D48 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F550D1CC2EC1D00018D48 /* Challenge.storyboard */; };
 		455F55101CC2ECC900018D48 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F550F1CC2ECC900018D48 /* Favorite.storyboard */; };
 		455F55121CC2F34400018D48 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455F55111CC2F34400018D48 /* TabBarViewController.swift */; };
+		45B607011CC412A300C1AE17 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B607001CC412A300C1AE17 /* CollectionCell.swift */; };
 		45E556811CA37C35006CBC1A /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */; };
 		977F162F35A68AF318833F2E /* Pods_Recipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		455F550F1CC2ECC900018D48 /* Favorite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
 		455F55111CC2F34400018D48 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		458FA3514571608031B55467 /* Pods-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recipes/Pods-Recipes.release.xcconfig"; sourceTree = "<group>"; };
+		45B607001CC412A300C1AE17 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C4BA82C0736195F916DCAD /* Pods-Recipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recipes/Pods-Recipes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				0A90C1FD1CAB05F8006EB275 /* ChallengeCell.swift */,
 				2A572C7E1CAB576000B0E0EB /* ProfileCell.swift */,
 				4553D7171CAE535F00F9361E /* FavoriteCell.swift */,
+				45B607001CC412A300C1AE17 /* CollectionCell.swift */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				455F55121CC2F34400018D48 /* TabBarViewController.swift in Sources */,
 				2A1AB5871CB330D600F29479 /* EditProfileViewController.swift in Sources */,
 				0A0D58101CA47A3E005B37EB /* RecipeCell.swift in Sources */,
+				45B607011CC412A300C1AE17 /* CollectionCell.swift in Sources */,
 				0AEE87941CAB463900390692 /* AddChallengeViewController.swift in Sources */,
 				0A0D580D1CA3663F005B37EB /* Recipe.swift in Sources */,
 				0A4089081C9A098400C833FD /* LoginViewController.swift in Sources */,
