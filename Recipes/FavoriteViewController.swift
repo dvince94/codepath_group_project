@@ -9,10 +9,16 @@
 import UIKit
 import Parse
 
-class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate  {
     
+    @IBOutlet weak var toggleButton: UIBarButtonItem!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     var posts: [Post] = []
+    var toggleView: Bool!
+    var tableImg = UIImage(named: "table")
+    var collectionImg = UIImage(named: "collection")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +31,9 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
+        
+        view2.hidden = true
+        toggleView = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -41,9 +50,47 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         ParseHelper.favoriteQuery {
             (result: [PFObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
-            self.tableView.reloadData()
+            if self.toggleView == true {
+                self.tableView.reloadData()
+            }
+            else {
+                self.collectionView.reloadData()
+            }
+            
         }
     }
+    
+    @IBAction func toggleButtonTapped(sender: AnyObject) {
+        if (toggleView == true) {
+            toggleView = false
+            view2.hidden = false
+            toggleButton.image = tableImg
+        }
+        else {
+            toggleView = true
+            view2.hidden = true
+            toggleButton.image = collectionImg
+        }
+        reloadTable()
+    }
+    //MARK: Collectionview Methods
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionCell", forIndexPath: indexPath) as! CollectionCell
+        
+        let post = posts[indexPath.row]
+        //Get users who liked the post
+        post.fetchLikes()
+        cell.recipe = post
+        
+        return cell
+    }
+
+    
+    //MARK: Tableview Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -71,6 +118,15 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         if sender is FavoriteCell {
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)
+            let recipe = posts[indexPath!.row]
+            
+            let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
+            
+            recipeDetailViewController.recipe = recipe
+        }
+        if sender is CollectionCell {
+            let cell = sender as! UICollectionViewCell
+            let indexPath = collectionView.indexPathForCell(cell)
             let recipe = posts[indexPath!.row]
             
             let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
