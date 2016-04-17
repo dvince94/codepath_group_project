@@ -78,7 +78,7 @@
                                             <outlet property="dateLabel" destination="hKE-Ah-vwZ" id="nhR-rb-Tug"/>
                                             <outlet property="recipeImage" destination="7bC-PG-KmQ" id="BO9-un-4qm"/>
                                             <outlet property="recipeNameLabel" destination="HqS-r1-T8v" id="yY8-HH-P54"/>
-                                            <segue destination="lfl-pk-ifz" kind="show" trigger="accessoryAction" id="8WY-0x-LGv"/>
+                                            <segue destination="lfl-pk-ifz" kind="show" id="jvK-Kq-0qI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
