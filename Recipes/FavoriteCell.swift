@@ -16,6 +16,7 @@ class FavoriteCell: UITableViewCell {
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var usernameButton: UIButton!
     
     var recipe: Post! {
         didSet {
@@ -35,9 +36,13 @@ class FavoriteCell: UITableViewCell {
             dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
             dateLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
             dateLabel.sizeToFit()
+            
+            usernameButton.setTitle("\(recipe.user!.username!)", forState: .Normal)
         }
     }
 
+    @IBAction func usernameTouched(sender: AnyObject) {
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,5 +54,4 @@ class FavoriteCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -46,8 +46,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeY-nb-Trk">
-                                                    <rect key="frame" x="129" y="37" width="238" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeY-nb-Trk">
+                                                    <rect key="frame" x="129" y="50" width="238" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -58,22 +58,28 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3m-iS-k1T">
+                                                    <rect key="frame" x="129" y="21" width="58" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="Username"/>
+                                                    <connections>
+                                                        <action selector="usernameTouched:" destination="PVn-LW-qd5" eventType="touchUpInside" id="IjH-qs-vBA"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jeY-nb-Trk" firstAttribute="top" secondItem="zj4-um-eD7" secondAttribute="bottom" constant="8" id="1fC-d7-sFz"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UN7-eT-idP" secondAttribute="bottom" constant="8" id="2ES-vD-227"/>
                                                 <constraint firstItem="4Gc-xl-bG0" firstAttribute="leading" secondItem="UN7-eT-idP" secondAttribute="trailing" constant="165" id="3ZQ-Nu-L5Z"/>
                                                 <constraint firstItem="UN7-eT-idP" firstAttribute="top" secondItem="Hqt-rE-JsH" secondAttribute="top" constant="8" id="4t3-u0-xsF"/>
                                                 <constraint firstItem="zj4-um-eD7" firstAttribute="leading" secondItem="UN7-eT-idP" secondAttribute="trailing" constant="8" id="5MV-Jg-L2u"/>
-                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="jeY-nb-Trk" secondAttribute="bottom" constant="71" id="6TL-qP-y9e"/>
-                                                <constraint firstItem="jeY-nb-Trk" firstAttribute="top" secondItem="4Gc-xl-bG0" secondAttribute="bottom" constant="8" id="CuU-c3-A31"/>
+                                                <constraint firstItem="e3m-iS-k1T" firstAttribute="top" secondItem="Hqt-rE-JsH" secondAttribute="topMargin" constant="13" id="9gO-FG-bPO"/>
                                                 <constraint firstAttribute="trailing" secondItem="jeY-nb-Trk" secondAttribute="trailing" constant="8" id="CvL-Y6-H8Z"/>
-                                                <constraint firstItem="jeY-nb-Trk" firstAttribute="top" secondItem="zj4-um-eD7" secondAttribute="bottom" constant="8" id="EQG-jz-wya"/>
                                                 <constraint firstItem="zj4-um-eD7" firstAttribute="top" secondItem="Hqt-rE-JsH" secondAttribute="top" constant="8" id="FtA-qu-JDz"/>
                                                 <constraint firstItem="4Gc-xl-bG0" firstAttribute="top" secondItem="Hqt-rE-JsH" secondAttribute="topMargin" id="YOS-ED-WfR"/>
                                                 <constraint firstItem="jeY-nb-Trk" firstAttribute="leading" secondItem="UN7-eT-idP" secondAttribute="trailing" constant="8" id="ZcT-qz-woy"/>
                                                 <constraint firstItem="UN7-eT-idP" firstAttribute="leading" secondItem="Hqt-rE-JsH" secondAttribute="leading" constant="8" id="bON-Cp-rOg"/>
                                                 <constraint firstAttribute="trailing" secondItem="zj4-um-eD7" secondAttribute="trailing" constant="8" id="fJz-iP-bie"/>
+                                                <constraint firstItem="e3m-iS-k1T" firstAttribute="leading" secondItem="UN7-eT-idP" secondAttribute="trailing" constant="8" id="kKE-HW-JF1"/>
                                                 <constraint firstItem="zj4-um-eD7" firstAttribute="leading" secondItem="UN7-eT-idP" secondAttribute="trailing" constant="8" id="n5d-l4-o0g"/>
                                                 <constraint firstItem="4Gc-xl-bG0" firstAttribute="trailing" secondItem="Hqt-rE-JsH" secondAttribute="trailingMargin" constant="1" id="w8R-GG-RNO"/>
                                             </constraints>
@@ -83,6 +89,7 @@
                                             <outlet property="descriptionLabel" destination="jeY-nb-Trk" id="069-Mk-fzZ"/>
                                             <outlet property="displayImageView" destination="UN7-eT-idP" id="Syn-Ws-tW6"/>
                                             <outlet property="recipeNameLabel" destination="zj4-um-eD7" id="ZF8-qX-QPX"/>
+                                            <outlet property="usernameButton" destination="e3m-iS-k1T" id="rb7-Ux-RCt"/>
                                             <segue destination="z3H-aY-nhl" kind="show" id="FDs-Lg-go4">
                                                 <nil key="action"/>
                                             </segue>

@@ -22,6 +22,7 @@ class RecipeCell: UITableViewCell {
     var likeDisposable: DisposableType?
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var usernameButton: UIButton!
     
     var likeImg: UIImage?
     var unlikeImg: UIImage?
@@ -45,6 +46,8 @@ class RecipeCell: UITableViewCell {
             dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
             dateLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
             dateLabel.sizeToFit()
+            
+            usernameButton.setTitle("\(recipe.user!.username!)", forState: .Normal)
             //The observe method takes one parameter, a closure (defined as a trailing closure in the code above), 
             //which in our case has type [PFUser]? -> (). 
             //The code defined by the closure will be executed whenever post.likes receives a new value. 
@@ -67,6 +70,9 @@ class RecipeCell: UITableViewCell {
             displayImageView.layer.cornerRadius = 10.0
             displayImageView.clipsToBounds = true
         }
+    }
+    
+    @IBAction func usernameTouched(sender: AnyObject) {
     }
     
     override func awakeFromNib() {

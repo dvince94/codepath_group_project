@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -48,12 +48,6 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpv-c2-1Xr">
-                                                    <rect key="frame" x="129" y="37" width="238" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1g-Zl-TkS">
                                                     <rect key="frame" x="343" y="97" width="24" height="24"/>
                                                     <constraints>
@@ -94,13 +88,28 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPb-Mr-aiQ">
+                                                    <rect key="frame" x="129" y="22" width="58" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="Username"/>
+                                                    <connections>
+                                                        <action selector="usernameTouched:" destination="eM3-KO-dPr" eventType="touchUpInside" id="J98-zU-zcw"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpv-c2-1Xr">
+                                                    <rect key="frame" x="129" y="50" width="238" height="4"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0EB-g8-WO1" firstAttribute="leading" secondItem="dOM-LZ-Z6G" secondAttribute="trailing" constant="165" id="24T-Vk-vXP"/>
                                                 <constraint firstItem="0EB-g8-WO1" firstAttribute="top" secondItem="6Ad-PO-6e3" secondAttribute="topMargin" id="4VM-4Z-4Sk"/>
+                                                <constraint firstItem="uPb-Mr-aiQ" firstAttribute="top" secondItem="6Ad-PO-6e3" secondAttribute="topMargin" constant="14" id="AlW-Zm-zrJ"/>
                                                 <constraint firstItem="dOM-LZ-Z6G" firstAttribute="top" secondItem="6Ad-PO-6e3" secondAttribute="top" constant="8" id="BFC-Q1-kUW"/>
-                                                <constraint firstItem="Qpv-c2-1Xr" firstAttribute="top" secondItem="I65-CR-68B" secondAttribute="bottom" constant="8" id="BVr-7p-xaL"/>
                                                 <constraint firstItem="ZC8-TB-jHH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Qpv-c2-1Xr" secondAttribute="bottom" constant="43" id="GVP-fV-dMN"/>
+                                                <constraint firstItem="Qpv-c2-1Xr" firstAttribute="top" secondItem="uPb-Mr-aiQ" secondAttribute="bottom" constant="1" id="QWS-y8-qNF"/>
                                                 <constraint firstItem="0EB-g8-WO1" firstAttribute="trailing" secondItem="6Ad-PO-6e3" secondAttribute="trailingMargin" constant="1" id="Ric-YO-h4o"/>
                                                 <constraint firstItem="dOM-LZ-Z6G" firstAttribute="leading" secondItem="6Ad-PO-6e3" secondAttribute="leading" constant="8" id="UVy-ri-EbW"/>
                                                 <constraint firstItem="ZC8-TB-jHH" firstAttribute="leading" secondItem="dOM-LZ-Z6G" secondAttribute="trailing" constant="8" id="X8h-SZ-1Bf"/>
@@ -111,6 +120,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="I65-CR-68B" secondAttribute="trailing" constant="8" id="jEe-pt-xe9"/>
                                                 <constraint firstAttribute="trailing" secondItem="Qpv-c2-1Xr" secondAttribute="trailing" constant="8" id="kbt-GS-zsg"/>
                                                 <constraint firstAttribute="bottom" secondItem="g1g-Zl-TkS" secondAttribute="bottom" constant="8" id="rET-0T-jq9"/>
+                                                <constraint firstItem="uPb-Mr-aiQ" firstAttribute="leading" secondItem="dOM-LZ-Z6G" secondAttribute="trailing" constant="8" id="rgk-vY-eEz"/>
                                                 <constraint firstItem="Qpv-c2-1Xr" firstAttribute="leading" secondItem="dOM-LZ-Z6G" secondAttribute="trailing" constant="8" id="tHa-te-gQd"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZC8-TB-jHH" secondAttribute="bottom" constant="8" id="vvm-JR-Nev"/>
                                                 <constraint firstItem="I65-CR-68B" firstAttribute="leading" secondItem="dOM-LZ-Z6G" secondAttribute="trailing" constant="8" id="zK3-wa-Jxq"/>
@@ -122,6 +132,7 @@
                                             <outlet property="displayImageView" destination="dOM-LZ-Z6G" id="X8N-pk-hce"/>
                                             <outlet property="likesButton" destination="g1g-Zl-TkS" id="7sm-qf-o2U"/>
                                             <outlet property="recipeNameLabel" destination="I65-CR-68B" id="edE-dZ-zh9"/>
+                                            <outlet property="usernameButton" destination="uPb-Mr-aiQ" id="axK-Or-Fb7"/>
                                             <segue destination="eso-Nx-mPp" kind="show" id="910-uL-lJK"/>
                                         </connections>
                                     </tableViewCell>
@@ -555,6 +566,6 @@
         <image name="Unlike" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dS7-p8-2ce"/>
+        <segue reference="Yzh-bU-mJm"/>
     </inferredMetricsTieBreakers>
 </document>
