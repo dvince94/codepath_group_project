@@ -127,121 +127,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0e-jt-ZUt">
-                                <rect key="frame" x="0.0" y="64" width="126" height="180"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGm-wK-E1w">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="jA4-Lt-mgR"/>
-                                        </constraints>
-                                        <state key="normal" title="Breakfast">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onFilterItemClicked:" destination="uow-sO-IiL" eventType="touchUpInside" id="LGd-Cd-Mm2"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkj-Du-hEF">
-                                        <rect key="frame" x="0.0" y="30" width="126" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Bay-4b-KOp"/>
-                                        </constraints>
-                                        <state key="normal" title="Lunch">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onFilterItemClicked:" destination="uow-sO-IiL" eventType="touchUpInside" id="wFI-fq-hO2"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5E4-Ti-BDn">
-                                        <rect key="frame" x="0.0" y="60" width="126" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="5R9-VC-krS"/>
-                                        </constraints>
-                                        <state key="normal" title="Dinner">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onFilterItemClicked:" destination="uow-sO-IiL" eventType="touchUpInside" id="7Xh-rf-gP5"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6p-bW-rKc">
-                                        <rect key="frame" x="0.0" y="90" width="126" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ejg-gj-7Fg"/>
-                                        </constraints>
-                                        <state key="normal" title="Dessert">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onFilterItemClicked:" destination="uow-sO-IiL" eventType="touchUpInside" id="l8v-VW-fwv"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulw-TC-ZZi">
-                                        <rect key="frame" x="0.0" y="120" width="126" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Elh-CF-uIt"/>
-                                        </constraints>
-                                        <state key="normal" title="Snack">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onFilterItemClicked:" destination="uow-sO-IiL" eventType="touchUpInside" id="KdZ-Cx-Scw"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDQ-9t-fVC">
-                                        <rect key="frame" x="0.0" y="150" width="126" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="2te-Ig-CoX"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="3g3-Wm-H3J"/>
-                                        </constraints>
-                                        <state key="normal" title="All">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onFilterItemClicked:" destination="uow-sO-IiL" eventType="touchUpInside" id="tQv-ds-9UI"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Ulw-TC-ZZi" firstAttribute="leading" secondItem="E0e-jt-ZUt" secondAttribute="leading" id="5dL-0G-ISe"/>
-                                    <constraint firstItem="iGm-wK-E1w" firstAttribute="top" secondItem="E0e-jt-ZUt" secondAttribute="top" id="FHo-fn-8no"/>
-                                    <constraint firstAttribute="trailing" secondItem="jDQ-9t-fVC" secondAttribute="trailing" id="HGf-Cq-K3s"/>
-                                    <constraint firstAttribute="trailing" secondItem="o6p-bW-rKc" secondAttribute="trailing" id="IIk-4u-VYt"/>
-                                    <constraint firstItem="jkj-Du-hEF" firstAttribute="top" secondItem="iGm-wK-E1w" secondAttribute="bottom" id="JeZ-qj-YpS"/>
-                                    <constraint firstItem="Ulw-TC-ZZi" firstAttribute="top" secondItem="o6p-bW-rKc" secondAttribute="bottom" id="Lfm-Zp-PL9"/>
-                                    <constraint firstItem="jkj-Du-hEF" firstAttribute="leading" secondItem="E0e-jt-ZUt" secondAttribute="leading" id="M2t-aJ-Ikp"/>
-                                    <constraint firstAttribute="trailing" secondItem="iGm-wK-E1w" secondAttribute="trailing" id="P6T-Ir-QsB"/>
-                                    <constraint firstItem="jDQ-9t-fVC" firstAttribute="top" secondItem="Ulw-TC-ZZi" secondAttribute="bottom" id="U4a-El-c4G"/>
-                                    <constraint firstItem="5E4-Ti-BDn" firstAttribute="leading" secondItem="E0e-jt-ZUt" secondAttribute="leading" id="X5D-vO-1N7"/>
-                                    <constraint firstAttribute="trailing" secondItem="5E4-Ti-BDn" secondAttribute="trailing" id="aAO-Jd-tmX"/>
-                                    <constraint firstItem="5E4-Ti-BDn" firstAttribute="top" secondItem="jkj-Du-hEF" secondAttribute="bottom" id="dYI-My-MKq"/>
-                                    <constraint firstAttribute="height" constant="180" id="isq-Zg-MiZ"/>
-                                    <constraint firstItem="jDQ-9t-fVC" firstAttribute="leading" secondItem="E0e-jt-ZUt" secondAttribute="leading" id="kfu-YT-USa"/>
-                                    <constraint firstItem="iGm-wK-E1w" firstAttribute="leading" secondItem="E0e-jt-ZUt" secondAttribute="leading" id="mp9-zi-WVC"/>
-                                    <constraint firstItem="o6p-bW-rKc" firstAttribute="leading" secondItem="E0e-jt-ZUt" secondAttribute="leading" id="oNd-7O-sax"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ulw-TC-ZZi" secondAttribute="trailing" id="pHJ-W7-oIT"/>
-                                    <constraint firstItem="o6p-bW-rKc" firstAttribute="top" secondItem="5E4-Ti-BDn" secondAttribute="bottom" id="r2c-ur-d5m"/>
-                                    <constraint firstAttribute="width" constant="126" id="v8B-EN-fki"/>
-                                    <constraint firstAttribute="trailing" secondItem="jkj-Du-hEF" secondAttribute="trailing" id="x0e-Ss-FIz"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="w9c-zT-jKg" secondAttribute="trailing" id="TBp-pa-3So"/>
                             <constraint firstItem="w9c-zT-jKg" firstAttribute="top" secondItem="hTv-3v-EwG" secondAttribute="top" id="dbW-5d-XYn"/>
-                            <constraint firstItem="E0e-jt-ZUt" firstAttribute="leading" secondItem="hTv-3v-EwG" secondAttribute="leading" id="fa5-rb-4hl"/>
                             <constraint firstItem="w9c-zT-jKg" firstAttribute="leading" secondItem="hTv-3v-EwG" secondAttribute="leading" id="fbr-dm-TRe"/>
-                            <constraint firstItem="E0e-jt-ZUt" firstAttribute="top" secondItem="YSL-1T-aCX" secondAttribute="bottom" id="iOd-Ba-Me1"/>
                             <constraint firstItem="KxN-M9-O4V" firstAttribute="top" secondItem="w9c-zT-jKg" secondAttribute="bottom" id="sJ0-Hm-qS0"/>
                         </constraints>
                     </view>
@@ -261,7 +152,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="filterView" destination="E0e-jt-ZUt" id="EYs-Ij-Zn7"/>
+                        <outlet property="filterMenuButton" destination="9Kr-2o-BzN" id="aXW-yA-Akx"/>
                         <outlet property="tableView" destination="w9c-zT-jKg" id="u7h-aX-g4t"/>
                     </connections>
                 </viewController>
@@ -461,10 +352,65 @@
             </objects>
             <point key="canvasLocation" x="2634.5" y="-737.5"/>
         </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="UMH-gy-pcx">
+            <objects>
+                <viewController storyboardIdentifier="RecipesContainerController" id="yFm-Ae-eja" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gSm-uZ-GPM"/>
+                        <viewControllerLayoutGuide type="bottom" id="O83-3F-Son"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6w8-4h-hzn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="mra-8Q-yfM" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Yzh-bU-mJm"/>
+                        <segue destination="nrx-1Q-MhC" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="a11-7Q-9pc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgZ-pB-M0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849.5" y="81.5"/>
+        </scene>
+        <!--Filters Table View Controller-->
+        <scene sceneID="Wpl-5f-7wh">
+            <objects>
+                <tableViewController id="nrx-1Q-MhC" customClass="FiltersTableViewController" customModule="Recipes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="arj-70-MJ3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="9U5-kE-4yg" customClass="Cell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9U5-kE-4yg" id="X3L-DX-HjN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="mra-8Q-yfM" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dS7-p8-2ce"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nrx-1Q-MhC" id="bpI-c1-4by"/>
+                            <outlet property="delegate" destination="nrx-1Q-MhC" id="cdC-UY-2gj"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L5w-Uc-QA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1493.5" y="547.5"/>
+        </scene>
         <!--Recipe-->
         <scene sceneID="q2C-ig-gEe">
             <objects>
-                <navigationController storyboardIdentifier="RecipesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="mra-8Q-yfM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mra-8Q-yfM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recipe" image="Recipe" id="VE1-lL-gGA"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -608,4 +554,7 @@
         <image name="Recipe" width="24" height="24"/>
         <image name="Unlike" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dS7-p8-2ce"/>
+    </inferredMetricsTieBreakers>
 </document>
