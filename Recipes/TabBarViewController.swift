@@ -28,6 +28,7 @@ class TabBarViewController: UITabBarController {
         
         let recipeNav = recipe.instantiateViewControllerWithIdentifier("RecipesContainerController") as! SWRevealViewController
         recipeNav.tabBarItem.title = "Recipe"
+        recipeNav.tabBarItem.image = UIImage(named: "Recipe")
         
         let challengeNav = challenge.instantiateViewControllerWithIdentifier("ChallengeNavigationController") as! UINavigationController
         challengeNav.tabBarItem.title = "Challenge"
