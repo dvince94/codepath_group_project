@@ -10,8 +10,11 @@
 		0A0D580D1CA3663F005B37EB /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D580C1CA3663F005B37EB /* Recipe.swift */; };
 		0A0D58101CA47A3E005B37EB /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D580F1CA47A3E005B37EB /* RecipeCell.swift */; };
 		0A4089081C9A098400C833FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4089071C9A098400C833FD /* LoginViewController.swift */; };
-		0A40890B1C9A2AEA00C833FD /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40890A1C9A2AEA00C833FD /* RecipeViewController.swift */; };
 		0A5313641CAB381700899621 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5313631CAB381700899621 /* ParseHelper.swift */; };
+		0A6F10C11CC4594100D71378 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F10C01CC4594100D71378 /* TabBarViewController.swift */; };
+		0A6F10C31CC4595C00D71378 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F10C21CC4595C00D71378 /* RecipeViewController.swift */; };
+		0A6F10C51CC4596900D71378 /* FiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F10C41CC4596900D71378 /* FiltersTableViewController.swift */; };
+		0A6F10C91CC45B2A00D71378 /* Recipes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6F10C81CC45B2A00D71378 /* Recipes.storyboard */; };
 		0A90C1FB1CAB056C006EB275 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C1FA1CAB056C006EB275 /* ChallengeViewController.swift */; };
 		0A90C1FE1CAB05F8006EB275 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C1FD1CAB05F8006EB275 /* ChallengeCell.swift */; };
 		0A90C2001CAB0661006EB275 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C1FF1CAB0661006EB275 /* Challenge.swift */; };
@@ -29,10 +32,8 @@
 		4553D7181CAE535F00F9361E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553D7171CAE535F00F9361E /* FavoriteCell.swift */; };
 		4553D71A1CAE53A800F9361E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553D7191CAE53A800F9361E /* FavoriteViewController.swift */; };
 		455F550A1CC2E9DE00018D48 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F55091CC2E9DE00018D48 /* Profile.storyboard */; };
-		455F550C1CC2EB0B00018D48 /* Recipes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F550B1CC2EB0B00018D48 /* Recipes.storyboard */; };
 		455F550E1CC2EC1D00018D48 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F550D1CC2EC1D00018D48 /* Challenge.storyboard */; };
 		455F55101CC2ECC900018D48 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F550F1CC2ECC900018D48 /* Favorite.storyboard */; };
-		455F55121CC2F34400018D48 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455F55111CC2F34400018D48 /* TabBarViewController.swift */; };
 		45B607011CC412A300C1AE17 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B607001CC412A300C1AE17 /* CollectionCell.swift */; };
 		45E556811CA37C35006CBC1A /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */; };
 		977F162F35A68AF318833F2E /* Pods_Recipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */; };
@@ -42,8 +43,11 @@
 		0A0D580C1CA3663F005B37EB /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		0A0D580F1CA47A3E005B37EB /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		0A4089071C9A098400C833FD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0A40890A1C9A2AEA00C833FD /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		0A5313631CAB381700899621 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		0A6F10C01CC4594100D71378 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		0A6F10C21CC4595C00D71378 /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		0A6F10C41CC4596900D71378 /* FiltersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersTableViewController.swift; sourceTree = "<group>"; };
+		0A6F10C81CC45B2A00D71378 /* Recipes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Recipes.storyboard; sourceTree = "<group>"; };
 		0A90C1FA1CAB056C006EB275 /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		0A90C1FD1CAB05F8006EB275 /* ChallengeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		0A90C1FF1CAB0661006EB275 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -63,10 +67,8 @@
 		4553D7171CAE535F00F9361E /* FavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		4553D7191CAE53A800F9361E /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		455F55091CC2E9DE00018D48 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		455F550B1CC2EB0B00018D48 /* Recipes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Recipes.storyboard; sourceTree = "<group>"; };
 		455F550D1CC2EC1D00018D48 /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
 		455F550F1CC2ECC900018D48 /* Favorite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
-		455F55111CC2F34400018D48 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		458FA3514571608031B55467 /* Pods-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recipes/Pods-Recipes.release.xcconfig"; sourceTree = "<group>"; };
 		45B607001CC412A300C1AE17 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
@@ -142,11 +144,11 @@
 				0A4089091C9A0B6B00C833FD /* Models */,
 				2A596E7C1C98D83D006021CE /* View Controllers */,
 				2A596E6A1C98D093006021CE /* AppDelegate.swift */,
-				455F55111CC2F34400018D48 /* TabBarViewController.swift */,
+				0A6F10C01CC4594100D71378 /* TabBarViewController.swift */,
 				2A596E711C98D093006021CE /* Assets.xcassets */,
 				0AEE878F1CAB425400390692 /* Main.storyboard */,
 				455F55091CC2E9DE00018D48 /* Profile.storyboard */,
-				455F550B1CC2EB0B00018D48 /* Recipes.storyboard */,
+				0A6F10C81CC45B2A00D71378 /* Recipes.storyboard */,
 				455F550D1CC2EC1D00018D48 /* Challenge.storyboard */,
 				455F550F1CC2ECC900018D48 /* Favorite.storyboard */,
 				2A596E731C98D093006021CE /* LaunchScreen.storyboard */,
@@ -160,7 +162,7 @@
 			children = (
 				0A4089071C9A098400C833FD /* LoginViewController.swift */,
 				450BB3191CA218B6001DC54A /* ProfileViewController.swift */,
-				0A40890A1C9A2AEA00C833FD /* RecipeViewController.swift */,
+				0A6F10C21CC4595C00D71378 /* RecipeViewController.swift */,
 				2A55292D1CA2090F00FF70F7 /* RecipeDetailViewController.swift */,
 				45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */,
 				0A90C1FA1CAB056C006EB275 /* ChallengeViewController.swift */,
@@ -168,6 +170,7 @@
 				0AEE87931CAB463900390692 /* AddChallengeViewController.swift */,
 				4553D7191CAE53A800F9361E /* FavoriteViewController.swift */,
 				2A1AB5861CB330D600F29479 /* EditProfileViewController.swift */,
+				0A6F10C41CC4596900D71378 /* FiltersTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -252,11 +255,11 @@
 			files = (
 				455F550E1CC2EC1D00018D48 /* Challenge.storyboard in Resources */,
 				0AEE87901CAB425400390692 /* Main.storyboard in Resources */,
+				0A6F10C91CC45B2A00D71378 /* Recipes.storyboard in Resources */,
 				455F55101CC2ECC900018D48 /* Favorite.storyboard in Resources */,
 				455F550A1CC2E9DE00018D48 /* Profile.storyboard in Resources */,
 				2A596E751C98D093006021CE /* LaunchScreen.storyboard in Resources */,
 				2A596E721C98D093006021CE /* Assets.xcassets in Resources */,
-				455F550C1CC2EB0B00018D48 /* Recipes.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,13 +320,13 @@
 			files = (
 				45E556811CA37C35006CBC1A /* AddRecipeViewController.swift in Sources */,
 				0A90C1FB1CAB056C006EB275 /* ChallengeViewController.swift in Sources */,
+				0A6F10C31CC4595C00D71378 /* RecipeViewController.swift in Sources */,
 				0A90C1FE1CAB05F8006EB275 /* ChallengeCell.swift in Sources */,
 				0A90C2021CAB0AFA006EB275 /* ChallengeDetailViewController.swift in Sources */,
+				0A6F10C11CC4594100D71378 /* TabBarViewController.swift in Sources */,
 				4553D71A1CAE53A800F9361E /* FavoriteViewController.swift in Sources */,
 				450BB31A1CA218B7001DC54A /* ProfileViewController.swift in Sources */,
 				0A90C2001CAB0661006EB275 /* Challenge.swift in Sources */,
-				0A40890B1C9A2AEA00C833FD /* RecipeViewController.swift in Sources */,
-				455F55121CC2F34400018D48 /* TabBarViewController.swift in Sources */,
 				2A1AB5871CB330D600F29479 /* EditProfileViewController.swift in Sources */,
 				0A0D58101CA47A3E005B37EB /* RecipeCell.swift in Sources */,
 				45B607011CC412A300C1AE17 /* CollectionCell.swift in Sources */,
@@ -331,6 +334,7 @@
 				0A0D580D1CA3663F005B37EB /* Recipe.swift in Sources */,
 				0A4089081C9A098400C833FD /* LoginViewController.swift in Sources */,
 				451C4E891CAC27FD00FFD4AD /* Post.swift in Sources */,
+				0A6F10C51CC4596900D71378 /* FiltersTableViewController.swift in Sources */,
 				2A55292E1CA2090F00FF70F7 /* RecipeDetailViewController.swift in Sources */,
 				0A5313641CAB381700899621 /* ParseHelper.swift in Sources */,
 				2A596E6B1C98D093006021CE /* AppDelegate.swift in Sources */,
@@ -442,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Recipes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CodepathGroupProject.Recipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -454,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Recipes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CodepathGroupProject.Recipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";

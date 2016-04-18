@@ -12,10 +12,9 @@ import Cosmos
 class RecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
    
-    @IBOutlet weak var filterView: UIView!
+    @IBOutlet weak var filterMenuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     var posts: [Post] = []
-    var hideFilter: Bool!
     var current_filter: String!
     
     override func viewDidLoad() {
@@ -26,9 +25,11 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Do any additional setup after loading the view.
         
-        hideFilter = true
-        filterView.hidden = hideFilter
-        current_filter = "All"
+        filterMenuButton.target = self.revealViewController()
+        filterMenuButton.action = Selector("revealToggle:")
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
        
         tableView.delegate = self
         tableView.dataSource = self
@@ -37,6 +38,9 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewDidAppear(animated: Bool) {
+        if current_filter == nil {
+            current_filter = "All"
+        }
         reloadTable(current_filter)
     }
     
@@ -69,22 +73,6 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         cell.unlikeImg = UIImage(named: "Unlike")
         return cell
     }
-
-    @IBAction func onFilterClicked(sender: AnyObject) {
-        if hideFilter == true {
-            hideFilter = false
-            filterView.hidden = hideFilter
-        } else {
-            hideFilter = true
-            filterView.hidden = hideFilter
-        }
-    }
-    
-    @IBAction func onFilterItemClicked(sender: AnyObject) {
-        current_filter = sender.currentTitle!
-        reloadTable(current_filter)
-    }
-    
     
     // MARK: - Navigation
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 class TabBarViewController: UITabBarController {
 
@@ -25,7 +26,7 @@ class TabBarViewController: UITabBarController {
         let profileNav = profile.instantiateViewControllerWithIdentifier("ProfileNavigationController") as! UINavigationController
         profileNav.tabBarItem.title = "Profile"
         
-        let recipeNav = recipe.instantiateViewControllerWithIdentifier("RecipesNavigationController") as! UINavigationController
+        let recipeNav = recipe.instantiateViewControllerWithIdentifier("RecipesContainerController") as! SWRevealViewController
         recipeNav.tabBarItem.title = "Recipe"
         
         let challengeNav = challenge.instantiateViewControllerWithIdentifier("ChallengeNavigationController") as! UINavigationController
