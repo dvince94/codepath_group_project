@@ -144,7 +144,6 @@
 				0A4089091C9A0B6B00C833FD /* Models */,
 				2A596E7C1C98D83D006021CE /* View Controllers */,
 				2A596E6A1C98D093006021CE /* AppDelegate.swift */,
-				0A6F10C01CC4594100D71378 /* TabBarViewController.swift */,
 				2A596E711C98D093006021CE /* Assets.xcassets */,
 				0AEE878F1CAB425400390692 /* Main.storyboard */,
 				455F55091CC2E9DE00018D48 /* Profile.storyboard */,
@@ -161,16 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				0A4089071C9A098400C833FD /* LoginViewController.swift */,
-				450BB3191CA218B6001DC54A /* ProfileViewController.swift */,
-				0A6F10C21CC4595C00D71378 /* RecipeViewController.swift */,
-				2A55292D1CA2090F00FF70F7 /* RecipeDetailViewController.swift */,
-				45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */,
-				0A90C1FA1CAB056C006EB275 /* ChallengeViewController.swift */,
-				0A90C2011CAB0AFA006EB275 /* ChallengeDetailViewController.swift */,
-				0AEE87931CAB463900390692 /* AddChallengeViewController.swift */,
-				4553D7191CAE53A800F9361E /* FavoriteViewController.swift */,
-				2A1AB5861CB330D600F29479 /* EditProfileViewController.swift */,
-				0A6F10C41CC4596900D71378 /* FiltersTableViewController.swift */,
+				0A6F10C01CC4594100D71378 /* TabBarViewController.swift */,
+				45C99F131CC532250021AA3A /* Profile */,
+				45C99F141CC5323C0021AA3A /* Recipe */,
+				45C99F151CC532490021AA3A /* Challenge */,
+				45C99F161CC532500021AA3A /* Favorite */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -190,6 +184,44 @@
 				5BD9A5878C0D5B80AE3EDF7D /* Pods_Recipes.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45C99F131CC532250021AA3A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				450BB3191CA218B6001DC54A /* ProfileViewController.swift */,
+				2A1AB5861CB330D600F29479 /* EditProfileViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		45C99F141CC5323C0021AA3A /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				0A6F10C21CC4595C00D71378 /* RecipeViewController.swift */,
+				2A55292D1CA2090F00FF70F7 /* RecipeDetailViewController.swift */,
+				45E556801CA37C35006CBC1A /* AddRecipeViewController.swift */,
+				0A6F10C41CC4596900D71378 /* FiltersTableViewController.swift */,
+			);
+			name = Recipe;
+			sourceTree = "<group>";
+		};
+		45C99F151CC532490021AA3A /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				0A90C1FA1CAB056C006EB275 /* ChallengeViewController.swift */,
+				0A90C2011CAB0AFA006EB275 /* ChallengeDetailViewController.swift */,
+				0AEE87931CAB463900390692 /* AddChallengeViewController.swift */,
+			);
+			name = Challenge;
+			sourceTree = "<group>";
+		};
+		45C99F161CC532500021AA3A /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				4553D7191CAE53A800F9361E /* FavoriteViewController.swift */,
+			);
+			name = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
