@@ -88,6 +88,21 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    //Search
+    static func searchQuery(search: String!, completionBlock: PFQueryArrayResultBlock?) {
+        let postsFromNonChallenges = Post.query()
+        postsFromNonChallenges!.whereKey("challenge_id", equalTo: "0")
+        if search != "" {
+            postsFromNonChallenges?.whereKey("title", containsString: search)
+        }
+        
+        let query = PFQuery.orQueryWithSubqueries([postsFromNonChallenges!])
+        query.includeKey("user")
+        query.limit = 20
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
     //MARK: Rate
     static func ratePost(user: PFUser, post: Post, rating: Int) {
         let ratedObject = PFObject(className: "Rate")
