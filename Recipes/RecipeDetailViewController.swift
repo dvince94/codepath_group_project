@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import Bond
 
 class RecipeDetailViewController: UIViewController {
 
@@ -16,14 +17,33 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet var screenSuperView: UIView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var likesButton: UIButton!
     
     var recipe: Post!
+    var likeDisposable: DisposableType?
+    var likeImg = UIImage(named: "Like")
+    var unlikeImg = UIImage(named: "Unlike")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // the likes
+        likeDisposable?.dispose()
+        likeDisposable = recipe.likes.observe { (value: [PFUser]?) -> () in
+            if let value = value {
+                if (value.contains(PFUser.currentUser()!)) {
+                    self.likesButton.setImage(self.likeImg, forState: .Normal)
+                }
+                else {
+                    self.likesButton.setImage(self.unlikeImg, forState: .Normal)
+                }
+            }
+        }
         
         descriptionLabel.text = recipe.descriptions! as String
         ingredientsLabel.text = Recipe.printIngredients(recipe.ingredients! as [String])
@@ -40,18 +60,51 @@ class RecipeDetailViewController: UIViewController {
         directionsLabel.sizeToFit()
         descriptionLabel.sizeToFit()
         
-        var frame = view.frame
-        frame.offsetInPlace(dx: 0, dy: infoView.frame.minY)
-        frame.size.height = ingredientsLabel.frame.size.height + directionsLabel.frame.size.height + descriptionLabel.frame.size.height + UIScreen.mainScreen().bounds.size.height/5;
-        infoView.frame = frame
         
-        scrollView.contentSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
+        // center containerView
+        let scrollViewBounds = scrollView.bounds
+        let containerViewBounds = contentView.bounds
         
-//        var contentRect: CGRect = CGRectZero
-//        for view: UIView in self.scrollView.subviews {
-//            contentRect = CGRectUnion(contentRect, view.frame)
-//        }
-//        self.scrollView.contentSize = contentRect.size
+        var scrollViewInsets = UIEdgeInsetsZero
+        scrollViewInsets.top = scrollViewBounds.size.height/2.0
+        scrollViewInsets.top -= containerViewBounds.size.height/2.0
+        
+        scrollViewInsets.bottom = scrollViewBounds.size.height/2.0
+        scrollViewInsets.bottom -= containerViewBounds.size.height/2.0
+        scrollViewInsets.bottom += 1
+        
+        scrollView.contentInset = scrollViewInsets
+        
+        
+        // make profileImage a circle
+        userImage.layer.cornerRadius = userImage.frame.size.height/2
+        userImage.layer.masksToBounds = true
+        userImage.layer.borderWidth = 0
+        
+        usernameLabel.text = "by " + (recipe.user?.username)!
+        
+        
+        // set the user's profile pic
+        if (PFUser.currentUser()?.objectForKey("profilePic") != nil) {
+            let profilePicFile: PFFile = PFUser.currentUser()?.objectForKey("profilePic") as! PFFile
+            profilePicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                if (imageData != nil) {
+                    self.userImage.image = UIImage(data: imageData!)
+                }
+            })
+        }
+        
+        
+    }
+    
+    @IBAction func likeButtonTapped(sender: AnyObject) {
+        recipe.toggleLikePost(PFUser.currentUser()!)
+        if (recipe.doesUserLikePost(PFUser.currentUser()!)) {
+            likesButton.setImage(likeImg, forState: .Normal)
+        }
+        else {
+            likesButton.setImage(unlikeImg, forState: .Normal)
+        }
     }
     
     /*
@@ -63,7 +116,7 @@ class RecipeDetailViewController: UIViewController {
         
         for index in 0...(directions.count - 1) {
             
-            directionsPrint += "Step \(index + 1). " + directions[index] + "\n"
+            directionsPrint += directions[index] + "\n\n"
         }
         
         return directionsPrint
