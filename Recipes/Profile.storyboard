@@ -81,7 +81,7 @@
                                             <outlet property="dateLabel" destination="hKE-Ah-vwZ" id="nhR-rb-Tug"/>
                                             <outlet property="recipeImage" destination="7bC-PG-KmQ" id="BO9-un-4qm"/>
                                             <outlet property="recipeNameLabel" destination="HqS-r1-T8v" id="yY8-HH-P54"/>
-                                            <segue destination="8p4-UB-hCV" kind="show" trigger="accessoryAction" id="dgI-sb-ah1"/>
+                                            <segue destination="8p4-UB-hCV" kind="show" id="ktg-E7-9iD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

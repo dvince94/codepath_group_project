@@ -47,7 +47,7 @@ class RecipeDetailViewController: UIViewController {
         
         descriptionLabel.text = recipe.descriptions! as String
         ingredientsLabel.text = Recipe.printIngredients(recipe.ingredients! as [String])
-        directionsLabel.text = Recipe.printDirections(recipe.directions! as [String])
+//        directionsLabel.text = Recipe.printDirections(recipe.directions! as [String])
         self.recipeImage.file = recipe.imageFile
         self.recipeImage.loadInBackground()
         // puts title on navigation bar..changes size, color, and font of title
@@ -60,6 +60,10 @@ class RecipeDetailViewController: UIViewController {
         directionsLabel.sizeToFit()
         descriptionLabel.sizeToFit()
         
+        let style = NSMutableParagraphStyle()
+        style.paragraphSpacing = 5
+        let attributes = [NSParagraphStyleAttributeName: style]
+        directionsLabel.attributedText = NSAttributedString(string: Recipe.printDirections(recipe.directions! as [String]), attributes: attributes)
         
         // center containerView
         let scrollViewBounds = scrollView.bounds
@@ -105,21 +109,6 @@ class RecipeDetailViewController: UIViewController {
         else {
             likesButton.setImage(unlikeImg, forState: .Normal)
         }
-    }
-    
-    /*
-     * Method that gets the directions to be put on the view
-     */
-    func printDirections(string: [String]) -> String {
-        var directionsPrint = ""
-        let directions = string;
-        
-        for index in 0...(directions.count - 1) {
-            
-            directionsPrint += directions[index] + "\n\n"
-        }
-        
-        return directionsPrint
     }
     
     override func didReceiveMemoryWarning() {
