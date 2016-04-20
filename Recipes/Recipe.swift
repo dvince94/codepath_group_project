@@ -31,7 +31,7 @@ class Recipe: NSObject {
         
         for index in 0...(directions.count - 1) {
             
-            directionsPrint += "Step \(index + 1). " + directions[index] + "\n"
+            directionsPrint += directions[index] + "\n"
         }
         
         return directionsPrint

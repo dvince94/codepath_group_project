@@ -19,6 +19,7 @@
 		0A90C1FE1CAB05F8006EB275 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C1FD1CAB05F8006EB275 /* ChallengeCell.swift */; };
 		0A90C2001CAB0661006EB275 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C1FF1CAB0661006EB275 /* Challenge.swift */; };
 		0A90C2021CAB0AFA006EB275 /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C2011CAB0AFA006EB275 /* ChallengeDetailViewController.swift */; };
+		0ACE4BE41CC7D01A00A8FE0B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE4BE31CC7D01A00A8FE0B /* Profile.storyboard */; };
 		0AEE87901CAB425400390692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEE878F1CAB425400390692 /* Main.storyboard */; };
 		0AEE87941CAB463900390692 /* AddChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE87931CAB463900390692 /* AddChallengeViewController.swift */; };
 		2A1AB5871CB330D600F29479 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1AB5861CB330D600F29479 /* EditProfileViewController.swift */; };
@@ -32,7 +33,6 @@
 		451C4E891CAC27FD00FFD4AD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451C4E881CAC27FD00FFD4AD /* Post.swift */; };
 		4553D7181CAE535F00F9361E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553D7171CAE535F00F9361E /* FavoriteCell.swift */; };
 		4553D71A1CAE53A800F9361E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553D7191CAE53A800F9361E /* FavoriteViewController.swift */; };
-		455F550A1CC2E9DE00018D48 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F55091CC2E9DE00018D48 /* Profile.storyboard */; };
 		455F550E1CC2EC1D00018D48 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F550D1CC2EC1D00018D48 /* Challenge.storyboard */; };
 		455F55101CC2ECC900018D48 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455F550F1CC2ECC900018D48 /* Favorite.storyboard */; };
 		45B607011CC412A300C1AE17 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B607001CC412A300C1AE17 /* CollectionCell.swift */; };
@@ -53,6 +53,7 @@
 		0A90C1FD1CAB05F8006EB275 /* ChallengeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		0A90C1FF1CAB0661006EB275 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		0A90C2011CAB0AFA006EB275 /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
+		0ACE4BE31CC7D01A00A8FE0B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0AEE878F1CAB425400390692 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0AEE87931CAB463900390692 /* AddChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddChallengeViewController.swift; sourceTree = "<group>"; };
 		2A1AB5861CB330D600F29479 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		451C4E881CAC27FD00FFD4AD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4553D7171CAE535F00F9361E /* FavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		4553D7191CAE53A800F9361E /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
-		455F55091CC2E9DE00018D48 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		455F550D1CC2EC1D00018D48 /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
 		455F550F1CC2ECC900018D48 /* Favorite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
 		458FA3514571608031B55467 /* Pods-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recipes/Pods-Recipes.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,10 +148,10 @@
 				2A596E6A1C98D093006021CE /* AppDelegate.swift */,
 				2A596E711C98D093006021CE /* Assets.xcassets */,
 				0AEE878F1CAB425400390692 /* Main.storyboard */,
-				455F55091CC2E9DE00018D48 /* Profile.storyboard */,
 				0A6F10C81CC45B2A00D71378 /* Recipes.storyboard */,
 				455F550D1CC2EC1D00018D48 /* Challenge.storyboard */,
 				455F550F1CC2ECC900018D48 /* Favorite.storyboard */,
+				0ACE4BE31CC7D01A00A8FE0B /* Profile.storyboard */,
 				2A596E731C98D093006021CE /* LaunchScreen.storyboard */,
 				2A596E761C98D093006021CE /* Info.plist */,
 			);
@@ -292,9 +292,9 @@
 				0AEE87901CAB425400390692 /* Main.storyboard in Resources */,
 				0A6F10C91CC45B2A00D71378 /* Recipes.storyboard in Resources */,
 				455F55101CC2ECC900018D48 /* Favorite.storyboard in Resources */,
-				455F550A1CC2E9DE00018D48 /* Profile.storyboard in Resources */,
 				2A596E751C98D093006021CE /* LaunchScreen.storyboard in Resources */,
 				2A596E721C98D093006021CE /* Assets.xcassets in Resources */,
+				0ACE4BE41CC7D01A00A8FE0B /* Profile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
