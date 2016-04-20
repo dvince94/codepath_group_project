@@ -19,7 +19,8 @@ class PostersProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //usernameLabel.text = "\(post.user?.username)"
+
+        usernameLabel.text = "\(post.user!.username!)"
         //loadUserInfo()
         // Do any additional setup after loading the view.
     }

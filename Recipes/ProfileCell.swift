@@ -20,13 +20,10 @@ class ProfileCell: UITableViewCell {
         didSet {
             self.recipeImage.file = recipe.imageFile
             self.recipeImage.loadInBackground()
+            
             recipeNameLabel.text = recipe.title
             
-            let dateCreated = recipe.createdAt! as NSDate
-            let dateFormat = NSDateFormatter()
-            dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
-            dateLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
-            dateLabel.sizeToFit()
+            dateLabel.text = recipe.getTimeDifference()
         }
     }
     

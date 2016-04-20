@@ -24,13 +24,13 @@ class ChallengeCell: UITableViewCell {
             let user = challenge["author"] as? PFUser
             authorNameLabel.text = "By " + ((user?.username)! as String)
             descriptionLabel.text = challenge["description"] as? String
-            
-            let dateCreated = challenge.createdAt! as NSDate
-            let dateFormat = NSDateFormatter()
-            let timeFormat = NSDateFormatter()
-            dateFormat.dateFormat = "MMM d, yyyy"
-            timeFormat.dateFormat = "hh:mm a"
-            createdAtLabel.text = "Created on " + (NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String) + "\n" + "at " + (NSString(format: "%@", timeFormat.stringFromDate(dateCreated)) as String)
+            createdAtLabel.text = getTimeDifference()
+            //let dateCreated = challenge.createdAt! as NSDate
+            //let dateFormat = NSDateFormatter()
+            //let timeFormat = NSDateFormatter()
+            //dateFormat.dateFormat = "MMM d, yyyy"
+            //timeFormat.dateFormat = "hh:mm a"
+            //createdAtLabel.text = "Created on " + (NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String) + "\n" + "at " + (NSString(format: "%@", timeFormat.stringFromDate(dateCreated)) as String)
             createdAtLabel.sizeToFit()
             
             if (PFUser.currentUser()?.objectForKey("profilePic") != nil) {
@@ -42,6 +42,34 @@ class ChallengeCell: UITableViewCell {
                 })
             }
         }
+    }
+    
+    func getTimeDifference() -> String! {
+        let elapsedTime = NSDate().timeIntervalSinceDate(challenge.createdAt!)
+        let time_in_int = NSInteger(elapsedTime)
+        let (year, month, day, hours, minutes, seconds)  = convertSeconds(time_in_int)
+        if year > 1 {
+            return "\(year)y"
+        }
+        else if month > 1 {
+            return "\(month)m"
+        }
+        else if day > 1 {
+            return "\(day)d"
+        }
+        else if hours > 1 {
+            return "\(hours)h"
+        }
+        else if minutes > 1 {
+            return "\(minutes)m"
+        }
+        else {
+            return "\(seconds)s"
+        }
+    }
+    
+    func convertSeconds (seconds : Int) -> (Int, Int, Int, Int, Int, Int) {
+        return (seconds / 31557600, seconds / 2628000, seconds / (3600 * 24), seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
     override func awakeFromNib() {

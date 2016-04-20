@@ -41,11 +41,7 @@ class RecipeCell: UITableViewCell {
             descriptionLabel.text = recipe.descriptions
             descriptionLabel.sizeToFit()
             
-            let dateCreated = recipe.createdAt! as NSDate
-            let dateFormat = NSDateFormatter()
-            dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
-            dateLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
-            dateLabel.sizeToFit()
+            dateLabel.text = recipe.getTimeDifference()
             
             usernameButton.setTitle("\(recipe.user!.username!)", forState: .Normal)
             //The observe method takes one parameter, a closure (defined as a trailing closure in the code above), 

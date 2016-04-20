@@ -31,17 +31,10 @@ class FavoriteCell: UITableViewCell {
             displayImageView.layer.cornerRadius = 10.0
             displayImageView.clipsToBounds = true
             
-            let dateCreated = recipe.createdAt! as NSDate
-            let dateFormat = NSDateFormatter()
-            dateFormat.dateFormat = "MMM d, yyyy" + "\n" + "h:mm a"
-            dateLabel.text = NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String
-            dateLabel.sizeToFit()
+            dateLabel.text = recipe.getTimeDifference()
             
             usernameButton.setTitle("\(recipe.user!.username!)", forState: .Normal)
         }
-    }
-
-    @IBAction func usernameTouched(sender: AnyObject) {
     }
 
     override func awakeFromNib() {
