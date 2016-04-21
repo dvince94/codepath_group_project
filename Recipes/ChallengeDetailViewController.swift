@@ -20,6 +20,7 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
     var challenge: PFObject!
     var posts: [Post] = []
     var open: Bool!
+    var frame_move: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,27 +55,27 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
         
         open = false
         
-        
-        
-//        print(UIScreen.mainScreen().bounds.size.height)
-//        print(frame.size.height)
-        
         let guesture = UITapGestureRecognizer(target: self, action: "dropDown:")
         self.dropDownView.addGestureRecognizer(guesture)
+        
+        self.dropDownView.layer.borderWidth = 1
+        self.dropDownView.layer.borderColor = UIColor.grayColor().CGColor
         
         // Do any additional setup after loading the view.
 //        directionsLabel.preferredMaxLayoutWidth = directionsLabel.frame.size.width
         
         reloadTable()
-        print(posts.count)
     }
     
     func dropDown(sender:UITapGestureRecognizer) {
         if open == false {
-//            tableView.contentOffset = CGPointMake(0, CGFloat.max)
+            frame_move = tableView.contentOffset.y
+            tableView.setContentOffset(CGPoint.init(x: 0, y: self.ingredientsLabel.frame.height + self.descriptionLabel.frame.height), animated:true)
             open = true
         } else {
-            tableView.setContentOffset(CGPoint.init(x: 0, y: self.navigationController!.navigationBar.frame.height), animated:true)
+            print(frame_move)
+            print(self.ingredientsLabel.frame.height + self.descriptionLabel.frame.height)
+            tableView.setContentOffset(CGPoint.init(x: 0, y: frame_move), animated: true)
             open = false
         }
         reloadTable()

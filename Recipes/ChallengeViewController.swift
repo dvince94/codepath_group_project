@@ -63,8 +63,8 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
             } else {
                 print(error?.localizedDescription)
             }
+            refreshControl.endRefreshing()
         }
-        refreshControl.endRefreshing()
         self.tableView.reloadData()
         
     }

@@ -43,8 +43,11 @@ class RecipeCell: UITableViewCell {
             
             dateLabel.text = recipe.getTimeDifference()
             
-            usernameButton.setTitle("\(recipe.user!.username!)", forState: .Normal)
-            //The observe method takes one parameter, a closure (defined as a trailing closure in the code above), 
+            if usernameButton != nil {
+                usernameButton.setTitle("\(recipe.user!.username!)", forState: .Normal)
+            }
+                
+            //The observe method takes one parameter, a closure (defined as a trailing closure in the code above),
             //which in our case has type [PFUser]? -> (). 
             //The code defined by the closure will be executed whenever post.likes receives a new value. 
             //The constant named value in the closure definition will contain the actual contents of post.likes
