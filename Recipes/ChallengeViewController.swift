@@ -13,6 +13,7 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableView: UITableView!
     var challenges: [PFObject]?
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,10 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
+        // Initialize a UIRefreshControl
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+        
         reloadTable()
     }
     
@@ -36,6 +41,32 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        // construct PFQuery
+        let query = PFQuery(className: "Challenge")
+        //        query.orderByDescending("createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackgroundWithBlock { (challenges: [PFObject]?, error: NSError?) -> Void in
+            if let challenges = challenges {
+                // do something with the data fetched
+                self.challenges = challenges
+                
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        refreshControl.endRefreshing()
+        self.tableView.reloadData()
+        
     }
     
     func reloadTable() {
@@ -57,6 +88,13 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
                 print(error?.localizedDescription)
             }
         }
+        
+        // construct PFQuery and get all recipes
+//        ParseHelper.allChallengesQuery {
+//            (result: [NSObject]?, error: NSError?) -> Void in
+//            self.challenges = result as? [Challenge] ?? []
+//            self.tableView.reloadData()
+//        }
         
     }
     

@@ -19,6 +19,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     var toggleView: Bool!
     var tableImg = UIImage(named: "table")
     var collectionImg = UIImage(named: "collection")
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,10 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
+        // Initialize a UIRefreshControl
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+        
         view2.hidden = true
         toggleView = true
     }
@@ -43,6 +48,26 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        ParseHelper.favoriteQuery {
+            (result: [PFObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            
+            // Tell the refreshControl to stop spinning
+            refreshControl.endRefreshing()
+        }
+        if self.toggleView == true {
+            self.tableView.reloadData()
+        }
+        else {
+            self.collectionView.reloadData()
+        }
     }
     
     func reloadTable() {
@@ -65,11 +90,13 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
             toggleView = false
             view2.hidden = false
             toggleButton.image = tableImg
+            collectionView.insertSubview(refreshControl, atIndex: 0)
         }
         else {
             toggleView = true
             view2.hidden = true
             toggleButton.image = collectionImg
+            tableView.insertSubview(refreshControl, atIndex: 0)
         }
         reloadTable()
     }

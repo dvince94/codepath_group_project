@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var usernameLabel: UILabel!
     
     var posts: [Post] = []
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         reloadTable()
+        
+        // Initialize a UIRefreshControl
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -39,6 +45,21 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        // construct PFQuery and get all recipes
+        ParseHelper.userQuery {
+            (result: [PFObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            
+            refreshControl.endRefreshing()
+        }
+        self.tableView.reloadData()
     }
     
     func reloadTable() {
