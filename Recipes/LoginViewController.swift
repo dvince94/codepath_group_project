@@ -15,7 +15,7 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -28,11 +28,25 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         loginButton.layer.cornerRadius = 10
         signUpButton.layer.cornerRadius = 10
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: TextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     @IBAction func onSignUp(sender: AnyObject) {

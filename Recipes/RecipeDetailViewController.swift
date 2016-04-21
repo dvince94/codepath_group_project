@@ -135,7 +135,7 @@ class RecipeDetailViewController: UIViewController {
     
     
     private func didFinishTouchingCosmos(rating: Double) {
-        recipe.updateRating(PFUser.currentUser()!, rate: rating)
+        recipe.updateRating(PFUser.currentUser()!, rate: (Int(rating)))
     }
     
     override func didReceiveMemoryWarning() {
