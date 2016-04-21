@@ -81,7 +81,7 @@ class Post : PFObject, PFSubclassing {
     // MARK: Rating
     func fetchRatings() {
         if (ratings.value != nil) {
-            return
+            return 
         }
         
         ParseHelper.ratingForPost(self, completionBlock: { (rates: [PFObject]?, error: NSError?) -> Void in

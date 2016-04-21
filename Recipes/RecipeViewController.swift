@@ -103,6 +103,7 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         let post = posts[indexPath.row]
         //Get users who liked the post
         post.fetchLikes()
+        post.fetchRatings()
         cell.recipe = post
         
         return cell
@@ -171,6 +172,7 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         let post = posts[indexPath.row]
         //Get users who liked the post
         post.fetchLikes()
+        post.fetchRatings()
         cell.getCount = false
         cell.recipe = post
         cell.likeImg = UIImage(named: "Like")

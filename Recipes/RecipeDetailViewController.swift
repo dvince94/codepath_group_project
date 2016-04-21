@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 import Bond
-
+import Cosmos
 class RecipeDetailViewController: UIViewController {
 
     @IBOutlet weak var recipeImage: PFImageView!
@@ -23,6 +23,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var likesButton: UIButton!
+    @IBOutlet weak var Rating: CosmosView!
     
     var recipe: Post!
     var likeDisposable: DisposableType?
@@ -31,6 +32,27 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Rating.didFinishTouchingCosmos = didFinishTouchingCosmos
+        
+        if(recipe.rating_count.value != nil) {
+            Rating.rating = recipe.rating_count.value as! Double
+        }
+        else {
+            Rating.rating = 0;
+        }
+        
+        
+        /*
+        Rating.rating = recipe.ratings.observe { (value: [PFUser]?) -> () in
+            if let value = value {
+                if (value.contains(PFUser.currentUser()!)) {
+                    
+                } else {
+                
+                }
+            }
+        }
+        */
         
         // the likes
         likeDisposable?.dispose()
@@ -109,6 +131,11 @@ class RecipeDetailViewController: UIViewController {
         else {
             likesButton.setImage(unlikeImg, forState: .Normal)
         }
+    }
+    
+    
+    private func didFinishTouchingCosmos(rating: Double) {
+        recipe.updateRating(PFUser.currentUser()!, rate: rating)
     }
     
     override func didReceiveMemoryWarning() {
