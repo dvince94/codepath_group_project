@@ -226,7 +226,7 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
             let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
             
             recipeDetailViewController.recipe = recipe
-        } else if sender is UIBarButtonItem {
+        } else if sender is UIButton {
             let recipeAddViewController = segue.destinationViewController as! AddRecipeViewController
             
             recipeAddViewController.isChallenge = false
