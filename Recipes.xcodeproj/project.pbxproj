@@ -262,6 +262,7 @@
 				TargetAttributes = {
 					2A596E661C98D092006021CE = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = HHQ49XB6AL;
 					};
 				};
 			};
@@ -481,6 +482,7 @@
 			baseConfigurationReference = 86C4BA82C0736195F916DCAD /* Pods-Recipes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Recipes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -494,6 +496,7 @@
 			baseConfigurationReference = 458FA3514571608031B55467 /* Pods-Recipes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Recipes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

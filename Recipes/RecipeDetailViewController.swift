@@ -32,13 +32,16 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Rating.didFinishTouchingCosmos = didFinishTouchingCosmos
         
-        if(recipe.rating_count.value != nil) {
-            Rating.rating = recipe.rating_count.value as! Double
-        }
-        else {
-            Rating.rating = 0;
+        if Rating != nil {
+            Rating.didFinishTouchingCosmos = didFinishTouchingCosmos
+            
+            if(recipe.rating_count != nil) {
+                Rating.rating = recipe.rating_count as! Double
+            }
+            else {
+                Rating.rating = 0;
+            }
         }
         
         
@@ -111,15 +114,15 @@ class RecipeDetailViewController: UIViewController {
         
         
         // set the user's profile pic
-        if (PFUser.currentUser()?.objectForKey("profilePic") != nil) {
-            let profilePicFile: PFFile = PFUser.currentUser()?.objectForKey("profilePic") as! PFFile
+        if (recipe.user?.objectForKey("profilePic") != nil) {
+            print("not nil")
+            let profilePicFile: PFFile = recipe.user?.objectForKey("profilePic") as! PFFile
             profilePicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
                 if (imageData != nil) {
                     self.userImage.image = UIImage(data: imageData!)
                 }
             })
         }
-        
         
     }
     
@@ -135,7 +138,7 @@ class RecipeDetailViewController: UIViewController {
     
     
     private func didFinishTouchingCosmos(rating: Double) {
-        recipe.updateRating(PFUser.currentUser()!, rate: (Int(rating)))
+        recipe.updateRating(PFUser.currentUser()!, rate: (rating))
     }
     
     override func didReceiveMemoryWarning() {

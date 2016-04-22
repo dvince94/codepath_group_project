@@ -114,7 +114,7 @@ class ParseHelper {
     }
     
     //MARK: Rate
-    static func ratePost(user: PFUser, post: Post, rating: Int) {
+    static func ratePost(user: PFUser, post: Post, rating: Double) {
         let ratedObject = PFObject(className: "Rate")
         ratedObject["fromUser"] = user
         ratedObject["toPost"] = post
@@ -123,7 +123,7 @@ class ParseHelper {
         ratedObject.saveInBackgroundWithBlock(nil)
     }
     
-    static func updateRating(user: PFUser, post: Post, rating: Int) {
+    static func updateRating(user: PFUser, post: Post, rating: Double) {
         let query = PFQuery(className: "Rate")
         query.whereKey("fromUser", equalTo: user)
         query.whereKey("toPost", equalTo: post)

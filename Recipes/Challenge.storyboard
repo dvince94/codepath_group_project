@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -712,26 +712,7 @@
                                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="ZZy-CI-bo3" customClass="CosmosView" customModule="Cosmos">
-                                                <rect key="frame" x="237" y="343" width="128" height="20"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="TfR-g6-2nY"/>
-                                                    <constraint firstAttribute="width" constant="128" id="VNm-7K-cwo"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbl-bb-Bvc">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Contacts" translatesAutoresizingMaskIntoConstraints="NO" id="xbl-bb-Bvc">
                                                 <rect key="frame" x="10" y="340" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="iUP-2Q-3j5"/>
@@ -801,9 +782,7 @@
                                             <constraint firstItem="hIO-wL-syC" firstAttribute="leading" secondItem="CH6-qI-1JL" secondAttribute="leading" constant="10" id="N1g-di-b4V"/>
                                             <constraint firstItem="0bc-pW-oqv" firstAttribute="top" secondItem="nws-Lx-pZa" secondAttribute="bottom" constant="1" id="Q7V-EO-Mwt"/>
                                             <constraint firstAttribute="trailing" secondItem="9t7-jt-Qxy" secondAttribute="trailing" constant="8" id="QOg-GJ-V44"/>
-                                            <constraint firstItem="ZZy-CI-bo3" firstAttribute="top" secondItem="9ao-0w-YXc" secondAttribute="bottom" constant="11" id="RRD-cZ-iXk"/>
                                             <constraint firstItem="g9k-r1-tP5" firstAttribute="top" secondItem="9ao-0w-YXc" secondAttribute="bottom" constant="12" id="SDb-Yh-Vcd"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZZy-CI-bo3" secondAttribute="trailing" constant="10" id="SxL-X7-A4K"/>
                                             <constraint firstAttribute="bottom" secondItem="0bc-pW-oqv" secondAttribute="bottom" constant="100" id="Twl-cr-6aT"/>
                                             <constraint firstAttribute="trailing" secondItem="9ao-0w-YXc" secondAttribute="trailing" id="VAj-0p-vnp"/>
                                             <constraint firstItem="9t7-jt-Qxy" firstAttribute="top" secondItem="9ao-0w-YXc" secondAttribute="bottom" constant="-32" id="X6n-vg-EIz"/>
@@ -869,6 +848,7 @@
     <resources>
         <image name="Add_Image-1" width="200" height="150"/>
         <image name="Challenge" width="24" height="24"/>
+        <image name="Contacts" width="25" height="25"/>
         <image name="Knife_Fork" width="700" height="700"/>
         <image name="Unlike" width="24" height="24"/>
         <image name="down_arrow" width="20" height="14"/>

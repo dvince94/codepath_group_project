@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -140,6 +140,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="Rating" destination="ZC8-TB-jHH" id="itv-aV-Aye"/>
                                             <outlet property="dateLabel" destination="Iih-JR-xxY" id="do1-YW-bDY"/>
                                             <outlet property="descriptionLabel" destination="Qpv-c2-1Xr" id="3Bd-nY-6xu"/>
                                             <outlet property="displayImageView" destination="dOM-LZ-Z6G" id="X8N-pk-hce"/>
@@ -674,7 +675,7 @@
                                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gIg-FU-L1Q">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Contacts" translatesAutoresizingMaskIntoConstraints="NO" id="gIg-FU-L1Q">
                                                 <rect key="frame" x="10" y="340" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="glD-pw-aQe"/>
@@ -831,6 +832,7 @@
     </scenes>
     <resources>
         <image name="Add_Image-1" width="200" height="150"/>
+        <image name="Contacts" width="25" height="25"/>
         <image name="Recipe" width="24" height="24"/>
         <image name="Unlike" width="24" height="24"/>
         <image name="collection" width="26" height="26"/>

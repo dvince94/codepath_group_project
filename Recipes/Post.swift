@@ -30,7 +30,7 @@ class Post : PFObject, PFSubclassing {
     var photoUploadTask: UIBackgroundTaskIdentifier?
     var image: UIImage?
     var likeCount: Int = 0
-    var userRating: Int = 0
+    var userRating: Double = 0
     
     //MARK: PFSubclassing Protocol
     
@@ -73,6 +73,7 @@ class Post : PFObject, PFSubclassing {
             user = PFUser.currentUser()
             // set up like count to 0
             like_count = 0
+            rating_count = 0
             self.imageFile = imageFile
             saveInBackgroundWithBlock(nil)
         }
@@ -95,7 +96,7 @@ class Post : PFObject, PFSubclassing {
                 for i in rate {
                     let fromUser = i["fromUser"] as! PFUser
                     if (fromUser == PFUser.currentUser()!) {
-                        self.userRating = i["rating"] as! Int
+                        self.userRating = i["rating"] as! Double
                         break
                     }
                 }
@@ -111,8 +112,11 @@ class Post : PFObject, PFSubclassing {
         return false
     }
     
-    func updateRating(user: PFUser, rate: Int) {
-        var totalRating = (rating_count as! Int) * (ratings.value?.count)!
+    func updateRating(user: PFUser, rate: Double) {
+        var totalRating: Double = 0
+        if (rating_count != nil) {
+            totalRating = (rating_count as! Double) * Double((ratings.value?.count)!)
+        }
         if (userRatedPost(user)) {
             let value = rate - userRating
             totalRating += value
@@ -126,8 +130,8 @@ class Post : PFObject, PFSubclassing {
         updateRateCount(totalRating)
     }
     
-    func updateRateCount(rate: Int) {
-        rating_count = rate / (ratings.value?.count)!
+    func updateRateCount(rate: Double) {
+        rating_count = rate / Double((ratings.value?.count)!)
         saveInBackgroundWithBlock(nil)
     }
     

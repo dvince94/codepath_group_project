@@ -66,12 +66,27 @@ class RecipeCell: UITableViewCell {
                 self.likeCount.text! = "\(recipe.like_count!)"
             }
             
+            if Rating != nil {
+                Rating.didFinishTouchingCosmos = didFinishTouchingCosmos
+                
+                if(recipe.rating_count != nil) {
+                    Rating.rating = recipe.rating_count as! Double
+                }
+                else {
+                    Rating.rating = 0;
+                }
+            }
+            
             displayImageView.layer.cornerRadius = 10.0
             displayImageView.clipsToBounds = true
         }
     }
     
     @IBAction func usernameTouched(sender: AnyObject) {
+    }
+    
+    private func didFinishTouchingCosmos(rating: Double) {
+        recipe.updateRating(PFUser.currentUser()!, rate: (rating))
     }
     
     override func awakeFromNib() {
