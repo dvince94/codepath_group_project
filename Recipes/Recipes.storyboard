@@ -329,7 +329,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-fM-qKd">
-                                <rect key="frame" x="20" y="487" width="335" height="128"/>
+                                <rect key="frame" x="20" y="487" width="335" height="136"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -351,6 +351,9 @@
                                 <rect key="frame" x="67" y="51" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eQH-df-SxR" id="wkC-Im-kbq"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acF-EH-gmy">
                                 <rect key="frame" x="20" y="252" width="94" height="21"/>
@@ -455,7 +458,7 @@
                             <constraint firstAttribute="trailing" secondItem="h7Z-fM-qKd" secondAttribute="trailing" constant="20" id="gWT-7H-PnJ"/>
                             <constraint firstAttribute="trailing" secondItem="blc-LM-nw1" secondAttribute="trailing" id="gsp-uM-S9v"/>
                             <constraint firstItem="qnk-ou-7Vb" firstAttribute="leading" secondItem="4ZO-Cc-f9M" secondAttribute="leading" constant="20" id="hNG-kP-DiU"/>
-                            <constraint firstItem="Yyt-n1-fZ3" firstAttribute="top" secondItem="h7Z-fM-qKd" secondAttribute="bottom" constant="8" id="kDx-7V-hmV"/>
+                            <constraint firstItem="Yyt-n1-fZ3" firstAttribute="top" secondItem="h7Z-fM-qKd" secondAttribute="bottom" id="kDx-7V-hmV"/>
                             <constraint firstItem="EQR-g6-e0J" firstAttribute="leading" secondItem="Otf-3s-ijc" secondAttribute="trailing" constant="19" id="kou-SL-GFO"/>
                             <constraint firstItem="NXk-ny-zQh" firstAttribute="leading" secondItem="4ZO-Cc-f9M" secondAttribute="leading" constant="20" id="lae-ID-yTD"/>
                             <constraint firstItem="Otf-3s-ijc" firstAttribute="top" secondItem="NXk-ny-zQh" secondAttribute="bottom" constant="143" id="mLD-wf-YIB"/>
@@ -473,6 +476,7 @@
                         <outlet property="directionsTextView" destination="h7Z-fM-qKd" id="xOP-qx-eV8"/>
                         <outlet property="imageView" destination="GPP-dS-CUn" id="awz-Yk-LVn"/>
                         <outlet property="ingredientsTextView" destination="s0i-eh-j63" id="Kid-iy-0bg"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="kDx-7V-hmV" id="lfz-ce-2aF"/>
                         <outlet property="selectedTag" destination="EQR-g6-e0J" id="LmP-Gx-Vxn"/>
                         <outlet property="titleTextField" destination="sr7-FX-mFV" id="ysh-ho-gZ2"/>
                     </connections>

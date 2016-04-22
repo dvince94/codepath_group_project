@@ -80,6 +80,25 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    //Search
+    static func searchFavQuery(search: String!, completionBlock: PFQueryArrayResultBlock?) {
+        let followingQuery = PFQuery(className: "Like")
+        followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
+        
+        let postsFromLikedUsers = Post.query()
+        postsFromLikedUsers!.whereKey("objectId", matchesKey: "postId", inQuery: followingQuery)
+
+        if search != "" {
+            postsFromLikedUsers!.whereKey("title", containsString: search)
+        }
+        
+        let query = PFQuery.orQueryWithSubqueries([postsFromLikedUsers!])
+        query.includeKey("user")
+        query.limit = 20
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
     /*//Query of user's rated post
     static func rateQuery(completionBlock: PFQueryArrayResultBlock?) {
     let followingQuery = PFQuery(className: "Rate")

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var selectedTag: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
@@ -17,6 +17,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var directionsTextView: UITextView!
+    @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
 
     
     let imagePicker = UIImagePickerController()
@@ -54,6 +55,37 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         directionsTextView.textColor = UIColor.lightGrayColor()
         
         selectedTag.text = ""
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardNotification:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    //sourc: http://stackoverflow.com/questions/25693130/move-textfield-when-keyboard-appears-swift
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
+    
+    func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
+            let duration:NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.unsignedLongValue ?? UIViewAnimationOptions.CurveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if endFrame?.origin.y >= UIScreen.mainScreen().bounds.size.height {
+                self.keyboardHeightLayoutConstraint?.constant = 0.0
+            } else {
+                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+            }
+            UIView.animateWithDuration(duration,
+                delay: NSTimeInterval(0),
+                options: animationCurve,
+                animations: { self.view.layoutIfNeeded() },
+                completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -238,27 +270,15 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
-//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-//        if (textView == ingredientsTextView) {
-//            if (text == "\n") {
-//                if range.location == textView.text.characters.count {
-//                    let updatedText: String = textView.text!.stringByAppendingString("\n\u{2022} ")
-//                    textView.text = updatedText
-//                }
-//                else {
-//                    let beginning: UITextPosition = textView.beginningOfDocument
-//                    let start: UITextPosition = textView.positionFromPosition(beginning, offset: range.location)!
-//                    let end: UITextPosition = textView.positionFromPosition(start, offset: range.length)!
-//                    let textRange: UITextRange = textView.textRangeFromPosition(start, toPosition: end)!
-//                    textView.replaceRange(textRange, withText: "\n\u{2022} ")
-//                    let cursor: NSRange = NSMakeRange(range.location + "\n\u{2022} ".length, 0)
-//                    textView.selectedRange = cursor
-//                }
-//                return false
-//            }
-//        }
-//        return true
-//    }
+    //MARK: TextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
     
     /*
     -----------------------------

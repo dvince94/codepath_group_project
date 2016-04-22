@@ -9,8 +9,9 @@
 import UIKit
 import Parse
 
-class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate  {
+class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -100,6 +101,59 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         reloadTable()
     }
+    
+    //MARK: Searchbar Delegate
+    
+    //Search bar delegate methods
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        return true;
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(false, animated: true)
+        return true;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        var search = searchBar.text
+        if (containText(search!) == true) {
+            doSearch(search!)
+        }
+        else {
+            search = ""
+            doSearch(search!)
+        }
+        searchBar.resignFirstResponder()
+    }
+    
+    private func doSearch(search: String) {
+        ParseHelper.searchQuery(search, completionBlock: {
+            (result: [PFObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            if self.toggleView == true {
+                self.tableView.reloadData()
+            }
+            else {
+                self.collectionView.reloadData()
+            }
+        })
+    }
+    
+    //Check if it contains any text
+    func containText(str: String) -> Bool {
+        let whiteSpaceSet = NSCharacterSet.whitespaceCharacterSet()
+        if str.stringByTrimmingCharactersInSet(whiteSpaceSet) != "" {
+            return true
+        }
+        return false
+    }
+    
     //MARK: Collectionview Methods
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
