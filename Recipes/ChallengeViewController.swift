@@ -31,6 +31,8 @@ class ChallengeViewController: UIViewController, UITableViewDataSource, UITableV
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
         
+        
+        
         reloadTable()
     }
     

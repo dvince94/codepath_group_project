@@ -32,8 +32,18 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         
         // Do any additional setup after loading the view.
-        profileImage.layer.cornerRadius = 10.0
+        // Create a white border with defined width
+        profileImage.layer.borderColor = UIColor.whiteColor().CGColor;
+        profileImage.layer.borderWidth = 1.5;
+        
+        // Set image corner radius
+        profileImage.layer.cornerRadius = 5.0;
+        
+        // To enable corners to be "clipped"
         profileImage.clipsToBounds = true
+        
+        usernameLabel.shadowColor = UIColor.whiteColor()
+        usernameLabel.shadowOffset = CGSizeMake(2, 2)
     }
 
     override func didReceiveMemoryWarning() {

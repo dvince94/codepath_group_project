@@ -39,6 +39,19 @@ class PostersProfileViewController: UIViewController, UITableViewDelegate, UITab
         // Initialize a UIRefreshControl
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
+        
+        // Create a white border with defined width
+        profileImage.layer.borderColor = UIColor.whiteColor().CGColor;
+        profileImage.layer.borderWidth = 1.5;
+        
+        // Set image corner radius
+        profileImage.layer.cornerRadius = 5.0;
+        
+        // To enable corners to be "clipped"
+        profileImage.clipsToBounds = true
+        
+        usernameLabel.shadowColor = UIColor.whiteColor()
+        usernameLabel.shadowOffset = CGSizeMake(2, 2)
     }
 
     override func didReceiveMemoryWarning() {
