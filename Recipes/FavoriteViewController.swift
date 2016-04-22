@@ -117,6 +117,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.text = ""
+        doSearch(searchBar.text!)
         searchBar.resignFirstResponder()
     }
     

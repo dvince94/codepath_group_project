@@ -151,6 +151,7 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.text = ""
+        doSearch(searchBar.text!)
         searchBar.resignFirstResponder()
     }
     

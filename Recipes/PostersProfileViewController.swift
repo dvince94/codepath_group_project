@@ -74,7 +74,7 @@ class PostersProfileViewController: UIViewController, UITableViewDelegate, UITab
     
     func loadUserInfo() {
         if (post.user?.objectForKey("profilePic") != nil) {
-            let profilePicFile: PFFile = PFUser.currentUser()?.objectForKey("profilePic") as! PFFile
+            let profilePicFile: PFFile = post.user?.objectForKey("profilePic") as! PFFile
             profilePicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
                 if (imageData != nil) {
                     self.profileImage.image = UIImage(data: imageData!)
@@ -82,7 +82,7 @@ class PostersProfileViewController: UIViewController, UITableViewDelegate, UITab
             })
         }
         if (post.user?.objectForKey("backgroundPic") != nil) {
-            let backgroundPicFile: PFFile = PFUser.currentUser()?.objectForKey("backgroundPic") as! PFFile
+            let backgroundPicFile: PFFile = post.user?.objectForKey("backgroundPic") as! PFFile
             backgroundPicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
                 if (imageData != nil) {
                     self.backgroundImage.image = UIImage(data: imageData!)
