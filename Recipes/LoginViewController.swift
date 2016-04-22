@@ -50,29 +50,43 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onSignUp(sender: AnyObject) {
-        // initialize a user object
-        let newUser = PFUser()
-        
-        // set user properties
-        newUser.username = usernameField.text
-        newUser.password = passwordField.text
-        
-        // call sign up function on the object
-        newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            if success {
-                print("Yay, created a user!")
-                self.performSegueWithIdentifier("loginSegue", sender: nil)
-            } else {
-                print(error?.localizedDescription)
-                if error?.code == 202 {
-                    self.showAlertMessage("Sign Up Error", messages: "Username taken")
-                    print("User name is taken")
-                }
-                else {
-                    self.showAlertMessage("Login Error", messages: "\(error!.localizedDescription)")
+        if containText(usernameField.text!) == true {
+            // initialize a user object
+            let newUser = PFUser()
+            
+            // set user properties
+            newUser.username = usernameField.text
+            newUser.password = passwordField.text
+            
+            // call sign up function on the object
+            newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                if success {
+                    print("Yay, created a user!")
+                    self.performSegueWithIdentifier("loginSegue", sender: nil)
+                } else {
+                    print(error?.localizedDescription)
+                    if error?.code == 202 {
+                        self.showAlertMessage("Sign Up Error", messages: "Username taken")
+                        print("User name is taken")
+                    }
+                    else {
+                        self.showAlertMessage("Login Error", messages: "\(error!.localizedDescription)")
+                    }
                 }
             }
         }
+        else {
+            showAlertMessage("Sign Up Error", messages: "Please add an username and password.")
+        }
+    }
+    
+    //Check if it contains any text
+    func containText(str: String) -> Bool {
+        let whiteSpaceSet = NSCharacterSet.whitespaceCharacterSet()
+        if str.stringByTrimmingCharactersInSet(whiteSpaceSet) != "" {
+            return true
+        }
+        return false
     }
     
     @IBAction func onSignIn(sender: AnyObject) {

@@ -33,15 +33,22 @@ class ChallengeCell: UITableViewCell {
             //createdAtLabel.text = "Created on " + (NSString(format: "%@", dateFormat.stringFromDate(dateCreated)) as String) + "\n" + "at " + (NSString(format: "%@", timeFormat.stringFromDate(dateCreated)) as String)
             createdAtLabel.sizeToFit()
             
-            if (PFUser.currentUser()?.objectForKey("profilePic") != nil) {
-                let profilePicFile: PFFile = PFUser.currentUser()?.objectForKey("profilePic") as! PFFile
-                profilePicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                    if (imageData != nil) {
-                        self.profileImage.image = UIImage(data: imageData!)
-                    }
-                })
+            if (challenge.objectForKey("author") != nil) {
+                let author = challenge.objectForKey("author") as! PFObject
+                if author.objectForKey("profilePic") != nil {
+                    let profilePicFile: PFFile = author.objectForKey("profilePic") as! PFFile
+                    profilePicFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                        if (imageData != nil) {
+                            self.profileImage.image = UIImage(data: imageData!)
+                        }
+                    })
+                }
             }
-           
+//            
+//            // make profileImage a circle
+//            profileImage.layer.cornerRadius = profileImage.frame.size.height/2
+//            profileImage.layer.masksToBounds = true
+//            profileImage.layer.borderWidth = 0
         }
     }
     
