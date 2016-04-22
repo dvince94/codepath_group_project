@@ -51,6 +51,9 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func viewDidAppear(animated: Bool) {
+        if current_filter == nil {
+            current_filter = "All"
+        }
         reloadTable()
     }
     
@@ -64,13 +67,13 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     // Hides the RefreshControl
     func refreshControlAction(refreshControl: UIRefreshControl) {
         
-        ParseHelper.favoriteQuery {
+        ParseHelper.favoriteQuery(current_filter, completionBlock: {
             (result: [PFObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
-        }
+        })
         if self.toggleView == true {
             self.tableView.reloadData()
         }
@@ -81,7 +84,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func reloadTable() {
         // construct PFQuery and get all recipes
-        ParseHelper.favoriteQuery {
+        ParseHelper.favoriteQuery(current_filter, completionBlock: {
             (result: [PFObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
             if self.toggleView == true {
@@ -91,7 +94,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.collectionView.reloadData()
             }
             
-        }
+        })
     }
     
     @IBAction func toggleButtonTapped(sender: AnyObject) {

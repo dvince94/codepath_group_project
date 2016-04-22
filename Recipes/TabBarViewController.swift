@@ -35,7 +35,7 @@ class TabBarViewController: UITabBarController {
         
         let favoriteNav = favorite.instantiateViewControllerWithIdentifier("FavoriteNavigationController") as! SWRevealViewController
         favoriteNav.tabBarItem.title = "Favorite"
-        recipeNav.tabBarItem.image = UIImage(named: "Star")
+        favoriteNav.tabBarItem.image = UIImage(named: "Star")
         self.viewControllers = [recipeNav, challengeNav, favoriteNav, profileNav]
     }
 

@@ -65,12 +65,16 @@ class ParseHelper {
     }
     
     //Query of user's liked post
-    static func favoriteQuery(completionBlock: PFQueryArrayResultBlock?) {
+    static func favoriteQuery(filter: String!, completionBlock: PFQueryArrayResultBlock?) {
         let followingQuery = PFQuery(className: "Like")
         followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
         
         let postsFromLikedUsers = Post.query()
         postsFromLikedUsers!.whereKey("objectId", matchesKey: "postId", inQuery: followingQuery)
+        
+        if filter != "All" {
+            postsFromLikedUsers!.whereKey("tag", equalTo: filter)
+        }
         
         let query = PFQuery.orQueryWithSubqueries([postsFromLikedUsers!])
         query.includeKey("user")
