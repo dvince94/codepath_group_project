@@ -20,6 +20,9 @@ class CollectionCell: UICollectionViewCell {
             self.recipeImage.file = recipe.imageFile
             self.recipeImage.loadInBackground()
             recipeName.text = recipe.title
+            
+            self.layer.cornerRadius = 10.0
+            self.clipsToBounds = true
         }
     }
 

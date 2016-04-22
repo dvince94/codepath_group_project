@@ -32,6 +32,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
         
         // Do any additional setup after loading the view.
+        profileImage.layer.cornerRadius = 10.0
+        profileImage.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,15 +101,17 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 alert.addAction(okAction)
                 self.presentViewController(alert, animated: true, completion: nil)
                 return
+            } else {
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
-            if (success) {
-                let alert = UIAlertController(title: "Alert", message: "Profile Updated!", preferredStyle: UIAlertControllerStyle.Alert);
-                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                })
-                alert.addAction(okAction)
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
+//            if (success) {
+//                let alert = UIAlertController(title: "Alert", message: "Profile Updated!", preferredStyle: UIAlertControllerStyle.Alert);
+//                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> Void in
+//                    self.dismissViewControllerAnimated(true, completion: nil)
+//                })
+//                alert.addAction(okAction)
+//                self.presentViewController(alert, animated: true, completion: nil)
+//            }
         }
     }
     

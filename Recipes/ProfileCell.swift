@@ -26,6 +26,9 @@ class ProfileCell: UITableViewCell {
             descriptionLabel.text = recipe.descriptions
             
             dateLabel.text = recipe.getTimeDifference()
+            
+            recipeImage.layer.cornerRadius = 10.0
+            recipeImage.clipsToBounds = true
         }
     }
     
