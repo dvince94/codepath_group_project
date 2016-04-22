@@ -20,7 +20,7 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
     var challenge: PFObject!
     var posts: [Post] = []
     var open: Bool!
-    var frame_move: CGFloat!
+//    var frame_move: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,13 +69,13 @@ class ChallengeDetailViewController: UIViewController, UITableViewDataSource, UI
     
     func dropDown(sender:UITapGestureRecognizer) {
         if open == false {
-            frame_move = tableView.contentOffset.y
+//            frame_move = tableView.contentOffset.y
             tableView.setContentOffset(CGPoint.init(x: 0, y: self.ingredientsLabel.frame.height + self.descriptionLabel.frame.height), animated:true)
             open = true
         } else {
-            print(frame_move)
-            print(self.ingredientsLabel.frame.height + self.descriptionLabel.frame.height)
-            tableView.setContentOffset(CGPoint.init(x: 0, y: frame_move), animated: true)
+//            print(frame_move)
+//            print(self.ingredientsLabel.frame.height + self.descriptionLabel.frame.height)
+            tableView.setContentOffset(CGPoint.init(x: 0, y: tableView.contentOffset.y), animated: true)
             open = false
         }
         reloadTable()
