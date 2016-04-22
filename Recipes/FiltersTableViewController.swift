@@ -102,9 +102,15 @@ class FiltersTableViewController: UITableViewController {
         
         let navController = segue.destinationViewController as! UINavigationController
         
-        let recipeViewController = navController.topViewController as! RecipeViewController
+        if navController.topViewController is RecipeViewController {
+            let recipeViewController = navController.topViewController as! RecipeViewController
         
-        recipeViewController.current_filter = filter
+            recipeViewController.current_filter = filter
+        } else {
+            let favoriteViewController = navController.topViewController as! FavoriteViewController
+            
+            favoriteViewController.current_filter = filter
+        }
     }
  
 

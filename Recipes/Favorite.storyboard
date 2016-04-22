@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -192,6 +192,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IHI-hd-jsy">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="EwI-KN-17v"/>
                         <barButtonItem key="rightBarButtonItem" image="collection" id="CNz-Al-Rsn">
                             <connections>
                                 <action selector="toggleButtonTapped:" destination="nrj-al-jNh" id="lpH-cm-9Dz"/>
@@ -201,6 +202,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="Muy-v9-jyf" id="j3H-JE-v9p"/>
+                        <outlet property="filterMenuButton" destination="EwI-KN-17v" id="PqI-FT-0fH"/>
                         <outlet property="searchBar" destination="yfh-Uw-bZ4" id="JEG-tL-N8o"/>
                         <outlet property="tableView" destination="IhT-i7-Xa9" id="0oM-3o-ROo"/>
                         <outlet property="toggleButton" destination="CNz-Al-Rsn" id="ACl-eu-bGR"/>
@@ -410,10 +412,65 @@
             </objects>
             <point key="canvasLocation" x="1715.5" y="175.5"/>
         </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="c5C-AP-Yc4">
+            <objects>
+                <viewController storyboardIdentifier="FavoriteNavigationController" id="J0D-7R-yoL" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KXp-zR-jaA"/>
+                        <viewControllerLayoutGuide type="bottom" id="RSD-q1-pdo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ySX-Fu-cOx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="0eV-md-vze" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="nT6-yk-8Y9"/>
+                        <segue destination="anR-c7-KJV" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="X8F-IE-DF4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HhD-wr-fXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23.5" y="572.5"/>
+        </scene>
+        <!--Filters Table View Controller-->
+        <scene sceneID="B6s-Lw-sIR">
+            <objects>
+                <tableViewController id="anR-c7-KJV" customClass="FiltersTableViewController" customModule="Recipes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ygD-th-Hi7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="tfF-dQ-qZU">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tfF-dQ-qZU" id="kGF-Tg-ypj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="0eV-md-vze" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="6F6-wS-4pH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="anR-c7-KJV" id="UEs-yQ-P9t"/>
+                            <outlet property="delegate" destination="anR-c7-KJV" id="AGx-CL-whj"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksU-aP-Lf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="595.5" y="970.5"/>
+        </scene>
         <!--Favorite-->
         <scene sceneID="9lS-Tq-hQG">
             <objects>
-                <navigationController storyboardIdentifier="FavoriteNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="0eV-md-vze" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0eV-md-vze" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorite" image="Star" id="eeJ-6L-sr5"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -439,6 +496,7 @@
         <image name="collection" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="nT6-yk-8Y9"/>
         <segue reference="oeU-4U-Pvx"/>
     </inferredMetricsTieBreakers>
 </document>

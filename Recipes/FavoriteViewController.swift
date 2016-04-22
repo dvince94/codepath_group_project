@@ -16,11 +16,14 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var filterMenuButton: UIBarButtonItem!
+
     var posts: [Post] = []
     var toggleView: Bool!
     var tableImg = UIImage(named: "table")
     var collectionImg = UIImage(named: "collection")
     let refreshControl = UIRefreshControl()
+    var current_filter: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,11 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         
         view2.hidden = true
         toggleView = true
+        
+        filterMenuButton.target = self.revealViewController()
+        filterMenuButton.action = Selector("revealToggle:")
+        
+//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     override func viewDidAppear(animated: Bool) {

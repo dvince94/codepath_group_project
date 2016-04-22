@@ -15,7 +15,7 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var toggleButton: UIButton!
+    @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var filterMenuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     var posts: [Post] = []
@@ -102,13 +102,15 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         if (toggleView == true) {
             toggleView = false
             view2.hidden = false
-            toggleButton.setImage(tableImg, forState: .Normal)
+//            toggleButton.setImage(tableImg, forState: .Normal)
+            toggleButton.image = tableImg
             collectionView.insertSubview(refreshControl, atIndex: 0)
         }
         else {
             toggleView = true
             view2.hidden = true
-            toggleButton.setImage(collectionImg, forState: .Normal)
+//            toggleButton.setImage(collectionImg, forState: .Normal)
+            toggleButton.image = collectionImg
             tableView.insertSubview(refreshControl, atIndex: 0)
         }
         if self.toggleView == true {
