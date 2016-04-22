@@ -177,6 +177,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         let post = posts[indexPath.row]
         //Get users who liked the post
         post.fetchLikes()
+        post.fetchRatings()
         cell.recipe = post
         
         return cell
