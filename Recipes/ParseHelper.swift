@@ -26,6 +26,20 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    //Query post from current user
+    static func otherUserQuery(userr: PFUser, completionBlock: PFQueryArrayResultBlock?) {
+        
+        let postsFromThisUser = Post.query()
+        postsFromThisUser!.whereKey("user", equalTo: userr)
+        
+        let query = PFQuery.orQueryWithSubqueries([postsFromThisUser!])
+        query.includeKey("user")
+        query.orderByDescending("createdAt")
+        query.limit = 20
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
     //Query post from all challenges posted
 //    static func allChallengesQuery(completionBlock: PFQueryArrayResultBlock?) {
 //        let all_challenge_query = PFQuery(className: "Challenge")

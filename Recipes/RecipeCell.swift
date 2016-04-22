@@ -112,5 +112,4 @@ class RecipeCell: UITableViewCell {
             likeCount.text! = "\(recipe.like_count!)"
         }
     }
-
 }

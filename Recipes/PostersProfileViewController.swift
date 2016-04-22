@@ -9,26 +9,66 @@
 import UIKit
 import Parse
 
-class PostersProfileViewController: UIViewController {
+class PostersProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    let refreshControl = UIRefreshControl()
     
     var post: Post!
+    var posts: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        usernameLabel.text = "\(post.user!.username!)"
-        //loadUserInfo()
+        
         // Do any additional setup after loading the view.
+        self.navigationItem.title = "Profile"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand", size: 30)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        // Do any additional setup after loading the view.
+        usernameLabel.text = "\(post.user!.username!)"
+        loadUserInfo()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        reloadTable()
+        
+        // Initialize a UIRefreshControl
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        // construct PFQuery and get all recipes
+        ParseHelper.otherUserQuery(post.user!, completionBlock: {
+            (result: [PFObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            
+            refreshControl.endRefreshing()
+        });
+            
+        self.tableView.reloadData()
+    }
+    
+    func reloadTable() {
+        // construct PFQuery and get all recipes
+        ParseHelper.otherUserQuery(post.user!, completionBlock: {
+            (result: [PFObject]?, error: NSError?) -> Void in
+            self.posts = result as? [Post] ?? []
+            self.tableView.reloadData()
+        });
+    }
+
     
     func loadUserInfo() {
         if (post.user?.objectForKey("profilePic") != nil) {
@@ -48,15 +88,39 @@ class PostersProfileViewController: UIViewController {
             })
         }
     }
+    
+    // MARK: Table View Delegate method
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("profileCell", forIndexPath: indexPath) as! ProfileCell
+        let post = posts[indexPath.row]
+        //Get users who liked the post
+        post.fetchLikes()
+        cell.recipe = post
+        
+        return cell
+    }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if sender is ProfileCell {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let recipe = posts[indexPath!.row]
+            
+            let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
+            
+            recipeDetailViewController.recipe = recipe
+        }
     }
-    */
 
 }

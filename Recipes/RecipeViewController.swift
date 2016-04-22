@@ -204,8 +204,10 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
         cell.recipe = post
         cell.likeImg = UIImage(named: "Like")
         cell.unlikeImg = UIImage(named: "Unlike")
+        
         return cell
     }
+    
     
     // MARK: - Navigation
 
@@ -233,7 +235,13 @@ class RecipeViewController: UIViewController, UITableViewDataSource, UITableView
             let recipeDetailViewController = segue.destinationViewController as! RecipeDetailViewController
             
             recipeDetailViewController.recipe = recipe
+        } else if segue.identifier == "profileSegue" {
+            let postersProfileViewController = segue.destinationViewController as! PostersProfileViewController
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! UITableViewCell
+                let indexPath = self.tableView.indexPathForCell(cell)
+                postersProfileViewController.post = posts[indexPath!.row]
+            }
         }
-        
     }
 }

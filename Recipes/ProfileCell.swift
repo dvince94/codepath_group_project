@@ -14,6 +14,7 @@ class ProfileCell: UITableViewCell {
 
     @IBOutlet weak var recipeImage: PFImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
     var recipe: Post! {
@@ -22,6 +23,7 @@ class ProfileCell: UITableViewCell {
             self.recipeImage.loadInBackground()
             
             recipeNameLabel.text = recipe.title
+            descriptionLabel.text = recipe.descriptions
             
             dateLabel.text = recipe.getTimeDifference()
         }
