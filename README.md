@@ -19,12 +19,12 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] Show the username and creation time for each post
-- [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse.
-- [ ] User Profiles:
-   - [ ] Allow the logged in user to add a profile photo
-   - [ ] Display the profile photo with each post
-   - [ ] Tapping on a post's username or profile photo goes to that user's profile page
+- [x] Show the username and creation time for each post
+- [x] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse.
+- [x] User Profiles:
+   - [x] Allow the logged in user to add a profile photo
+   - [x] Display the profile photo with each post
+   - [x] Tapping on a post's username or profile photo goes to that user's profile page
 - [ ] Force touch on the ingredients in the challenge post to pop up details about the ingredient (how much is left, how old, etc)
 - [ ] Can drag ingredients into your recipe list to hightlight/check off which ones have been used
 - [ ] Red mark on extra ingredients being used outside of the challenge
@@ -92,6 +92,10 @@ Walkthrough for week 3 of implemented user stories:
 
 <img src=http://i.imgur.com/jbnSqrX.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+Walkthrough of implemented user stories:
+
+<img src=http://i.imgur.com/7NFocdY.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
@@ -100,7 +104,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2016] [name of copyright owner]
+    Copyright [2016] [Vincent Duong, Kevin Duong, Broulaye Doumbia, and Lily Tran]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
